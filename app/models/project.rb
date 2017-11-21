@@ -14,4 +14,8 @@ class Project < ApplicationRecord
     errors.add(:hard_deadline, "has to be in the future") if hard_deadline.present? && hard_deadline < Date.today
   end
 
+  def remove_soft_deadline
+    self.soft_deadline = nil
+  end
+
 end
