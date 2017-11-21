@@ -4,6 +4,14 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', :as => :logout
   resources :sessions, only: [:create]
 
+  resources :users, except: [:index]
+
+  resources :projects do
+    resources :members
+    resources :tasks
+    resources :messages, except: [:show, :new]
+  end
+
   # get 'sessions/new'
   #
   # get 'sessions/create'
