@@ -1,19 +1,19 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  first_name: MyString
-  last_name: MyString
-  profile_pic: MyString
-  email: MyString
-  pinned_task_id: 1
-  notes: MyText
-  password_digest: MyString
-
-two:
-  first_name: MyString
-  last_name: MyString
-  profile_pic: MyString
-  email: MyString
-  pinned_task_id: 1
-  notes: MyText
-  password_digest: MyString
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# one:
+#   first_name: MyString
+#   last_name: MyString
+#   profile_pic: MyString
+#   email: MyString
+#   pinned_task_id: 1
+#   notes: MyText
+#   password_digest: MyString
+#
+# two:
+#   first_name: MyString
+#   last_name: MyString
+#   profile_pic: MyString
+#   email: MyString
+#   pinned_task_id: 1
+#   notes: MyText
+#   password_digest: MyString
