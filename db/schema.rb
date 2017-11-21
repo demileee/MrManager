@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121172132) do
+ActiveRecord::Schema.define(version: 20171121200918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171121172132) do
     t.bigint "project_id"
     t.bigint "user_id"
     t.bigint "message_id"
+    t.boolean "assigned_by_owner"
     t.index ["message_id"], name: "index_tasks_on_message_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"

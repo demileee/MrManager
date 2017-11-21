@@ -29,7 +29,8 @@ end
       task_body: Faker::Lorem.paragraph,
       priority: rand(1..3),
       user: project.members.sample.user,
-      project: project
+      project: project,
+      assigned_by_owner: Faker::Boolean.boolean
     )
   end
 
