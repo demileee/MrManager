@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121200918) do
+ActiveRecord::Schema.define(version: 20171121223717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,11 +69,12 @@ ActiveRecord::Schema.define(version: 20171121200918) do
     t.string "last_name"
     t.string "profile_pic", default: "robohash.org/first_name?set=set4"
     t.string "email"
-    t.integer "pinned_task_id"
     t.text "notes"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "task_id"
+    t.index ["task_id"], name: "index_users_on_task_id"
   end
 
   add_foreign_key "members", "projects"
@@ -82,4 +83,5 @@ ActiveRecord::Schema.define(version: 20171121200918) do
   add_foreign_key "messages", "tasks"
   add_foreign_key "messages", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "users", "tasks"
 end

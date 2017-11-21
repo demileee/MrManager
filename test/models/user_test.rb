@@ -53,11 +53,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal note, user.notes
   end
 
-  # test "User can pin existing task" do
-  #   task = build(:task)
-  #   user = task.user
-  #   user.pinned_task_id = task
-  #   assert_equal task, user.pinned_task_id
-  # end
+  test "User can pin existing task" do
+    task = build(:task)
+    user = task.user
+    user.task = task
+    assert_equal task, user.task
+  end
 
 end

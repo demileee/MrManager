@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :tasks
   has_many :messages
+  has_one :task
 
   validates :password, length: { minimum: 8 }
   validates :password, confirmation: true
