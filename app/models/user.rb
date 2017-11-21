@@ -5,9 +5,9 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :messages
 
-  # validates :password, length: { minimum: 8 }, on: :create
-  #   validates :password, confirmation: true, on: :create
-  #   validates :password_confirmation, presence: true, on: :create
-  #
-  #   validates :email, uniqueness: true
-end
+  validates :password, length: { minimum: 8 }
+  validates :password, confirmation: true
+  validates :last_name, :first_name, :password_confirmation, presence: true
+
+  validates :email, uniqueness: true
+  end
