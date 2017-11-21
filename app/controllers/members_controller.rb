@@ -1,5 +1,4 @@
-class TasksController < ApplicationController
-
+class MembersController < ApplicationController
   def index
   end
 
@@ -20,5 +19,4 @@ class TasksController < ApplicationController
 
   def destroy
   end
-
 end
