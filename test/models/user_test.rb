@@ -60,4 +60,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal task, user.task
   end
 
+  test "Robohash name is equal to first_name + last_name" do
+    user = build(:user)
+    user.save
+    profile = "robohash.org/SallyLee?set=set4"
+    assert_equal profile, user.profile_pic
+  end
+
 end
