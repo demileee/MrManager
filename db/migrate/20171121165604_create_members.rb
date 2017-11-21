@@ -1,9 +1,9 @@
 class CreateMembers < ActiveRecord::Migration[5.1]
   def change
     create_table :members do |t|
-      t.integer :project_id
-      t.integer :user_id
-      t.string :role
+      t.references :project, foreign_key: true
+      t.references :user, foreign_key: true
+      t.string :role,   default: nil
 
       t.timestamps
     end
