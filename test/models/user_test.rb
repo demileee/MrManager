@@ -67,4 +67,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal profile, user.profile_pic
   end
 
+  test "full_name returns a users full name" do
+    user = build(:user)
+    assert_equal "Sally Lee", user.full_name
+  end
+
 end

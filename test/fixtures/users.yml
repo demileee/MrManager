@@ -17,3 +17,10 @@
 #   pinned_task_id: 1
 #   notes: MyText
 #   password_digest: MyString
+dave:
+  id: 1
+  first_name: "Dave"
+  last_name: "Lee"
+  profile_pic: "robohash.org/dave?set=set4"
+  email: "dave@bitmaker.co"
+  password_digest: "password"
