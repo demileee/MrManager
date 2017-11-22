@@ -1,2 +1,6 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="form-page">
+  <h1>Login</h1>
+
+  <%= render 'form' %>
+  <p>Not a member? <%= link_to 'Sign up here!', new_user_path %></p>
+</div>
