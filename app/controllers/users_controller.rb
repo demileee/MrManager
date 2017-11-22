@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     else
       redirect_to login_path
     end
+
+    @tasks = @user.tasks
   end
 
   def edit

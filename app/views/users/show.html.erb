@@ -1,2 +1,19 @@
-<h1>Welcome, <%= @user.name %></h1>
-<h2>Pin a Task</h2>
+<%= link_to "Projects", projects_path  %>
+<%= link_to "Get Inspired" %>
+<h1>Welcome, <%= @user.full_name %></h1>
+<% if @user.task.present? %>
+  <h2> <%= @user.task.task_body %></h2>
+<% else %>
+  <h2>What are you focused on today?</h2>
+  <%= link_to "See all tasks" %>
+<% end %>
+<%= link_to "Tasks" %>
+<div class="tasks-pane">
+  <% @tasks.each do |task| %>
+  <article>
+    <p><%= task.task_body %></p>
+    <p><%= task.project.title %></p>
+    <p><%= task.project.hard_deadline %></p>
+  </article>
+  <% end %>
+</div>
