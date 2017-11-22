@@ -9,4 +9,9 @@ class MessageTest < ActiveSupport::TestCase
     assert_equal 1, message.user_id
   end
 
+  test "cannot post if not a member" do
+    message = build(:message)
+    message.user_id = nil
+    refute message.valid?
+  end
 end
