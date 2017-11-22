@@ -18,4 +18,8 @@ class User < ApplicationRecord
     self.profile_pic = "robohash.org/#{self.first_name + self.last_name}?set=set4"
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   end
