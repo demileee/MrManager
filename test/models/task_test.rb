@@ -84,10 +84,10 @@ class TaskTest < ActiveSupport::TestCase
     assert_equal (Date.today - 1.month), task.completed_on
   end
 
-  # test "task can be created with message" do
-  #   message = build(:message)
-  #   task = build(:task, message: message)
-  #   assert_equal task.message, message
-  # end
+  test "task can be created with message" do
+    message = build(:message)
+    task = build(:task, message: message)
+    assert_equal task.message, message
+  end
 
 end

@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :project
   belongs_to :user
+  has_one    :message
 
   validates :project, :user, :task_body, :priority, presence: true
   validates :task_body, length: { maximum: 400 }
