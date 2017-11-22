@@ -61,4 +61,33 @@ class TaskTest < ActiveSupport::TestCase
     refute task.valid?
   end
 
+  test "task hasn't been completed" do
+    task = build(:task)
+    refute task.complete?
+  end
+
+  test "task can be completed" do
+    task = build(:task)
+    task.completed
+    assert_equal Date.today, task.completed_on
+  end
+
+  test "check that task has been completed" do
+    task = build(:task)
+    task.completed
+    assert task.complete?
+  end
+
+  test "cannot complete a task more than once" do
+    task = build(:task, completed_on: (Date.today - 1.month))
+    task.completed
+    assert_equal (Date.today - 1.month), task.completed_on
+  end
+
+  # test "task can be created with message" do
+  #   message = build(:message)
+  #   task = build(:task, message: message)
+  #   assert_equal task.message, message
+  # end
+
 end
