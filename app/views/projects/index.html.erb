@@ -11,6 +11,8 @@
   <p><%= project.time_remaining %></p>
   <p><%= project.description %></p>
   <%= link_to "Project Page", project_path(project) %>
+  |
+  <%= link_to "Edit", edit_project_path(project) %>
 <% end %>
 
 <% @projects.each do |project| %>
