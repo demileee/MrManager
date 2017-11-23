@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_action :ensure_ownership, only: %i(edit update destroy)
 
   def index
-    @owned_projects = current_user.projects
     @projects = Member.where('user_id = ?', "#{current_user.id}")
   end
 

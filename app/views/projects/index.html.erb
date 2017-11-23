@@ -10,19 +10,6 @@
   <% end %>
 <% end %>
 
-<% @owned_projects.each do |project| %>
-  <h1><%= project.title %></h1>
-  <h2>Owner</h2>
-  <p><%= project.hard_deadline %></p>
-  <p><%= project.time_remaining %></p>
-  <p><%= project.description %></p>
-  <%= link_to "Project Page", project_path(project) %>
-  |
-  <%= link_to "Edit", edit_project_path(project) %>
-  |
-  <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.title}? This cannot be undone."} %>
-<% end %>
-
 <% @projects.each do |project| %>
   <h1><%= project.project.title %></h1>
   <h2><%= project.role %></h2>
@@ -30,4 +17,10 @@
   <p><%= project.project.time_remaining %></p>
   <p><%= project.project.description %></p>
   <%= link_to "Project Page", project_path(project.project) %>
+  <% if project.project.user == current_user %>
+    |
+    <%= link_to "Edit", edit_project_path(project.project) %>
+    |
+    <%= link_to "Delete", project_path(project.project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.project.title}? This cannot be undone."} %>
+    <% end %>
 <% end %>
