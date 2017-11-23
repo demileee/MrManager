@@ -36,6 +36,10 @@
       <li>
         <p> <%= task.task_body %></p>
         <span><%= task.user.full_name %></span>
+        <% unless task.complete? %>
+          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %>
+        <% end %>
+
       </li>
       <% end %>
     </ul>

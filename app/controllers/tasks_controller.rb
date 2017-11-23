@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :load_project, only: %i(new create)
+  before_action :load_project, only: %i(new create completed)
+
   def index
   end
 
@@ -16,6 +17,7 @@ class TasksController < ApplicationController
       @task.user = current_user
     end
     @task.is_project_owner?
+
     if @task.save
       flash.now[:notice] = "The task has been successfully created!"
       redirect_to project_url(@project)
@@ -32,7 +34,19 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def completed
+    @task = Task.find(params[:id])
+    @task.completed
+    if @task.save
+      redirect_to project_url(@project)
+    else
+      render project_url(@project)
+    end
+  end
+
   def update
+    @task = Task.find(params[:id])
+
   end
 
   def destroy

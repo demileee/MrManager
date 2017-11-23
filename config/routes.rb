@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :members
-    resources :tasks
+    resources :tasks do
+      member do
+        patch :completed
+      end
+    end
     resources :messages, except: [:show, :new]
   end
 
