@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   def index
+    @owned_projects = current_user.projects
+    @projects = Member.where('user_id = ?', "#{current_user.id}")
   end
 
   def new
@@ -7,7 +9,7 @@ class ProjectsController < ApplicationController
 
   def show
   end
-  
+
   def create
   end
 

@@ -16,11 +16,17 @@ end
     user: User.all.sample
   )
 
+  member = Member.create!(
+    project: project,
+    user: project.user,
+    role: 'Mr. Manager'
+  )
 
   5.times do
     members = Member.create!(
       project: project,
-      user: User.all.sample
+      user: User.all.sample,
+      role: "Member"
     )
   end
 

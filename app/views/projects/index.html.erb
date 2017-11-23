@@ -1,0 +1,8 @@
+<h1>Projects!</h1>
+<%= link_to "#{current_user.first_name}'s Dashboard", root_path %>
+<% @projects.each do |project| %>
+  <h1><%= project.project.title %></h1>
+  <h2><%= project.role %></h2>
+  <p><%= project.project.hard_deadline %></p>
+  <p><%= project.project.description %></p>
+<% end %>

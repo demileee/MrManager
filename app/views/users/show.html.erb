@@ -1,6 +1,6 @@
 <%= link_to "Projects", projects_path  %>
 <%= link_to "Get Inspired" %>
-<h1>Welcome, <%= @user.full_name %></h1>
+<h1>Welcome, <%= @user.first_name %></h1>
 <% if @user.task.present? %>
   <h2> <%= @user.task.task_body %></h2>
 <% else %>
