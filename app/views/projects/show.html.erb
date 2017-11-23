@@ -10,6 +10,18 @@
   <p>Final Deadline: <%= @project.hard_deadline %></p>
   <%= link_to "Project Calendar" %>
 </div>
+<%= link_to "#{current_user.first_name}'s Dashboard", root_path %>
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
 <p><%= @project.percentage_complete %>%</p>
+<%= link_to "Tasks" %>
+<div class="tasks-list">
+  <ul>
+    <% @project.tasks.each do |task| %>
+    <li>
+      <p> <%= task.task_body %></p>
+      <span><%= task.user.full_name %></span>
+    </li>
+    <% end %>
+  </ul>
+</div>
