@@ -4,6 +4,9 @@
   <% @project.members.each do |member| %>
     <p><%= member.user.full_name %></p>
   <% end %>
+  <% if @project.user == current_user%>
+    <%= link_to "Add a Member", new_project_member_path(@project) %>
+  <% end %>
   <% if @project.soft_deadline.present? %>
     <p>Soft Deadline: <%= @project.soft_deadline %></p>
   <% end %>
@@ -32,5 +35,5 @@
   <%= image_tag "http://#{(message.user.profile_pic)}"%>
   <p><%= message.message_body %></p>
   <span><%= message.user.full_name %></span>
-  <% end %>  
+  <% end %>
 </div> %>
