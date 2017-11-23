@@ -14,6 +14,7 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
 <p><%= @project.percentage_complete %>%</p>
+<h2>Activity Log</h2>
 <%= link_to "Tasks" %>
 <div class="tasks-list">
   <ul>
@@ -25,3 +26,9 @@
     <% end %>
   </ul>
 </div>
+<%= link_to "Discussion" %>
+<% @project.messages.each do |message| %>
+  <%= image_tag "http://#{(message.user.profile_pic)}"%>
+  <p><%= message.message_body %></p>
+  <span><%= message.user.full_name %></span>
+<% end %>
