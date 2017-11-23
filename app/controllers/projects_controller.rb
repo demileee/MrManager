@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :load_project, only: %i(show edit update)
+  before_action :load_project, only: %i(show edit update destroy)
 
   def index
     @owned_projects = current_user.projects
@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      flash.now[:notice] = "#{@project.title} has been successfully created!"
+      flash[:notice] = "#{@project.title} has been successfully created!"
       redirect_to projects_url
     else
       render :new
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     @project.update(project_params)
 
     if @project.save
-      flash.now[:notice] = "#{@project.title} has been successfully updated!"
+      flash[:notice] = "#{@project.title} has been successfully updated!"
       redirect_to projects_url
     else
       render :edit
@@ -43,6 +43,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project.destroy
+    flash[:notice] = "The project has been successfully deleted."
+    redirect_to projects_url
   end
 
   private

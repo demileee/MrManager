@@ -4,6 +4,12 @@
 <br><br>
 <%= link_to "Create New Project", new_project_path %>
 
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
 <% @owned_projects.each do |project| %>
   <h1><%= project.title %></h1>
   <h2>Owner</h2>
@@ -13,6 +19,8 @@
   <%= link_to "Project Page", project_path(project) %>
   |
   <%= link_to "Edit", edit_project_path(project) %>
+  |
+  <%= link_to "Delete", project_path(project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.title}? This cannot be undone."} %>
 <% end %>
 
 <% @projects.each do |project| %>
