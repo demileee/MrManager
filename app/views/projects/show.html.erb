@@ -27,8 +27,10 @@
   </ul>
 </div>
 <%= link_to "Discussion" %>
-<% @project.messages.each do |message| %>
+<div class="discussion">
+  <% @project.messages.each do |message| %>
   <%= image_tag "http://#{(message.user.profile_pic)}"%>
   <p><%= message.message_body %></p>
   <span><%= message.user.full_name %></span>
-<% end %>
+  <% end %>  
+</div> %>
