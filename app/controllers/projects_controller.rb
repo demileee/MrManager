@@ -5,14 +5,16 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @project = Project.new
   end
 
   def show
     @project = Project.find(params[:id])
-    
+
   end
 
   def create
+
   end
 
   def edit
