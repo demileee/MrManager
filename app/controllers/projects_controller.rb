@@ -14,7 +14,15 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @project = Project.new(project_params)
+    @project.user = current_user
 
+    if @project.save
+      flash.now[:notice] = "#{@project.title} has been successfully created!"
+      redirect_to projects_url
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,5 +32,11 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:title, :description, :soft_deadline, :hard_deadline)
   end
 end
