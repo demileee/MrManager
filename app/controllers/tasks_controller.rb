@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.completed
     if @task.save
-      redirect_to project_url(@project)
+      redirect_to request.referer
     else
       render project_url(@project)
     end
