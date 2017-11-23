@@ -3,20 +3,18 @@ class MembersController < ApplicationController
   end
 
   def new
-    @member = Member.new
     @project = Project.find(params[:project_id])
+    @member = @project.members.build
   end
 
   def show
   end
 
   def create
-    @member = Member.new
     @project = Project.find(params[:project_id])
+    @member = @project.members.build
     @member.project = @project
     @member.user = User.find_by('email = ?', params[:member][:user])
-    puts "************************************"
-    puts @member.user
     @member.role = params[:member][:role]
 
     if @member.save
