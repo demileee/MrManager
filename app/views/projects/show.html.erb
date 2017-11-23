@@ -1,0 +1,36 @@
+<%= link_to "Project Details" %>
+<div class="project-details">
+  <p><%= @project.description %></p>
+  <% @project.members.each do |member| %>
+    <p><%= member.user.full_name %></p>
+  <% end %>
+  <% if @project.soft_deadline.present? %>
+    <p>Soft Deadline: <%= @project.soft_deadline %></p>
+  <% end %>
+  <p>Final Deadline: <%= @project.hard_deadline %></p>
+  <%= link_to "Project Calendar" %>
+</div>
+<%= link_to "#{current_user.first_name}'s Dashboard", root_path %>
+<h1><%= @project.title %></h1>
+<p><%= @project.time_remaining %> Remaining</p>
+<p><%= @project.percentage_complete %>%</p>
+<h2>Activity Log</h2>
+<%= link_to "Tasks" %>
+<div class="tasks-list">
+  <ul>
+    <% @project.tasks.each do |task| %>
+    <li>
+      <p> <%= task.task_body %></p>
+      <span><%= task.user.full_name %></span>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<%= link_to "Discussion" %>
+<div class="discussion">
+  <% @project.messages.each do |message| %>
+  <%= image_tag "http://#{(message.user.profile_pic)}"%>
+  <p><%= message.message_body %></p>
+  <span><%= message.user.full_name %></span>
+  <% end %>  
+</div> %>

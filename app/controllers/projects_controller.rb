@@ -1,13 +1,17 @@
 class ProjectsController < ApplicationController
   def index
+    @owned_projects = current_user.projects
+    @projects = Member.where('user_id = ?', "#{current_user.id}")
   end
 
   def new
   end
 
   def show
+    @project = Project.find(params[:id])
+    
   end
-  
+
   def create
   end
 
