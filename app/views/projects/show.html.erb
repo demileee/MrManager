@@ -38,6 +38,8 @@
         <span><%= task.user.full_name %></span>
         <% unless task.complete? %>
           <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %>
+          <% else %>
+          <p>Task completed on <%= task.completed_on %></p>
         <% end %>
 
       </li>
