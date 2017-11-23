@@ -9,14 +9,12 @@ class MemberTest < ActiveSupport::TestCase
 
   test "cannot create member if project does not exist" do
     member = build(:member, project: nil)
-    member.project = build(:project)
     member.save
     refute member.persisted?
   end
 
   test "cannot create member if user does not exist" do
     member = build(:member, user: nil)
-    member.user = build(:user)
     member.save
     refute member.persisted?
   end

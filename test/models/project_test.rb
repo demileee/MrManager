@@ -89,4 +89,16 @@ class ProjectTest < ActiveSupport::TestCase
     assert_nil project.soft_deadline
   end
 
+  test "member is created after a project" do
+    project = build(:project)
+    project.save
+    assert project.members.present?
+  end
+
+  test "user is assigned as a member when a project is created" do
+    project = build(:project)
+    project.save
+    members = project.members.map { |m| m.user }
+    assert_includes members, project.user
+  end
 end
