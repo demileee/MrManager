@@ -17,3 +17,15 @@
   </article>
   <% end %>
 </div>
+<%= link_to "Notes" %>
+<div class="notepad">
+  <p><%= @user.notes %></p>
+  <%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.text_area :notes, cols: "60", rows: "8" %>
+    </div>
+    <div class="submit">
+      <%= f.submit "Add Note"%>
+    </div>
+  <% end %>
+</div>

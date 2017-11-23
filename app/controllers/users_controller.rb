@@ -29,11 +29,13 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update_attributes(user_params)
-    if @user.save
-      redirect_to user_path(@user.id)
+    @user.notes = params[:user][:notes]
+    puts "*****************"
+
+    if @user.save(validate: false)
+      redirect_to user_path(@user)
     else
-      render :edit
+      render :show
     end
   end
 
