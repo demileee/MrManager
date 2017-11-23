@@ -28,6 +28,7 @@
 
 
 <%= link_to "Tasks" %>
+| <%= link_to "Add Task", new_project_task_path(@project) %>
 <% if @project.tasks.present? %>
   <div class="tasks-list">
     <ul>

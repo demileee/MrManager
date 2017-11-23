@@ -10,10 +10,10 @@
 
   <body>
     <% if current_user %>
-      <% if params[:action] != root_path %>
-      <%= link_to "#{current_user.first_name}'s Dashboard", root_path %> <% end %>
-      | <%= link_to "Logout", :logout, method: :delete %>
+        <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
+        | <%= link_to "Logout", :logout, method: :delete %>
     <% end %>
+
       <main>
         <%= yield %>
       </main>

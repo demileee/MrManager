@@ -15,4 +15,11 @@ class Task < ApplicationRecord
     self.completed_on = Date.today unless complete?
   end
 
+  def is_project_owner?
+    if self.user_id == self.project.user_id
+      self.assigned_by_owner = true
+    else
+      self.assigned_by_owner = false
+    end
+  end
 end

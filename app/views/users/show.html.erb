@@ -9,13 +9,15 @@
 <% end %>
 <%= link_to "Tasks" %>
 <div class="tasks-pane">
-  <% @tasks.each do |task| %>
-  <article>
-    <p><%= task.task_body %></p>
-    <p><%= task.project.title %></p>
-    <p><%= task.project.hard_deadline %></p>
-  </article>
+  <ul>
+    <% @tasks.each do |task| %>
+    <li>
+      <p><%= task.task_body %></p>
+      <p><%= task.project.title %></p>
+      <p><%= task.project.hard_deadline %></p>
+    </li>
   <% end %>
+</ul>
 </div>
 <%= link_to "Notes" %>
 <div class="notepad">
