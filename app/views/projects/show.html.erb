@@ -13,22 +13,35 @@
   <p>Final Deadline: <%= @project.hard_deadline %></p>
   <%= link_to "Project Calendar" %>
 </div>
-<%= link_to "#{current_user.first_name}'s Dashboard", root_path %>
+
+
+<%= link_to "#{current_user.first_name}'s Dashboard", root_path %> | <%= link_to "Logout", :logout, method: :delete %>
+
+
+
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
-<p><%= @project.percentage_complete %>%</p>
+<% if @project.tasks.present? %>
+  <p><%= @project.percentage_complete %>%</p>
+<% end %>
 <h2>Activity Log</h2>
+
+
 <%= link_to "Tasks" %>
-<div class="tasks-list">
-  <ul>
-    <% @project.tasks.each do |task| %>
-    <li>
-      <p> <%= task.task_body %></p>
-      <span><%= task.user.full_name %></span>
-    </li>
-    <% end %>
-  </ul>
-</div>
+<% if @project.tasks.present? %>
+  <div class="tasks-list">
+    <ul>
+      <% @project.tasks.each do |task| %>
+      <li>
+        <p> <%= task.task_body %></p>
+        <span><%= task.user.full_name %></span>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= link_to "Discussion" %>
 <div class="discussion">
   <% @project.messages.each do |message| %>

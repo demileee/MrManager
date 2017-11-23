@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if current_user %>
+      <%= link_to "#{current_user.first_name}'s Dashboard", root_path %> | <%= link_to "Logout", :logout, method: :delete %>
+    <% end %>
+      <main>
+        <%= yield %>
+      </main>
   </body>
 </html>
