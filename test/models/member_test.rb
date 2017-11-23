@@ -21,7 +21,6 @@ class MemberTest < ActiveSupport::TestCase
     refute member.persisted?
   end
 
-# 2. cannot create member if project/user does not exist
 # 3. only project owner can assign/edit/delete role to member
 # 4. only project owner can create member
 end
