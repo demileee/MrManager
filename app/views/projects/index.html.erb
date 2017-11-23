@@ -4,6 +4,15 @@
 <br><br>
 <%= link_to "Create New Project", new_project_path %>
 
+<% @owned_projects.each do |project| %>
+  <h1><%= project.title %></h1>
+  <h2>Owner</h2>
+  <p><%= project.hard_deadline %></p>
+  <p><%= project.time_remaining %></p>
+  <p><%= project.description %></p>
+  <%= link_to "Project Page", project_path(project) %>
+<% end %>
+
 <% @projects.each do |project| %>
   <h1><%= project.project.title %></h1>
   <h2><%= project.role %></h2>
