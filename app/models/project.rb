@@ -27,4 +27,12 @@ class Project < ApplicationRecord
       time_ago_in_words(self.hard_deadline)
   end
 
+  def percentage_complete
+    completed = self.tasks.select do |task|
+      task.complete?
+    end
+    ( completed.length / self.tasks.length ) * 100
+  end
+
+
 end
