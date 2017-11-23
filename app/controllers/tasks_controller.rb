@@ -10,7 +10,11 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.project = @project
-    @task.user = User.find(params[:task][:user_id])
+    if @task.project.user == current_user
+      @task.user = User.find(params[:task][:user_id])
+    else
+      @task.user = current_user
+    end
     @task.is_project_owner?
     if @task.save
       flash.now[:notice] = "The task has been successfully created!"
