@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
-
   def index
   end
 
   def new
+    @project = Project.find(params[:project_id])
+    @task = Task.new
   end
 
   def show
