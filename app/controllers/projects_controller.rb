@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Member.where('user_id = ?', "#{current_user.id}")
+
   end
 
   def new
@@ -18,7 +19,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-
     if @project.save
       flash[:notice] = "#{@project.title} has been successfully created!"
       redirect_to projects_url

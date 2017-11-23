@@ -14,6 +14,8 @@ class Project < ApplicationRecord
 
   validate :project_deadline_valid
 
+  after_create :assign_mr_manager_to_project
+
   def project_deadline_valid
     errors.add(:hard_deadline, "has to be in the future") if hard_deadline.present? && hard_deadline < Date.today
   end
@@ -34,5 +36,8 @@ class Project < ApplicationRecord
     ( completed.length / self.tasks.length ) * 100
   end
 
+  def assign_mr_manager_to_project
+    Member.create(user: self.user, project: self, role: "Mr. Manager")
+  end
 
 end

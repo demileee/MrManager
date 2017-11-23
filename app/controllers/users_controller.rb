@@ -30,8 +30,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.notes = params[:user][:notes]
-    puts "*****************"
-
     if @user.save(validate: false)
       redirect_to user_path(@user)
     else
