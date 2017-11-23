@@ -4,5 +4,7 @@
   <h1><%= project.project.title %></h1>
   <h2><%= project.role %></h2>
   <p><%= project.project.hard_deadline %></p>
+  <p><%= project.project.time_remaining %></p>
   <p><%= project.project.description %></p>
+  <%= link_to "Project Page", project_path(project.project) %>
 <% end %>
