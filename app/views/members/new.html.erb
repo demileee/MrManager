@@ -1,0 +1,22 @@
+<%= form_for [@project, @member] do |f| %>
+  <% if @member.errors.any? %>
+    <ul class="errors">
+      <% @member.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+     <%= f.label :user %>
+     <%= f.email_field :user %>
+  </div>
+
+  <div class="field">
+     <%= f.label :role %>
+     <%= f.text_field :role %>
+  </div>
+
+   <%= f.submit %>
+
+<% end %>
