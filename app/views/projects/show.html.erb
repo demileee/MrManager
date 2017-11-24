@@ -26,10 +26,10 @@
 
 <%= link_to "Tasks" %>
 | <%= link_to "Add Task", new_project_task_path(@project) %>
-<% if @project.tasks.present? %>
+<% if @tasks.present? %>
   <div class="tasks-list">
     <ul>
-      <% @project.tasks.each do |task| %>
+      <% @tasks.each do |task| %>
       <li>
 
         <p> <%= task.task_body %></p>
