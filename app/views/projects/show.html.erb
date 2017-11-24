@@ -45,9 +45,11 @@
 
 <%= link_to "Discussion" %>
 <div class="discussion">
-  <% @project.messages.each do |message| %>
-  <%= image_tag "http://#{(message.user.profile_pic)}"%>
-  <p><%= message.message_body %></p>
-  <span><%= message.user.full_name %></span>
+  <% if @project.messages %>
+    <% @project.messages.each do |message| %>
+      <p><%= message.message_body %></p>
+    <% end %>
   <% end %>
-</div> %>
+
+  <%= render 'message_form', locals: {message: @message} %>
+</div>
