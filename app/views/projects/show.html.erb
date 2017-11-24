@@ -37,7 +37,7 @@
         <p> <%= task.task_body %></p>
         <span><%= task.user.full_name %></span>
         <% if task.user == current_user && !task.complete? %>
-          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %>
+          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task_id: task.id), method: :patch %>
         <% end %>
         <% if task.complete? %>
           <p>Task completed on <%= task.completed_on %></p>

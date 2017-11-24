@@ -1,5 +1,10 @@
 <%= link_to "Projects", projects_path  %>
 <%= link_to "Get Inspired" %>
+
+
+ <h1><%= flash[:alert] %></h1>
+
+
 <h1>Welcome, <%= @user.first_name %></h1>
 <% if @user.task.present? %>
   <h2> <%= @user.task.task_body %></h2>
@@ -16,7 +21,7 @@
       <p><%= task.project.title %></p>
       <p><%= task.project.hard_deadline %></p>
       <% unless task.complete? %>
-        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
+        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
         <% else %>
         <p>Task completed on <%= task.completed_on %></p>
       <% end %>

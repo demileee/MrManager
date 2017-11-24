@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', :as => :logout
   resource :sessions, only: [:create]
 
-  resource :user, except: [:index]
+  resource :user, except: [:index] do
+    member do
+      patch :pin_task
+    end
+  end
 
   resources :projects do
     resources :members

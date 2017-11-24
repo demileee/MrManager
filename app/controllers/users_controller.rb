@@ -38,6 +38,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def pin_task
+    @user = current_user
+    @user.task = Task.find(params[:task])
+    if @user.save
+      flash[:notice] = "Successfully created..."
+    else
+      flash[:alert] = "It no worked"
+    end
+    redirect_to request.referer
+  end
+
   def destroy
     @user = current_user
     if @user
