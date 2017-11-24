@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :projects
-  has_many :tasks
+  has_many :assigned_tasks, through: :tasks, source: :user_id
   has_many :messages
   has_one :task
 
@@ -22,4 +22,4 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
-  end
+end

@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.project = @project
+
     if @task.project.user == current_user
       @task.user = User.find(params[:task][:user_id])
     else
@@ -25,7 +26,6 @@ class TasksController < ApplicationController
       flash.now[:alert] = "There was an error in saving the task."
       render :new
     end
-
   end
 
   def show
@@ -45,7 +45,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
 
   end
 
