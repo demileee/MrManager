@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :project
   belongs_to :user
+  has_many    :pinned_user, through: :users, source: :task
   has_one    :message
 
   validates :project, :user, :task_body, :priority, presence: true
