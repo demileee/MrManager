@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :project
   belongs_to :user
-  has_many    :pinned_user, through: :users, source: :task
+  has_many   :pinned_user, through: :users, source: :task
   has_one    :message
 
   validates :project, :user, :task_body, :priority, presence: true
@@ -14,6 +14,7 @@ class Task < ApplicationRecord
 
   def completed
     self.completed_on = Date.today unless complete?
+    # if self == self.user.task { self.user.task = nil }
   end
 
   def is_project_owner?
