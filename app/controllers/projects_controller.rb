@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-
+    @message = @project.messages.new
   end
 
   def create
