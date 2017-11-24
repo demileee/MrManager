@@ -7,10 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
     $.ajax({
-      url: 'http://quotes.rest/qod.json?category=inspire',
-      method: 'GET'
+      url: 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&key=4&lang=en',
+      method: 'POST',
+      // headers: {"Access-Control-Allow-Origin": 'http://localhost:3000'}
     }).done(function(data){
-      var quote = data.contents.quotes[0].quote
+      console.log(data);
+      var quote = data.quoteText
       var newpTag = document.createElement('p')
       newpTag.className = "quote"
       newpTag.innerText = quote
@@ -19,3 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+// THIS IS AN ALTERNATIVE API
+// $.ajax({
+//   url: 'http://quotes.rest/qod.json?category=inspire',
+//   method: 'GET'
+// }).done(function(data){
+//   var quote = data.contents.quotes[0].quote
+//   var newpTag = document.createElement('p')
+//   newpTag.className = "quote"
+//   newpTag.innerText = quote
+//   quoteDiv.insertBefore(newpTag, getQuotes);
+// });
