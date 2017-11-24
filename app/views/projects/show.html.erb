@@ -17,11 +17,6 @@
   <%= link_to "Project Calendar" %>
 </div>
 
-
-<%= link_to "#{current_user.first_name}'s Dashboard", root_path %> | <%= link_to "Logout", :logout, method: :delete %>
-
-
-
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
 <p><%= @project.percentage_complete %></p>
