@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def pin_task
     @user = current_user
     @user.task = Task.find(params[:task])
-    if @user.save
+    if @user.save(validate: false)
       flash[:notice] = "Successfully created..."
     else
       flash[:alert] = "It no worked"
