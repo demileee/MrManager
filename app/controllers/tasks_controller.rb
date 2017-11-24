@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :load_project, only: %i(new create completed)
+  before_action :load_project, except: %i(index)
 
   def index
   end
@@ -32,6 +32,8 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+
   end
 
   def completed
@@ -45,6 +47,13 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.find(params[:id])
+    if @task.save
+      flash[:notice] = "Task for #{@task.user.first_name} has been successfully updated!"
+      redirect_to projects_url
+    else
+      render :edit
+    end
 
   end
 
