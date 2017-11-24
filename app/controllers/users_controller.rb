@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     else
       redirect_to login_url
     end
-    @tasks = @user.tasks
+    @tasks = @user.tasks.order('completed_on DESC, priority')
   end
 
   def edit
