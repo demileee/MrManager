@@ -33,6 +33,7 @@
         <p> <%= task.task_body %></p>
         <span><%= task.user.full_name %></span>
         <% if task.user == current_user && !task.complete? %>
+          <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
           <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %>
         <% end %>
         <% if task.complete? %>
