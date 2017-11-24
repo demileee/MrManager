@@ -1,18 +1,15 @@
 <%= link_to "Projects", projects_path  %>
-<%= link_to "Get Inspired" %>
-
-
- <h1><%= flash[:alert] %></h1>
-
-
+<div class="get-quotes">
+ <%= link_to "Need Encouragement?" %>
+</div>
 <h1>Welcome, <%= @user.first_name %></h1>
+
 <% if @user.task.present? %>
-  <h2> <%= @user.task.task_body %></h2>
+  <h2><%= @user.task.task_body %></h2>
 <% else %>
   <h2>What are you focused on today?</h2>
   <%= link_to "See all tasks" %>
 <% end %>
-
 
 <%= link_to "Tasks" %>
 <div class="tasks-pane">
@@ -22,11 +19,11 @@
       <p><%= task.task_body %></p>
       <p><%= task.project.title %></p>
       <p><%= task.project.hard_deadline %></p>
+      
       <% unless task.complete? %>
-        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %> |
-
+        <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
+        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
         <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
-
         <% else %>
         <p>Task completed on <%= task.completed_on %></p>
       <% end %>
@@ -34,7 +31,6 @@
   <% end %>
 </ul>
 </div>
-
 
 
 <%= link_to "Notes" %>

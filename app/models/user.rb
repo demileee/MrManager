@@ -15,11 +15,11 @@ class User < ApplicationRecord
   before_create :robo_hash
 
   def robo_hash
-    self.profile_pic = "robohash.org/#{self.first_name + self.last_name}?set=set4"
+    self.profile_pic = "http://robohash.org/#{self.first_name + self.last_name}?set=set4"
   end
 
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
 
-  end
+end

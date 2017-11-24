@@ -1,28 +1,29 @@
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
+
   test "user can create message" do
-    user = users(:dave)
-    message = Message.new(message_body: "Did you call the shelter?")
-    message.user_id = user.id
-    assert_equal 1, message.user_id
+    message = build(:message)
+    assert message.valid?
   end
 
   test "cannot post if not a member" do
-    message = build(:message)
-    message.user_id = nil
+    message = build(:message, user:nil)
     refute message.valid?
   end
 
   test "message does not save without a body" do
-    message = build(:message)
-    message.message_body = nil
+    message = build(:message, message_body: nil)
     refute message.valid?
   end
 
+  test "message can be an annoucement" do
+    message = build(:message, announcement: true)
+    assert_equal true, message.announcement?
+  end
+
   test "message cannot be created without a project" do
-    message = build(:message)
-    message.project = nil
+    message = build(:message, project: nil)
     refute message.valid?
   end
 

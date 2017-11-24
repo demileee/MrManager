@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :load_project, only: %i(new create completed)
+  before_action :load_project, except: %i(index)
 
   def index
   end
@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.project = @project
+
     if @task.project.user == current_user
       @task.user = User.find(params[:task][:user_id])
     else
@@ -25,13 +26,14 @@ class TasksController < ApplicationController
       flash.now[:alert] = "There was an error in saving the task."
       render :new
     end
-
   end
 
   def show
   end
 
   def edit
+    @task = Task.find(params[:id])
+
   end
 
   def completed
@@ -46,6 +48,12 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    if @task.save
+      flash[:notice] = "Task for #{@task.user.first_name} has been successfully updated!"
+      redirect_to projects_url
+    else
+      render :edit
+    end
 
   end
 

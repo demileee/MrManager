@@ -1,29 +1,26 @@
 <%= link_to "Project Details" %>
+
 <div class="project-details">
   <p><%= @project.description %></p>
   <% @project.members.each do |member| %>
     <p><%= member.user.full_name %></p>
   <% end %>
+
   <% if @project.user == current_user%>
     <%= link_to "Add a Member", new_project_member_path(@project) %>
   <% end %>
+
   <% if @project.soft_deadline.present? %>
     <p>Soft Deadline: <%= @project.soft_deadline %></p>
   <% end %>
+
   <p>Final Deadline: <%= @project.hard_deadline %></p>
   <%= link_to "Project Calendar" %>
 </div>
 
-
-<%= link_to "#{current_user.first_name}'s Dashboard", root_path %> | <%= link_to "Logout", :logout, method: :delete %>
-
-
-
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
-<% if @project.tasks.present? %>
-  <p><%= @project.percentage_complete %>%</p>
-<% end %>
+<p><%= @project.percentage_complete %></p>
 <h2>Activity Log</h2>
 
 
@@ -34,8 +31,12 @@
     <ul>
       <% @project.tasks.each do |task| %>
       <li>
+
         <p> <%= task.task_body %></p>
         <span><%= task.user.full_name %></span>
+        <% if !task.complete? && (task.project.user == current_user || task.user == current_user) %>
+          <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+        <% end %>
         <% if task.user == current_user && !task.complete? %>
           <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task_id: task.id), method: :patch %>
         <% end %>
@@ -52,9 +53,18 @@
 
 <%= link_to "Discussion" %>
 <div class="discussion">
-  <% @project.messages.each do |message| %>
-  <%= image_tag "http://#{(message.user.profile_pic)}"%>
-  <p><%= message.message_body %></p>
-  <span><%= message.user.full_name %></span>
+  <% if @project.messages %>
+    <% @project.messages.each do |message| %>
+      <%= image_tag(message.user.profile_pic) %>
+      <p><%= message.message_body %></p>
+
+      <p>
+        <%= message.user.full_name %>
+      </p>
+    <% end %>
   <% end %>
-</div> %>
+
+  <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
+    <%= render 'message_form' %>
+  <% end %>
+</div>
