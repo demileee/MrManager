@@ -14,7 +14,6 @@ class Task < ApplicationRecord
 
   def completed
     self.completed_on = Date.today unless complete?
-    # if self == self.user.task { self.user.task = nil }
   end
 
   def is_project_owner?

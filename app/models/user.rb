@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :tasks
   has_many :messages
-  belongs_to :task
+  belongs_to :task, optional: true
 
   validates :password, length: { minimum: 8 }
   validates :password, confirmation: true

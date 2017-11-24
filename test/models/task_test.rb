@@ -4,6 +4,7 @@ class TaskTest < ActiveSupport::TestCase
 
   test "Can create task" do
     task = build(:task)
+    task.save
     assert task.valid?
   end
 

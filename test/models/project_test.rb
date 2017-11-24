@@ -97,9 +97,11 @@ class ProjectTest < ActiveSupport::TestCase
   test "can find out the percentage of completed tasks" do
     project = build(:project)
     project.save
-    task1 = build(:task, project:project)
-    task1.save
+    task1 = build(:task, project: project)
     task1.completed
+    task1.save
+    task2 = build(:task, project: project)
+    task2.save
     assert_equal "50%", project.percentage_complete
   end
 
