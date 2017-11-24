@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'faker'
+gem 'httparty'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
