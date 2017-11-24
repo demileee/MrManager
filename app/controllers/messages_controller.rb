@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.project = Project.find(params[:project_id])
     @message.user = current_user
+
     if @message.save
       redirect_to project_path(@message.project.id)
     else
