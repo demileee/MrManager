@@ -30,10 +30,12 @@ class Project < ApplicationRecord
   end
 
   def percentage_complete
-    completed = self.tasks.select do |task|
-      task.complete?
+    if self.tasks.present?
+      completed = self.tasks.select { |task| task.complete? }
+      "#{((completed.count.to_f / self.tasks.count.to_f).round(2) * 100).to_i}%"
+    else
+      "There are no currently tasks"
     end
-    ( completed.length / self.tasks.length ) * 100
   end
 
   def assign_mr_manager_to_project

@@ -37,7 +37,6 @@ class ProjectTest < ActiveSupport::TestCase
     refute project.valid?
   end
 
-
   test "user can edit project's hard_deadline" do
     project = build(:project)
     date = Date.today + 1.day
@@ -87,6 +86,21 @@ class ProjectTest < ActiveSupport::TestCase
     project.save
     project.remove_soft_deadline
     assert_nil project.soft_deadline
+  end
+
+  test "user is told if there are no tasks" do
+    project = build(:project)
+    project.save
+    assert_equal "There are no currently tasks", project.percentage_complete
+  end
+
+  test "can find out the percentage of completed tasks" do
+    project = build(:project)
+    project.save
+    task1 = build(:task, project:project)
+    task1.save
+    task1.completed
+    assert_equal "50%", project.percentage_complete
   end
 
   test "member is created after a project" do

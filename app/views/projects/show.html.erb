@@ -4,12 +4,15 @@
   <% @project.members.each do |member| %>
     <p><%= member.user.full_name %></p>
   <% end %>
+
   <% if @project.user == current_user%>
     <%= link_to "Add a Member", new_project_member_path(@project) %>
   <% end %>
+
   <% if @project.soft_deadline.present? %>
     <p>Soft Deadline: <%= @project.soft_deadline %></p>
   <% end %>
+
   <p>Final Deadline: <%= @project.hard_deadline %></p>
   <%= link_to "Project Calendar" %>
 </div>
@@ -21,9 +24,7 @@
 
 <h1><%= @project.title %></h1>
 <p><%= @project.time_remaining %> Remaining</p>
-<% if @project.tasks.present? %>
-  <p><%= @project.percentage_complete %>%</p>
-<% end %>
+<p><%= @project.percentage_complete %></p>
 <h2>Activity Log</h2>
 
 
