@@ -1,4 +1,5 @@
 <%= link_to "Project Details" %>
+
 <div class="project-details">
   <p><%= @project.description %></p>
   <% @project.members.each do |member| %>
@@ -30,10 +31,13 @@
     <ul>
       <% @project.tasks.each do |task| %>
       <li>
+
         <p> <%= task.task_body %></p>
         <span><%= task.user.full_name %></span>
-        <% if task.user == current_user && !task.complete? %>
+        <% if !task.complete? && (task.project.user == @project.user || task.user == current_user) %>
           <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+        <% end %>
+        <% if task.user == current_user && !task.complete? %>
           <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %>
         <% end %>
         <% if task.complete? %>
