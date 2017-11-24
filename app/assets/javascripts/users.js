@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $.ajax({
       url: 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&key=4&lang=en',
       method: 'POST',
+      // format:"jsonp",
+      // dataType: "jsonp"
       // headers: {"Access-Control-Allow-Origin": 'http://localhost:3000'}
     }).done(function(data){
       console.log(data);
