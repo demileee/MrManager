@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', :as => :logout
   resource :sessions, only: [:create]
 
-  resource :user, except: [:index]
+  resource :user, except: [:index] do
+    member do
+      patch :pin_task
+    end
+  end
 
   resources :projects do
     resources :members
@@ -16,12 +20,4 @@ Rails.application.routes.draw do
     end
     resources :messages, except: [:show, :new]
   end
-
-  # get 'sessions/new'
-  #
-  # get 'sessions/create'
-  #
-  # get 'sessions/destroy'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
