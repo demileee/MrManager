@@ -3,7 +3,6 @@
  <%= link_to "Need Encouragement?" %>
 </div>
 <h1>Welcome, <%= @user.first_name %></h1>
-<%#= image_tag(get_background) %>
 
 <% if @user.task.present? %>
   <h2><%= @user.task.task_body %></h2>
