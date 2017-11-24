@@ -20,6 +20,7 @@
       <p><%= task.project.title %></p>
       <p><%= task.project.hard_deadline %></p>
       <% unless task.complete? %>
+        <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
         <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
         <% else %>
         <p>Task completed on <%= task.completed_on %></p>
