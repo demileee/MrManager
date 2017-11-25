@@ -63,6 +63,9 @@
 
       <p>
         <%= message.user.full_name %>
+        <% if message.user == current_user %>
+          <%= link_to "Create Task", new_project_task_path(@project, {task_body: message.message_body}) %>
+        <% end %>
       </p>
     <% end %>
   <% end %>
