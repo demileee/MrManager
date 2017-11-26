@@ -33,6 +33,8 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
+gem 'omniauth'
+gem 'omniauth-slack'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
