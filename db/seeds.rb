@@ -26,7 +26,8 @@ end
     members = Member.create!(
       project: project,
       user: User.all.sample,
-      role: "Member"
+      role: "Member",
+      invite_accepted: true
     )
   end
 
@@ -36,7 +37,7 @@ end
       priority: rand(1..3),
       user: project.members.sample.user,
       project: project,
-      assigned_by_owner: Faker::Boolean.boolean
+      assigned_by_owner: Faker::Boolean.boolean,
     )
   end
 
