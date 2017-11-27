@@ -1,5 +1,8 @@
 class Task < ApplicationRecord
-  after_save { |task| create_event(task) }
+  after_save do |task|
+    create_event(task)
+    create_notification(task)
+  end
 
   belongs_to :project
   belongs_to :user
@@ -31,5 +34,9 @@ class Task < ApplicationRecord
 
   def create_event(task)
     Event.create message: "A new task has been created: #{task.task_body}", project_id: task.project_id
+  end
+
+  def create_notification(task)
+    Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
   end
 end

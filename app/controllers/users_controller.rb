@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
+      @tasks = @user.tasks.order('completed_on DESC, priority')
+      @notifications = Notification.where('user_id = ?', current_user.id)
     else
       redirect_to login_url
     end
-    @tasks = @user.tasks.order('completed_on DESC, priority')
     # @new_image = Unsplash.new
   end
 

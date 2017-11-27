@@ -2,6 +2,12 @@
   <div class="field">
     <%= f.text_area :message_body, cols: "60", rows: "8" %>
   </div>
+  <% if current_user === @project.user %>
+    <div class="announcement">
+      <%= f.label :announcement %>
+      <%= f.check_box :announcement, {}, true, false %>
+    </div>
+  <% end %>
   <div class="submit">
     <%= f.submit %>
   </div>
