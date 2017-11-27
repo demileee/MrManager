@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :members
+    resources :members do
+      member do
+        patch :join
+      end
+    end
     resources :tasks do
       member do
         patch :completed

@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   before_action :ensure_ownership, only: %i(edit update destroy)
 
   def index
-    @projects = Member.where('user_id = ?', "#{current_user.id}")
+    @projects = Member.where(user: current_user, invite_accepted: true)
+    @invites = Member.where(user: current_user, invite_accepted: false)
 
   end
 
@@ -13,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @members = @project.members.select { |member| member.invite_accepted? }
     @tasks = @project.tasks.order('completed_on DESC, priority')
     @message = Message.new
   end
