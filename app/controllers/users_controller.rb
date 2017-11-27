@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       redirect_to login_url
     end
     @tasks = @user.tasks.order('completed_on DESC, priority')
+    # @new_image = Unsplash.new
   end
 
   def edit
