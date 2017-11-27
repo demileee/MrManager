@@ -3,10 +3,6 @@ class Unsplash
   attr_reader :photographer
   attr_reader :portfolio_link
   attr_reader :image
-  # attr_reader :cache
-# First try to read from cache store
-
-# If empty, call API and write to cache store
 
   def initialize
     @cache = Rails.application.cache
