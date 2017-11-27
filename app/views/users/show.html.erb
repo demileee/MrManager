@@ -3,6 +3,9 @@
  <%= link_to "Need Encouragement?" %>
 </div>
 <h1>Welcome, <%= @user.first_name %></h1>
+<h2><%= @new_image.photographer %></h2>
+<h3><%= @new_image.portfolio_link %></h3>
+<h3><%= @new_image.image %></h3>
 
 <% if @user.task.present? %>
   <h2><%= @user.task.task_body %></h2>
@@ -19,7 +22,7 @@
       <p><%= task.task_body %></p>
       <p><%= task.project.title %></p>
       <p><%= task.project.hard_deadline %></p>
-      
+
       <% unless task.complete? %>
         <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
         <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
