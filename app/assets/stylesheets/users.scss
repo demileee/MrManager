@@ -13,5 +13,14 @@
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     text-align: right;
+  } .user-summary{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  } .user-tasks {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  } .user-notes{
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
   }
 }
