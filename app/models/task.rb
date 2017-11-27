@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   after_save do |task|
-    create_event(task)
-    create_notification(task)
+    create_event_and_notification_for_new_task(task)
+    create_event_and_notification_for_completed_task(task) if completed_at != nil
   end
 
   belongs_to :project
@@ -32,11 +32,13 @@ class Task < ApplicationRecord
 
   private
 
-  def create_event(task)
+  def create_event_and_notification_for_new_task(task)
     Event.create message: "A new task has been created: #{task.task_body}", project_id: task.project_id
+    Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
   end
 
-  def create_notification(task)
-    Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
+  def create_event_and_notification_for_completed_task(task)
+    Event.create message: "Task completed: #{task.task_body}", project_id: task.project_id
+    Notification.create message: "Task completed: #{task.task_body}", user_id: task.project.user_id
   end
 end
