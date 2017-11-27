@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   def new_image
     @new_image = Unsplash.new
   end
+
+  def user_is_logged_in
+    if current_user
+      redirect_to user_url(current_user)
+    end
+  end
+
   helper_method :new_image
   helper_method :current_user
 
