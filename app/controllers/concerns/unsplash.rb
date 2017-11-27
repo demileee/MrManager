@@ -4,7 +4,12 @@ class Unsplash
   attr_reader :portfolio_link
   attr_reader :image
 
+# First try to read from cache store
+
+# If empty, call API and write to cache store
+
   def initialize
+    # expires_in 24.hours
     response = HTTParty.get("https://api.unsplash.com/photos/random/?client_id=#{ENV["UNSPLASH_KEY"]}&query=nature&count=1")
     parsed_response = JSON.parse(response.body)
     @portfolio_link = parsed_response[0]["user"]["links"]["html"]
