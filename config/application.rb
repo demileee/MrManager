@@ -14,5 +14,9 @@ module MrManager
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    def cache
+      @cache ||= ActiveSupport::Cache::MemoryStore.new(expires_in: 1.day)
+    end
   end
 end

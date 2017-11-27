@@ -10,8 +10,8 @@
   </head>
 
   <body style="background-image:url(<%= new_image.image %>)";>
+    <% if session[:user_id] %>
 
-    <% if current_user %>
         <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
         | <%= link_to "Logout", :logout, method: :delete %>
     <% end %>

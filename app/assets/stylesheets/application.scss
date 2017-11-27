@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+
+body{
+  height: 100vh;
+  background-size: cover; //This should probably be 100% auto after we resize all elements on the views
+  background-repeat: no-repeat;
+}
