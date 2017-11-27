@@ -4,12 +4,14 @@
     <title>MrManager</title>
     <%= csrf_meta_tags %>
 
+    <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body style="background-image:url(<%= new_image.image %>)";>
     <% if session[:user_id] %>
+
         <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
         | <%= link_to "Logout", :logout, method: :delete %>
     <% end %>

@@ -1,4 +1,9 @@
 class Task < ApplicationRecord
+  after_save do |task|
+    create_event(task)
+    create_notification(task)
+  end
+
   belongs_to :project
   belongs_to :user
   has_many   :pinned_user, through: :users, source: :task
@@ -7,6 +12,7 @@ class Task < ApplicationRecord
   validates :project, :user, :task_body, :priority, presence: true
   validates :task_body, length: { maximum: 400 }
   validates :priority, numericality: { less_than_or_equal_to: 3, greater_than: 0, only_integer: true }
+
 
   def complete?
     return true if self.completed_on.present?
@@ -22,5 +28,15 @@ class Task < ApplicationRecord
     else
       self.assigned_by_owner = false
     end
+  end
+
+  private
+
+  def create_event(task)
+    Event.create message: "A new task has been created: #{task.task_body}", project_id: task.project_id
+  end
+
+  def create_notification(task)
+    Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
   end
 end

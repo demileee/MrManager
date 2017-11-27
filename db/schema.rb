@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121223717) do
+ActiveRecord::Schema.define(version: 20171127210155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "project_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.bigint "project_id"
@@ -21,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171121223717) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "invite_accepted", default: false
     t.index ["project_id"], name: "index_members_on_project_id"
     t.index ["user_id"], name: "index_members_on_user_id"
   end
@@ -36,6 +59,13 @@ ActiveRecord::Schema.define(version: 20171121223717) do
     t.index ["project_id"], name: "index_messages_on_project_id"
     t.index ["task_id"], name: "index_messages_on_task_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "message"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|

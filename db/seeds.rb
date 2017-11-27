@@ -16,17 +16,12 @@ end
     user: User.all.sample
   )
 
-  member = Member.create!(
-    project: project,
-    user: project.user,
-    role: 'Mr. Manager'
-  )
-
   5.times do
     members = Member.create!(
       project: project,
-      user: User.all.sample,
-      role: "Member"
+      user: User.where.not(id: project.user.id).sample,
+      role: "Member",
+      invite_accepted: true
     )
   end
 
@@ -36,7 +31,7 @@ end
       priority: rand(1..3),
       user: project.members.sample.user,
       project: project,
-      assigned_by_owner: Faker::Boolean.boolean
+      assigned_by_owner: Faker::Boolean.boolean,
     )
   end
 
