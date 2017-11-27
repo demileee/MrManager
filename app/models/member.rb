@@ -4,4 +4,8 @@ class Member < ApplicationRecord
 
   validates :project, :user, presence: true
 
+  def invite_accepted?
+    return true if self.invite_accepted
+  end
+
 end

@@ -16,16 +16,10 @@ end
     user: User.all.sample
   )
 
-  member = Member.create!(
-    project: project,
-    user: project.user,
-    role: 'Mr. Manager'
-  )
-
   5.times do
     members = Member.create!(
       project: project,
-      user: User.all.sample,
+      user: User.where.not(id: project.user.id).sample,
       role: "Member",
       invite_accepted: true
     )
