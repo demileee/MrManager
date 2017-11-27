@@ -39,7 +39,7 @@ class Project < ApplicationRecord
   end
 
   def assign_mr_manager_to_project
-    Member.create(user: self.user, project: self, role: "Mr. Manager")
+    Member.create(user: self.user, project: self, role: "Mr. Manager", invite_accepted: true)
   end
 
 end
