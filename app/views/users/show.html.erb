@@ -7,6 +7,11 @@
 <h3><%= new_image.portfolio_link %></h3>
 <h3><%= new_image.image %></h3>
 
+<h1>Notifications</h1>
+<div id="notifications">
+  <%= render @notifications %>
+</div>
+
 <% if @user.task.present? %>
   <h2><%= @user.task.task_body %></h2>
 <% else %>
