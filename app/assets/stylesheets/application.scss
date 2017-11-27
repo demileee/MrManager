@@ -14,9 +14,12 @@
  *= require_self
  */
 
+@import 'normalize';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body{
   height: 100vh;
   background-size: cover; //This should probably be 100% auto after we resize all elements on the views
   background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
 }
