@@ -19,12 +19,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  var sourceImage = body.style.backgroundImage
-console.log(sourceImage);
-  var colorThief = new ColorThief();
-  colorThief.getColor(sourceImage);
+  var getBackground  = body.style.backgroundImage;
+  var sourceImageUrl = getBackground.slice(5, -2);
+  var sourceImage    = new Image();
 
-  getColor(sourceImage)
+  sourceImage.crossOrigin = "anonymous";
+  sourceImage.src = sourceImageUrl;
+  sourceImage.style.width = '1400px';
+
+  console.log(sourceImage);
+
+    var colorThief = new ColorThief();
+    colorThief.getColor(sourceImage);
+    getColor(sourceImage);
+
 
   function getContrastYIQ(hexcolor){
     var r = parseInt(hexcolor.substr(0,2),16);
