@@ -2,8 +2,8 @@
 
 <div class="project-details">
   <p><%= @project.description %></p>
-  <% @project.members.each do |member| %>
-    <p><%= member.user.full_name %></p>
+  <% @members.each do |member| %>
+    <p><%= member.user.full_name %>: <%= member.role %></p>
   <% end %>
 
   <% if @project.user == current_user%>

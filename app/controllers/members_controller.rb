@@ -34,4 +34,17 @@ class MembersController < ApplicationController
   def destroy
   end
 
+  def join
+    @member = Member.find(params[:id])
+    @member.join_project
+    @member.save
+    if @member.save
+      flash[:notice] = "#{@member.project.title} joined"
+      redirect_to request.referer
+    else
+      flash[:alert] = "Did not successfully join"
+      render request.referer
+    end
+  end
+
 end
