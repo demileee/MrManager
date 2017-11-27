@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   after_save do |task|
-    create_event_and_notification_for_new_task(task)
-    create_event_and_notification_for_completed_task(task) if completed_at != nil
+    create_event_and_notification_for_new_task(task) if !task.complete?
+    create_event_and_notification_for_completed_task(task) if task.complete?
   end
 
   belongs_to :project
