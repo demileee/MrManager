@@ -13,7 +13,7 @@
   <h1>Pending invites</h1>
   <% @invites.each do |invite| %>
     <h3><%= invite.project.title %></h3>
-
+    <%= link_to "Join project", join_project_member_path(invite.project, invite), method: :patch %>
   <% end %>
 <% end %>
 

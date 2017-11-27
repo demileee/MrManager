@@ -9,7 +9,7 @@ class Member < ApplicationRecord
   end
 
   def join_project
-    invite_accepted = true
+    self.invite_accepted = true
   end
 
 end
