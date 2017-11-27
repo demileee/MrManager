@@ -41,7 +41,7 @@
           <%= link_to "Delete Task", project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} %>
         <% end %>
         <% if task.user == current_user && !task.complete? %>
-          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task_id: task.id), method: :patch %>
+          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
         <% end %>
         <% if task.complete? %>
           <p>Task completed on <%= task.completed_on %></p>
