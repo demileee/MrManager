@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  var sourceImage = body.style.backgroundImage
+console.log(sourceImage);
+  var colorThief = new ColorThief();
+  colorThief.getColor(sourceImage);
+
+  getColor(sourceImage)
+
   function getContrastYIQ(hexcolor){
     var r = parseInt(hexcolor.substr(0,2),16);
     var g = parseInt(hexcolor.substr(2,2),16);
