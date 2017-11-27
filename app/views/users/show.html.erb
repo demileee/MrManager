@@ -3,9 +3,9 @@
  <%= link_to "Need Encouragement?" %>
 </div>
 <h1>Welcome, <%= @user.first_name %></h1>
-<h2><%= @new_image.photographer %></h2>
-<h3><%= @new_image.portfolio_link %></h3>
-<h3><%= @new_image.image %></h3>
+<h2><%= new_image.photographer %></h2>
+<h3><%= new_image.portfolio_link %></h3>
+<h3><%= new_image.image %></h3>
 
 <% if @user.task.present? %>
   <h2><%= @user.task.task_body %></h2>

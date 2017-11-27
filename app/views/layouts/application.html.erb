@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-image:url(<%= @new_image.image %>)";>
+  <body style="background-image:url(<%= new_image.image %>)";>
     <% if current_user %>
         <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
         | <%= link_to "Logout", :logout, method: :delete %>
