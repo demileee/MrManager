@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     @members = @project.members.select { |member| member.invite_accepted? }
     @tasks = @project.tasks.order('completed_on DESC, priority')
     @message = Message.new
+    @events = Event.where('project_id = ?', params[:id]).reverse
   end
 
   def create

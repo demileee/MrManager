@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'events' => 'events#index'
+
   root 'sessions#new'
+
+  mount ActionCable.server => '/cable'
+
   get 'login' => 'sessions#new', :as => :login
   delete 'logout' => 'sessions#destroy', :as => :logout
+
   resource :sessions, only: [:create]
 
   resource :user, except: [:index] do
