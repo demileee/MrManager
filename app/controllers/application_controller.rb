@@ -5,13 +5,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  # def call_unsplash
-  #   @new_image = Unsplash.new
-  #   @image = @new_image.image
-  #   @photographer = @new_image.photographer
-  #   @portfolio = @new_image.portfolio_link
-  # end
-
+  def new_image
+    @new_image = Unsplash.new
+  end
+  helper_method :new_image
   helper_method :current_user
 
   private
