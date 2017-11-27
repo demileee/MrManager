@@ -9,6 +9,14 @@
   <% end %>
 <% end %>
 
+<% if @invites.any? %>
+  <h1>Pending invites</h1>
+  <% @invites.each do |invite| %>
+    <h3><%= invite.project.title %></h3>
+
+  <% end %>
+<% end %>
+
 <% @projects.each do |project| %>
   <h1><%= project.project.title %></h1>
   <h2><%= project.role %></h2>

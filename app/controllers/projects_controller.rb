@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   before_action :ensure_ownership, only: %i(edit update destroy)
 
   def index
-    @projects = Member.where('user_id = ?', "#{current_user.id}")
+    @projects = Member.where(user: current_user, invite_accepted: true)
+    @invites = Member.where(user: current_user, invite_accepted: false)
 
   end
 

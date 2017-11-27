@@ -8,4 +8,8 @@ class Member < ApplicationRecord
     return true if self.invite_accepted
   end
 
+  def join_project
+    invite_accepted = true
+  end
+
 end
