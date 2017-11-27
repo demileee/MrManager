@@ -23,6 +23,10 @@
 <p><%= @project.percentage_complete %></p>
 <h2>Activity Log</h2>
 
+<div id="events">
+  <%= render @events %>
+</div>
+
 
 <%= link_to "Tasks" %>
 | <%= link_to "Add Task", new_project_task_path(@project) %>

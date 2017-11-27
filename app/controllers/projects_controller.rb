@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @tasks = @project.tasks.order('completed_on DESC, priority')
     @message = Message.new
+    @events = Event.where('project_id = ?', params[:id]).reverse
   end
 
   def create
