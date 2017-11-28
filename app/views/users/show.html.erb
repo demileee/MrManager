@@ -1,6 +1,6 @@
 <div class="user-page">
 
-  <div class="projects-page">
+  <div class="projects-page-link">
     <%= link_to "Projects", projects_path  %>
   </div>
 
@@ -16,7 +16,7 @@
       <h2>What are you focused on today?</h2>
       <%= link_to "See all tasks" %>
     <% end %>
-    
+
     <h1>Notifications</h1>
     <div id="notifications">
       <%= render @notifications %>
