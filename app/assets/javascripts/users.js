@@ -22,26 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
   var getBackground  = body.style.backgroundImage;
   var sourceImageUrl = getBackground.slice(5, -2);
 
-  // var request = new XMLHttpRequest();
-  // request.onload = callback;
-  // request.open("get", "http://mkweb.bcgsc.ca/color-summarizer");
-  // var formData = new FormData();
-  // formData.append(url, sourceImageUrl)
-  // formData.append(num_clusters, 1)
-  // formData.append(precision, 'vhigh')
-  // request.send(formData)
+  $.ajax({
+    url: 'https://cors-anywhere.herokuapp.com/http://mkweb.bcgsc.ca/color-summarizer/',
+    method: 'GET',
+    data: {
+      url: sourceImageUrl,
+      num_clusters: 1,
+      precision: 'vhigh',
+      xml: 1
+    }
+  }).done(function(data){
+    // var xmlText = getXMLString();
+    // var XMl = new DOMParser().parseFromString(xml, 'text/xml');
+    // var obj = parse(XML)
 
-  // $.ajax({
-  //   url: 'http://mkweb.bcgsc.ca/color-summarizer/',
-  //   method: 'GET',
-  //   data: {
-  //     url: sourceImageUrl,
-  //     num_clusters: 1,
-  //     precision: 'vhigh'
-  //   }
-  // }).done(function(data){
-  //   console.log(data);
-  // })
+    // var dataReturn = data
+    // parser = new DOMParser();
+    // xmlDoc = parser.parseFromString(dataReturn, "text/xml");
+    // hex = xmlDoc.getElementsByTagName("clusters")
+
+  })
 
   function getContrastYIQ(hexcolor){
     var r = parseInt(hexcolor.substr(0,2),16);
