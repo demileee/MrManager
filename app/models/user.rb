@@ -9,9 +9,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 }
   validates :password, confirmation: true
   validates :last_name, :first_name, :password_confirmation, presence: true
-
   validates :email, uniqueness: true
-
   before_create :robo_hash
 
   def robo_hash

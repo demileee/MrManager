@@ -9,11 +9,8 @@ class Project < ApplicationRecord
   has_many :messages
 
   validates :title, :user, :description, :hard_deadline, presence: true
-
   validates :title, length: { maximum: 150 }
-
   validate :project_deadline_valid
-
   after_create :assign_mr_manager_to_project
 
   def project_deadline_valid

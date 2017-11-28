@@ -1,3 +1,7 @@
 <div class="event">
-  <%= event.created_at.to_formatted_s(:short) %>: <%= event.message %>
+  <ul>
+    <li>
+      <%= event.created_at.to_formatted_s(:short) %>: <%= event.message %>
+    </li>
+  </ul>
 </div>
