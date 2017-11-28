@@ -2,12 +2,8 @@ require 'securerandom'
 
 class SlackController < ApplicationController
 
-  def create
-    pass = SecureRandom.base64
-    @user = User.new
-    @user.first_name = request.env["omniauth.auth"]["info"]["first_name"]
-    @user.last_name = request.env["omniauth.auth"]["info"]["last_name"]
-    @user.email = request.env["omniauth.auth"]["info"]["email"]
+  def update
+    @user = User.find(current_user.id)
     @user.token = request.env["omniauth.auth"]["credentials"]["token"]
     @user.slack_id = request.env["omniauth.auth"]["info"]["user_id"]
     @user.password = pass
@@ -17,7 +13,7 @@ class SlackController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_url(@user)
     else
-      redirect_to new_user_url
+      render :edit
     end
   end
 
