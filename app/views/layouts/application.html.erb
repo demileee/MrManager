@@ -7,19 +7,22 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   </head>
 
   <body data-hex="<%= new_image.hex %>" style="background-image:url(<%= new_image.image %>)";>
-    <% if session[:user_id] %>
-      <div class="logged-in">
-        <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
-        | <%= link_to "Logout", :logout, method: :delete %>
-      </div>
-    <% end %>
+    <header>
+      <% if session[:user_id] %>
+        <div class="logged-in">
+          <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %> |
+          | <%= link_to "Logout", :logout, method: :delete %>
+        </div>
+      <% end %>
+    </header>
 
-      <main>
-        <%= yield %>
-      </main>
+    <main>
+      <%= yield %>
+    </main>
 
   </body>
 </html>

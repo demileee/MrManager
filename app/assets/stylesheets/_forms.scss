@@ -1,0 +1,37 @@
+.form-page {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  width: 25rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.field {
+  margin: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  input{
+    border: none;
+    border-bottom: 2px black solid;
+    background: none;
+  }
+  .field_with_errors {
+    display: inline-block;
+    border-bottom: 1px solid tomato;
+  }
+}
+
+.errors {
+  font-family: sans-serif;
+  text-align: center;
+  list-style: none;
+  margin: 0 auto;
+  padding-left: 0;
+  border: 0;
+
+  li{
+    color: tomato;
+    padding: 0.5em;
+  }
+}
