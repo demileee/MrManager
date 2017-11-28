@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'events' => 'events#index'
 
+  get '/auth/slack/callback', to: 'slack#create' 
+
   root 'sessions#new'
 
   mount ActionCable.server => '/cable'
