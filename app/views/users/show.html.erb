@@ -1,5 +1,5 @@
 <div class="user-page">
-<h1>THE HEX COLOUR IS:  <%= hex %></h1>
+
   <div class="projects-page-link">
     <%= link_to "Projects", projects_path  %>
   </div>
@@ -17,7 +17,7 @@
       <%= link_to "See all tasks" %>
     <% end %>
 
-    <h1>Notifications</h1> <span class="read-notifications">Up to Date</span>
+    <h1>Notifications</h1> <a href="#" id="mark-as-read">Up To Date</a>
     <div id="notifications">
       <%= render @notifications %>
     </div>

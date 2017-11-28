@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var getQuotes = document.querySelector(".get-quotes > a");
   var quoteDiv  = document.querySelector(".get-quotes");
   var body      = document.querySelector('body');
+  var notifications = document.querySelector('#mark-as-read');
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
@@ -19,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  var getBackground  = body.style.backgroundImage;
-  var sourceImageUrl = getBackground.slice(5, -2);
-
-  console.log(hex);
+  notifications.addEventListener('click', function(e){
+    e.preventDefault();
+    
+  })
 
   function getContrastYIQ(hex){
     var r = parseInt(hex.substr(0,2),16);
