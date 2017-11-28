@@ -8,13 +8,9 @@
   <% end %>
 
   <div class="field">
-     <%= f.label :user %>
+     <%= f.label :user, value: "Find by user by email:" %>
      <%= f.email_field :user, placeholder: "george-micheal@bluth.com", id: "ajax", list: 'ajax-email' %>
-     <datalist id="ajax-email">
-      <% User.all.each do |user| %>
-        <option value="<%= user.email %>"></option>
-      <% end %>
-      </datalist>
+     <datalist id="ajax-email"></datalist>
   </div>
 
   <div class="field">

@@ -7,9 +7,8 @@ class MembersController < ApplicationController
     @member = @project.members.build
 
     user_mail = User.all.map { |user| user.email }
-
     respond_to do |format|
-      format.html
+      format.html 
       format.json { render json: user_mail }
     end
 
