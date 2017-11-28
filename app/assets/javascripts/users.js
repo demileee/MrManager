@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var quoteDiv  = document.querySelector(".get-quotes");
   var body      = document.querySelector('body');
   var notifications = document.querySelector('#mark-as-read');
+  var dataHex   = document.body.getAttribute('data-hex');
+  var hex       = dataHex.slice(1);
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
@@ -22,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   notifications.addEventListener('click', function(e){
     e.preventDefault();
-    
+
   })
 
-  function getContrastYIQ(hex){
+  var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
     var g = parseInt(hex.substr(2,2),16);
     var b = parseInt(hex.substr(4,2),16);
