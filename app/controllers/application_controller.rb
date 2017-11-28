@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   def new_image
     @new_image = Unsplash.new
+    @bg_image = DomColour.new
+    @hex = @bg_image.get_pix(@new_image.image)
   end
 
   def user_is_logged_in
