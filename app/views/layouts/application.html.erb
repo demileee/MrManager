@@ -11,11 +11,11 @@
 
   <body style="background-image:url(<%= new_image.image %>)";>
     <% if session[:user_id] %>
-
-        <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
-        | <%= link_to "Logout", :logout, method: :delete %>
+    <div class="logged-in">
+      <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
+      | <%= link_to "Logout", :logout, method: :delete %>
+    </div>
     <% end %>
-
       <main>
         <%= yield %>
       </main>

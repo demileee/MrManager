@@ -20,19 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   var getBackground  = body.style.backgroundImage;
-  var sourceImageUrl = getBackground.slice(13, -2);
+  var sourceImageUrl = getBackground.slice(5, -2);
 
-  $.ajax({
-    url: 'http://mkweb.bcgsc.ca/color-summarizer/',
-    method: 'GET',
-    data: {
-      url: "sourceImageUrl",
-      num_clusters: 1,
-      precision: 'vhigh'
-    }
-  }).done(function(data){
-    console.log(done);
-  })
+  // var request = new XMLHttpRequest();
+  // request.onload = callback;
+  // request.open("get", "http://mkweb.bcgsc.ca/color-summarizer");
+  // var formData = new FormData();
+  // formData.append(url, sourceImageUrl)
+  // formData.append(num_clusters, 1)
+  // formData.append(precision, 'vhigh')
+  // request.send(formData)
+
+  // $.ajax({
+  //   url: 'http://mkweb.bcgsc.ca/color-summarizer/',
+  //   method: 'GET',
+  //   data: {
+  //     url: sourceImageUrl,
+  //     num_clusters: 1,
+  //     precision: 'vhigh'
+  //   }
+  // }).done(function(data){
+  //   console.log(data);
+  // })
 
   function getContrastYIQ(hexcolor){
     var r = parseInt(hexcolor.substr(0,2),16);
