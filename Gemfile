@@ -34,6 +34,7 @@ gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
 gem 'delayed_job_active_record'
+gem 'rmagick'
 gem 'omniauth'
 gem 'omniauth-slack'
 
