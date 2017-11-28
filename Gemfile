@@ -34,6 +34,9 @@ gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
 gem 'delayed_job_active_record'
+gem 'omniauth'
+gem 'omniauth-slack'
+
 
 
 # Use Capistrano for deployment

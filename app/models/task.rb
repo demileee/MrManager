@@ -34,11 +34,18 @@ class Task < ApplicationRecord
 
   def create_event_and_notification_for_new_task(task)
     Event.create message: "A new task has been created: #{task.task_body}", project_id: task.project_id
-    Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
+
+    n = Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
+
+    Slack.new.post_message(task.user, n)
+
   end
 
   def create_event_and_notification_for_completed_task(task)
     Event.create message: "Task completed: #{task.task_body}", project_id: task.project_id
-    Notification.create message: "Task completed: #{task.task_body}", user_id: task.project.user_id
+
+    n = Notification.create message: "Task completed: #{task.task_body}", user_id: task.project.user_id
+
+    Slack.new.post_message(task.user, n)
   end
 end

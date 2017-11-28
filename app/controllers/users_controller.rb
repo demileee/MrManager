@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     else
       redirect_to login_url
     end
-    # @new_image = Unsplash.new
   end
 
   def edit
