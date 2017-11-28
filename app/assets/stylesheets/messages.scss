@@ -1,6 +1,23 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.profile_pic {}
-.user_name {}
-.message_body {}
+.message{
+  display: grid;
+  grid-template-columns: 10rem;
+
+  .profile_pic {
+    height: 9rem;
+  }
+  .user_name {
+    text-align: center;
+  }
+  .create_task {
+    grid-column: 2 / 3;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .message_body {
+    grid-column: 2 / 3;
+    overflow: scroll;
+  }
+}
