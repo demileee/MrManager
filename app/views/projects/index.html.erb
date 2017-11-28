@@ -1,25 +1,34 @@
-<h1>Projects!</h1>
+<div class="project-index">
+  <div class="project-list">
+    <%= link_to "Create New Project", new_project_path %>
 
-<br>
-<%= link_to "Create New Project", new_project_path %>
-
-<% if flash.any? %>
-  <% flash.each do |type, msg| %>
+    <% if flash.any? %>
+    <% flash.each do |type, msg| %>
     <p><%= msg %></p>
-  <% end %>
-<% end %>
-
-<% @projects.each do |project| %>
-  <h1><%= project.project.title %></h1>
-  <h2><%= project.role %></h2>
-  <p><%= project.project.hard_deadline %></p>
-  <p><%= project.project.time_remaining %></p>
-  <p><%= project.project.description %></p>
-  <%= link_to "Project Page", project_path(project.project) %>
-  <% if project.project.user == current_user %>
-    |
-    <%= link_to "Edit", edit_project_path(project.project) %>
-    |
-    <%= link_to "Delete", project_path(project.project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.project.title}? This cannot be undone."} %>
     <% end %>
-<% end %>
+    <% end %>
+
+    <% if @invites.any? %>
+    <h1>Pending invites</h1>
+    <% @invites.each do |invite| %>
+    <h3><%= invite.project.title %></h3>
+    <%= link_to "Join project", join_project_member_path(invite.project, invite), method: :patch %>
+    <% end %>
+    <% end %>
+
+    <% @projects.each do |project| %>
+      <h1><%= project.project.title %></h1>
+      <h2><%= project.role %></h2>
+      <p><%= project.project.hard_deadline %></p>
+      <p><%= project.project.time_remaining %></p>
+      <p><%= project.project.description %></p>
+      <%= link_to "Project Page", project_path(project.project) %>
+      <% if project.project.user == current_user %>
+      |
+      <%= link_to "Edit", edit_project_path(project.project) %>
+      |
+      <%= link_to "Delete", project_path(project.project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.project.title}? This cannot be undone."} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

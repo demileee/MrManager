@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
-# gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,8 +33,11 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
+gem 'delayed_job_active_record'
 gem 'omniauth'
 gem 'omniauth-slack'
+
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    user_is_logged_in
   end
 
   def create
@@ -9,9 +10,8 @@ class SessionsController < ApplicationController
       redirect_to user_url(user)
     else
       flash.now[:alert] = "Your username or password do not match"
-    render :new
+      render :new
     end
-
   end
 
   def destroy

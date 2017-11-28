@@ -8,27 +8,27 @@
     </ul>
   <% end %>
 
-  <div class="">
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="">
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, cols: "60", rows: "8" %>
   </div>
 
-  <div class="">
+  <div class="field">
     <%= f.label "Soft Deadline (Optional)" %>
     <%= f.date_field :soft_deadline %>
   </div>
 
-  <div class="">
+  <div class="field">
     <%= f.label :hard_deadline %>
     <%= f.date_field :hard_deadline %>
   </div>
 
-  <div class="">
+  <div class="field">
     <%= f.submit %>
   </div>
 

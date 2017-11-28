@@ -5,6 +5,12 @@ class MembersController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @member = @project.members.build
+
+    user_mail = User.all.map { |user| user.email }
+    respond_to do |format|
+      format.html
+      format.json { render json: user_mail }
+    end
   end
 
   def show
@@ -32,6 +38,19 @@ class MembersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def join
+    @member = Member.find(params[:id])
+    @member.join_project
+    @member.save
+    if @member.save
+      flash[:notice] = "#{@member.project.title} joined"
+      redirect_to request.referer
+    else
+      flash[:alert] = "Did not successfully join"
+      render request.referer
+    end
   end
 
 end

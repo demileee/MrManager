@@ -8,13 +8,14 @@
   <% end %>
 
   <div class="field">
-     <%= f.label :user %>
-     <%= f.email_field :user %>
+     <%= f.label :user, value: "Find by user by email:" %>
+     <%= f.email_field :user, placeholder: "george-micheal@bluth.com", id: "ajax", list: 'ajax-email' %>
+     <datalist id="ajax-email"></datalist>
   </div>
 
   <div class="field">
      <%= f.label :role %>
-     <%= f.text_field :role %>
+     <%= f.text_field :role, placeholder: "Frozen banana seller" %>
   </div>
 
    <%= f.submit %>
