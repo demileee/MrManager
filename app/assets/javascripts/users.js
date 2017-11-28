@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var getBackground  = body.style.backgroundImage;
   var sourceImageUrl = getBackground.slice(5, -2);
 
+  console.log(hex);
 
   function getContrastYIQ(hex){
     var r = parseInt(hex.substr(0,2),16);

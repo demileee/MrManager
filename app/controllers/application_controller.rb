@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
 
   def new_image
     @new_image = Unsplash.new
+  end
+
+  def hex
     @bg_image = DomColour.new
-    @hex = @bg_image.get_pix(@new_image.image)
+    @bg_image.get_pix(new_image.image)
   end
 
   def user_is_logged_in
@@ -19,6 +22,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :new_image
   helper_method :current_user
+  helper_method :hex
 
   private
   def not_authenticated
