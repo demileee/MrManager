@@ -16,6 +16,8 @@ class Message < ApplicationRecord
   end
 
   def create_notification(message)
-    Notification.create message: "#{message.project.title}: #{message.message_body}", user_id: message.user_id
+    n = Notification.create message: "#{message.project.title}: #{message.message_body}", user_id: message.user_id
+
+    Slack.new.post_message(message.user, n)
   end
 end

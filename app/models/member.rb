@@ -20,12 +20,14 @@ class Member < ApplicationRecord
   private
 
   def create_notification_for_new_member(member)
-    Notification.create message: "You've been invited to a new project: #{member.project.title}", user_id: member.user_id
+    n = Notification.create message: "You've been invited to a new project: #{member.project.title}", user_id: member.user_id
+    Slack.new.post_message(member.user, n)
   end
 
   def create_event_and_notification_for_member_accepted(member)
     Event.create message: "#{member.user.full_name} has joined the project.", project_id: member.project_id
-    Notification.create message: "#{member.user.full_name} has joined #{member.project.title}", user_id: member.project.user_id
+    n = Notification.create message: "#{member.user.full_name} has joined #{member.project.title}", user_id: member.project.user_id
+    Slack.new.post_message(member.user, n)
   end
 
 end
