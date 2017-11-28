@@ -9,7 +9,12 @@
 
   <div class="field">
      <%= f.label :user %>
-     <%= f.email_field :user %>
+     <%= f.email_field :user, list: 'email' %>
+     <datalist id="email">
+      <% User.all.each do |user| %>
+        <option value="<%= user.email %>"></option>
+      <% end %>
+      </datalist>
   </div>
 
   <div class="field">
