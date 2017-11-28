@@ -18,7 +18,16 @@
 
       <p>Final Deadline: <%= @project.hard_deadline %></p>
 
-      <%= link_to "Project Calendar" %>
+      <div title="Add to Calendar" class="addeventatc">
+        Add to Calendar
+        <span class="start"><%= @project.hard_deadline.strftime("%m/%d/%Y") %> 08:00 AM</span>
+        <span class="end"><%= @project.hard_deadline.strftime("%m/%d/%Y") %> 10:00 AM</span>
+        <span class="timezone">America/New_York</span>
+        <span class="title">Mr Manager Project: <%= @project.title %></span>
+        <span class="description"><%= @project.description %></span>
+        <span class="alarm_reminder">10080</span>
+        <span class="calname">use-title</span>
+      </div>
     </div>
   </div>
 
