@@ -1,2 +1,5 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+document.addEventListener('DOMContentLoaded', function() {
+  var datalist = document.getElementById('ajax-email')
+}
