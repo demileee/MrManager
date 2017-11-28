@@ -34,6 +34,7 @@ gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
 gem 'delayed_job_active_record'
+# gem 'rmagick', '~> 2.0'
 
 
 # Use Capistrano for deployment
