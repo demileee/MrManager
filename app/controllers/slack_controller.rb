@@ -8,7 +8,6 @@ class SlackController < ApplicationController
     @user.slack_id = request.env["omniauth.auth"]["info"]["user_id"]
 
     if @user.save(validate: false)
-      session[:user_id] = @user.id
       redirect_to user_url(@user)
     else
       render :edit
