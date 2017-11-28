@@ -13,16 +13,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def slack_new
-    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_url(@user)
-    else
-      render :new
-    end
-  end
-
   def show
     if current_user
       @user = current_user
@@ -31,7 +21,6 @@ class UsersController < ApplicationController
     else
       redirect_to login_url
     end
-    # @new_image = Unsplash.new
   end
 
   def edit
