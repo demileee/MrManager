@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Member.where(user: current_user, invite_accepted: true)
     @invites = Member.where(user: current_user, invite_accepted: false)
-
   end
 
   def new
@@ -32,7 +31,6 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

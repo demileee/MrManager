@@ -5,6 +5,12 @@ class MembersController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @member = @project.members.build
+
+    user_mail = User.all.map { |user| user.email }
+    respond_to do |format|
+      format.html
+      format.json { render json: user_mail }
+    end
   end
 
   def show

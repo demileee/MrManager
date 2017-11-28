@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       flash.now[:alert] = "Your username or password do not match"
       render :new
     end
-
   end
 
   def destroy

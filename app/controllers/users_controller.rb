@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
-      @tasks = @user.tasks.order('completed_on DESC, priority')
+      @tasks = @user.tasks.select{ |task| !task.complete?}
       @notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
     else
       redirect_to login_url

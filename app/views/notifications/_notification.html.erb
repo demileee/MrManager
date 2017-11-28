@@ -1,3 +1,7 @@
 <div class="notification">
-  <%= notification.created_at.to_formatted_s(:short) %>: <%=notification.message %>
+  <ul>
+    <li>
+      <%= notification.created_at.to_formatted_s(:short) %>: <%=notification.message %>
+    </li>
+  </ul>
 </div>
