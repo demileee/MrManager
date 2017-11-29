@@ -29,7 +29,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User must include password_confirmation on create" do
-    user = build(:user, password_confirmation: nil)
+    user = build(:user, password_confirmation: "")
     user.save
     refute user.valid?
   end
