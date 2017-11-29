@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
-      @tasks = @user.tasks.select{ |task| !task.complete?}
+      @tasks = @user.tasks.select{ |task| !task.complete? }
+      @tasks = @user.tasks.select{ |task| !task.complete? }
       if @user.last_read.present?
         @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id )
       else

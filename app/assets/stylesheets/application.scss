@@ -29,18 +29,22 @@ body{
 }
 main{
   display: flex;
+  position: relative;
+  top:20px;
+  height: calc(100vh - 40px);
 }
 
 header, footer{
   background-color: #000;
-  position: relative;
-  height: 2vh;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  height: 20px;
   a {
     color: #fff;
   }
   .logged-in-left{
     display: inline-block;
-    text-align: left;
     position: absolute;
     left: 0;
   }
@@ -51,5 +55,16 @@ header, footer{
   }
   p{
     text-align: center;
+    margin:0;
   }
+}
+
+header{
+  top:0;
+  justify-content: space-between;
+}
+
+footer{
+  bottom:0;
+  justify-content: center;
 }

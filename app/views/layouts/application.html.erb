@@ -16,17 +16,17 @@
       <div class="logged-in-left">
         <%= link_to "Projects", projects_path(current_user) %>
       </div>
-        <div class="logged-in">
-          <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
-          | <%= link_to "Logout", :logout, method: :delete %>
-        </div>
+      <div class="logged-in">
+        <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
+        | <%= link_to "Logout", :logout, method: :delete %>
+      </div>
     </header>
     <% end %>
 
     <main>
       <%= yield %>
     </main>
-    
+
     <footer>
       <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com", target: "_blank" %>. Photographer: <%= new_image.photographer %> (see their <%= link_to "portfolio", new_image.portfolio_link, target: "_blank" %>).</p>
     </footer>

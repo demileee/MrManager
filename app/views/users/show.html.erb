@@ -56,7 +56,6 @@
   </div>
 
   <div class="notepad">
-    <p><%= @user.notes %></p>
     <%= form_for(@user) do |f| %>
       <div class="field">
         <%= f.text_area :notes, :class => "text-area-box" %>
