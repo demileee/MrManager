@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resource :user, except: [:index] do
     member do
       patch :pin_task
+      patch :last_read
     end
   end
 

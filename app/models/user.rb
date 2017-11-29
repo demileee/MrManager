@@ -6,9 +6,9 @@ class User < ApplicationRecord
   has_many :messages
   belongs_to :task, optional: true
 
-  validates :password, length: { minimum: 8 }
-  validates :password, confirmation: true
-  validates :last_name, :first_name, :password_confirmation, presence: true
+  validates :password, length: { minimum: 8 }, allow_nil: true
+  validates :password, confirmation: true, allow_nil: true
+  validates :last_name, :first_name, presence: true
   validates :email, uniqueness: true
   before_create :robo_hash
 
@@ -18,6 +18,11 @@ class User < ApplicationRecord
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def remove_pinned_task
+    self.task = nil
+    self.save
   end
 
 end
