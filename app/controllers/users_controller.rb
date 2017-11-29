@@ -45,11 +45,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.last_read = Time.now
     if @user.save(validate: false)
-      flash[:notice] = "Successfully created..."
-    else
-      flash[:alert] = "It no worked"
+      redirect_to request.referer
     end
-    redirect_to request.referer
   end
 
   def pin_task
