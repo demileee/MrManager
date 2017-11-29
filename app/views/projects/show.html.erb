@@ -76,8 +76,9 @@
     <%= link_to "Tasks" %>
   </div>
 
-  <div class="message-board">
-    <div class="discussion">
+  <div class="discussion">
+  <%= link_to "Discussion" %>
+    <div class="message-board">
       <% if @project.messages %>
         <% @project.messages.each do |message| %>
         <%= render 'messages/message', message: message %>
@@ -88,7 +89,6 @@
       <%= render 'message_form' %>
       <% end %>
     </div>
-    <%= link_to "Discussion" %>
   </div>
 
 </div>
