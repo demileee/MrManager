@@ -3,21 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .message{
   display: grid;
-  grid-template-columns: 10rem;
+  grid-template-columns: 6rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 1rem auto;
 
   .profile_pic {
-    height: 9rem;
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    padding: 0.5rem;
   }
   .user_name {
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 1rem 0;
+
   }
   .create_task {
+    background-color: rgba(0, 0, 0, 0.3);
+
     grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-around;
     text-align: right;
     vertical-align: middle;
   }
   .message_body {
     grid-column: 2 / 3;
+    margin-top: 0;
+    padding: 0.5rem 0.5rem;
     overflow: scroll;
   }
 }
