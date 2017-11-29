@@ -10,7 +10,7 @@
     <h2><%= @user.task.task_body %></h2>
     <% else %>
     <h2>What are you focused on today?</h2>
-    <%= link_to "See all tasks", "#", :class => "task-link" %>
+    <%= link_to "See all tasks", "#", :class => "user-task-link" %>
     <% end %>
   </div>
 
@@ -40,7 +40,7 @@
         <p><%= task.project.hard_deadline %></p>
 
         <% unless task.complete? %>
-        <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
+        <%= link_to "See Project", project_path(task.project) %>
         <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
         <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
         <% else %>
