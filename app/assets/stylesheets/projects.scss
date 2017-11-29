@@ -2,21 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Project Show Page
+
 .project-page{
   display: grid;
+  height: 100%;
+  width: 100%;
   grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 33% 33% 33%;
+  grid-template-rows: 25% 25% 25% 25%;
   .get-details {
     grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    grid-row: 1 / 4;
   } .project-summary{
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    h1 {
+      text-align: center;
+      font-size: 4em;
+      margin: 0;
+    }
+    p {
+      text-align: center;
+    }
+    h1.activity-log-title{
+      font-size: 2em;
+      margin: 0.67em 0;
+      text-align: left;
+    }
   } .project-tasks{
     grid-column: 1 / 2;
     grid-row: 3 / 4;
   }
 }
+
+#events {
+  overflow-y: scroll;
+  background: rgba(0,0,0,0.3);
+  color: #dedede;
+  height: 80%;
+  ul{
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    padding: 0 5%;
+  }
+}
+
+// Project Index
 
 .project-index{
   display: grid;
