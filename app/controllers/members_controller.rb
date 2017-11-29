@@ -55,11 +55,12 @@ class MembersController < ApplicationController
   def invite
     @new_member_email = params[:email][0]
     @project = Project.find(params[:project_id])
+    @current_user = current_user
 
     if User.find_by(email: @new_member_email)
       flash[:alert] = "This user already exists, please add them as a member to your project."
     else
-      UserMailer.new_member_email(@new_member_email, @project.title).deliver_now
+      UserMailer.new_member_email(@new_member_email, @project.title, @current_user.first_name).deliver_now
       flash[:notice] = "An invitation email has been sent to #{@new_member_email}."
     end
     redirect_to new_project_member_url
