@@ -1,19 +1,26 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.message{
-  display: grid;
-  grid-template-columns: 6rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  margin: 1rem auto;
+.message-board {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+
+  .message, .message-owner {
+    display: grid;
+    grid-template-columns: 6rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 1rem auto;
+  }
 
   .profile_pic {
     display: flex;
+    grid-column: 1 / 2;
     justify-content: center;
     height: 5rem;
     padding: 0.5rem;
   }
   .user_name {
+    grid-column: 1 / 2;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
     margin: 0;
