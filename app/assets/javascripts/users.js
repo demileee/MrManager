@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var notifications = document.querySelector('#mark-as-read');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
-  
+
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
     var g = parseInt(hex.substr(2,2),16);
@@ -32,8 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  notifications.addEventListener('click', function(e){
-    e.preventDefault();
-
-  })
+  // notifications.addEventListener('click', function(e){
+  //   e.preventDefault();
+  //   $.ajax({
+  //     method: 'GET',
+  //     url: user,
+  //
+  //   })
+  // })
 });

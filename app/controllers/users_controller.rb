@@ -17,11 +17,10 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
       @tasks = @user.tasks.select{ |task| !task.complete?}
-      @all_notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
       if @user.last_read.present?
-        @notifications = @all_notifications.where('created_at > ?', current_user.last_read )
+        @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id )
       else
-        @notifications = @all_notifications
+        @notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
       end
     else
       redirect_to login_url
@@ -40,6 +39,17 @@ class UsersController < ApplicationController
     else
       render :show
     end
+  end
+
+  def last_read
+    @user = current_user
+    @user.last_read = Time.now
+    if @user.save(validate: false)
+      flash[:notice] = "Successfully created..."
+    else
+      flash[:alert] = "It no worked"
+    end
+    redirect_to request.referer
   end
 
   def pin_task

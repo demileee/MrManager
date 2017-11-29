@@ -19,7 +19,8 @@
       <%= link_to "See all tasks" %>
     <% end %>
 
-    <h1>Notifications</h1> <a href="#" id="mark-as-read">Up To Date</a>
+    <h1>Notifications</h1>
+    <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
     <div id="notifications">
       <%= render @notifications %>
     </div>
