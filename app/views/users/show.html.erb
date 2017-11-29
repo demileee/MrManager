@@ -20,7 +20,6 @@
   </div>
 
   <div class="user-summary">
-
     <h1>Notifications</h1>
     <% if @notifications.present? %>
       <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
@@ -57,18 +56,18 @@
     <%= link_to "Tasks","#", :class => "task-link" %>
   </div>
 
+  <div class="notepad">
+    <p><%= @user.notes %></p>
+    <%= form_for(@user) do |f| %>
+      <div class="field">
+        <%= f.text_area :notes, :class => "text-area-box" %>
+      </div>
+      <div class="submit">
+        <%= f.submit "Add Note"%>
+      </div>
+    <% end %>
+  </div>
   <div class="user-notes">
-    <div class="notepad">
-      <p><%= @user.notes %></p>
-      <%= form_for(@user) do |f| %>
-        <div class="field">
-          <%= f.text_area :notes, cols: "60", rows: "8" %>
-        </div>
-        <div class="submit">
-          <%= f.submit "Add Note"%>
-        </div>
-      <% end %>
-    </div>
     <%= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
