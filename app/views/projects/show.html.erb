@@ -43,7 +43,9 @@
   </div>
 
   <div class="project-tasks">
-    | <%= link_to "Add Task", new_project_task_path(@project) %>
+    <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
+    <% end %>
+
     <% if @tasks.present? %>
     <div class="tasks-list">
       <ul>
@@ -73,6 +75,7 @@
       </ul>
     </div>
     <% end %>
+    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
     <%= link_to "Tasks" %>
   </div>
 

@@ -26,9 +26,10 @@
     <main>
       <%= yield %>
     </main>
-
+    
+    <footer>
+      <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com", target: "_blank" %>. Photographer: <%= new_image.photographer %> (see their <%= link_to "portfolio", new_image.portfolio_link, target: "_blank" %>).</p>
+    </footer>
   </body>
-  <footer>
-    <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com", target: "_blank" %>. Photographer: <%= new_image.photographer %> (see their <%= link_to "portfolio", new_image.portfolio_link, target: "_blank" %>).</p> 
-  </footer>
+
 </html>
