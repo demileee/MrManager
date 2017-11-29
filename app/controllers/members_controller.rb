@@ -25,6 +25,7 @@ class MembersController < ApplicationController
 
     if @member.save
       redirect_to project_url(@project)
+      UserMailer.welcome_email(@member.user).deliver_now
     else
       flash[:alert] = "That user doesn't exist"
       render :new
