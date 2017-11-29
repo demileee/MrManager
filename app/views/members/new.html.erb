@@ -1,12 +1,22 @@
 <div class="form-page">
-  <%= form_for [@project, @member] do |f| %>
+
+  <% if flash.any? %>
+  <ul class="errors">
+    <% flash.each do |type, msg|  %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <%= form_for([@project, @member]) do |f| %>
     <% if @member.errors.any? %>
-      <ul class="errors">
+      <ul class="errors">appl
         <% @member.errors.full_messages.each do |m| %>
         <li><%= m %></li>
         <% end %>
       </ul>
     <% end %>
+
 
     <div class="field">
        <%= f.label :user, value: "Find user by email:" %>
@@ -19,7 +29,17 @@
        <%= f.text_field :role, placeholder: "Frozen banana seller" %>
     </div>
 
-     <%= f.submit value: "Add member" %>
+     <%= f.submit "Add Member to Project"%>
 
   <% end %>
+
+  <%= form_tag(invite_project_members_path(project_id: @project), method: "POST") do %>
+    <div class="field">
+      <%= label_tag :email, "Email: " %>
+      <%= email_field :email, "" %>
+    </div>
+
+    <%= submit_tag "Invite New Member" %>
+  <% end %>
+
 </div>
