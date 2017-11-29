@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var hex       = dataHex.slice(1);
   var tasksPane = document.getElementById("tasks-pane")
   var taskLink = document.querySelector('.user-tasks')
-  var taskLinkTwo = document.querySelector('.user-task-link')
+  var taskLinkTwo = document.getElementById('user-task-link')
   var notepadLink = document.querySelector('.notepad-link')
   var notepad     = document.querySelector('.notepad')
+  var allLinks = document.querySelectorAll('a')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -21,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   body.style.color = fontColour(hex);
+  allLinks.forEach(function(link){
+    link.style.color = "#" + hex;
+    link.style.textDecoration = 'none';
+  })
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
@@ -40,25 +45,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-
-  function toggleDiv(div){
+  function toggleDivLeft(div){
     if (div.style.display === 'none'){
+      div.classList.remove('slideOutLeft')
+      div.classList.add('slideInLeft')
       div.style.display = "block";
     } else {
-      div.style.display = 'none';
+      div.classList.remove('slideInLeft')
+      div.classList.add('slideOutLeft')
+      setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
 
+  function toggleDivRight(div){
+    if (div.style.display === 'none'){
+      div.classList.remove('slideOutRight')
+      div.classList.add('slideInRight')
+      div.style.display = "block";
+    } else {
+      div.classList.remove('slideInRight')
+      div.classList.add('slideOutRight')
+      setTimeout(function() {div.style.display = 'none'}, 200)
+    }
+  }
+
+  tasksPane.classList.add('animated')
+  notepad.classList.add('animated')
   tasksPane.style.display = 'none';
   notepad.style.display = 'none';
 
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDiv(tasksPane);
+    toggleDivLeft(tasksPane);
+  })
+
+  taskLinkTwo.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDivLeft(tasksPane);
   })
 
   notepadLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDiv(notepad);
+    toggleDivRight(notepad);
   })
 });
