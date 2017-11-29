@@ -1,45 +1,88 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.message-board {
+.discussion{
   grid-column: 3 / 4;
   grid-row: 3 / 4;
 
-  .message, .message-owner {
-    display: grid;
-    grid-template-columns: 6rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    margin: 1rem auto;
-  }
-
-  .profile_pic {
-    display: flex;
-    grid-column: 1 / 2;
-    justify-content: center;
-    height: 5rem;
-    padding: 0.5rem;
-  }
-  .user_name {
-    grid-column: 1 / 2;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    margin: 0;
-    padding: 1rem 0;
-
-  }
-  .create_task {
+  .message-board {
     background-color: rgba(0, 0, 0, 0.3);
 
-    grid-column: 2 / 3;
-    display: flex;
-    justify-content: space-around;
-    text-align: right;
-    vertical-align: middle;
+    .message, .message-owner {
+      margin: 1rem auto;
+    }
+
+    .message {
+      display: grid;
+      grid-template-columns: 6rem;
+      .profile_pic {
+        grid-column: 1 / 2;
+      }
+      .user_name {
+        grid-column: 1 / 2;
+      }
+      .create_task {
+        grid-column: 2 / 3;
+      }
+      .message_body {
+        grid-column: 2 / 3;
+      }
+    }
+
+    .message-owner {
+      display: grid;
+      grid-template-columns: auto;
+      .message_body {
+        grid-column: 1 / 2;
+      }
+      .create_task {
+        grid-column: 1 / 2;
+      }
+      .user_name {
+        grid-column: 2 / 3;
+      }
+      .profile_pic {
+        grid-column: 2 / 3;
+      }
+    }
+
+    .profile_pic {
+      display: flex;
+      justify-content: center;
+      height: 5rem;
+      padding: 0.5rem;
+    }
+    .user_name {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      margin: 0;
+      padding: 1rem 0;
+
+    }
+    .create_task {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      width: 100%;
+      a {
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .message_body {
+      margin-top: 0;
+      padding: 0.5rem 0.5rem;
+      overflow: scroll;
+    }
   }
-  .message_body {
-    grid-column: 2 / 3;
-    margin-top: 0;
-    padding: 0.5rem 0.5rem;
-    overflow: scroll;
+
+  form{
+    padding-bottom: 0.5rem;
+    .submit, .announcement {
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem;
+    }
   }
 }

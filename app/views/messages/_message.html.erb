@@ -1,14 +1,17 @@
-<% if message.user == current_user %>
+<% if current_user == message.user%>
   <div class="message-owner">
-    <%= image_tag(message.user.profile_pic, class: "profile_pic") %>
     <p class="message_body"><%= message.message_body %></p>
-    <p class="user_name"><%= message.user.full_name %></p>
-    <%= link_to "Create Task from message", new_project_task_path(@project, {task_body: message.message_body}), class: "create_task" %>
+    <%= image_tag(message.user.profile_pic, class: "profile_pic") %>
+    <div class="create_task">
+      <%= link_to "Create Task from message", new_project_task_path(@project, {task_body: message.message_body}) %>
+    </div>
+    <p class="user_name">Me</p>
   </div>
 <% else %>
   <div class="message" >
     <%= image_tag(message.user.profile_pic, class: "profile_pic") %>
     <p class="message_body"><%= message.message_body %></p>
     <p class="user_name"><%= message.user.full_name %></p>
+    <div class="create_task"></div>
   </div>
 <% end %>
