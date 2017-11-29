@@ -27,6 +27,8 @@
   } .user-tasks {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
+    position: absolute;
+    bottom: 0;
   } .user-notes{
     grid-column: 3 / 4;
     grid-row: 3 / 4;
@@ -35,9 +37,9 @@
 
 #notifications{
   overflow-y: scroll;
-  height: 400px;
   background: rgba(0,0,0,0.3);
   color: #dedede;
+  height: 400px;
   ul{
     padding: 0;
   }
@@ -48,5 +50,14 @@
 }
 
 #tasks-pane{
-  // display: none;
+  display: none;
+  height: 70%;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  position: absolute;
+  bottom: 0;
+  .task-list{
+    overflow-y: scroll;
+    height: 100%;
+  }
 }

@@ -30,42 +30,44 @@
     <% end %>
   </div>
 
+  <div id="tasks-pane">
+    <h1>Your Tasks</h1>
+    <ul class="task-list">
+      <% @tasks.each do |task| %>
+      <li>
+        <p><%= task.task_body %></p>
+        <p><%= task.project.title %></p>
+        <p><%= task.project.hard_deadline %></p>
+
+        <% unless task.complete? %>
+        <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
+        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
+        <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
+        <% else %>
+        <p>Task completed on <%= task.completed_on %></p>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 
   <div class="user-tasks">
-    <div id="tasks-pane">
-      <ul>
-        <% @tasks.each do |task| %>
-        <li>
-          <p><%= task.task_body %></p>
-          <p><%= task.project.title %></p>
-          <p><%= task.project.hard_deadline %></p>
-
-          <% unless task.complete? %>
-          <%= link_to "Edit Task", edit_project_task_path(task.project, task) %>
-          <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
-          <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
-          <% else %>
-          <p>Task completed on <%= task.completed_on %></p>
-          <% end %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
     <%= link_to "Tasks","#", :class => "task-link" %>
   </div>
 
-  <div class="user-notes">
-    <div class="notepad">
-      <p><%= @user.notes %></p>
-      <%= form_for(@user) do |f| %>
-        <div class="field">
-          <%= f.text_area :notes, cols: "60", rows: "8" %>
-        </div>
-        <div class="submit">
-          <%= f.submit "Add Note"%>
-        </div>
-      <% end %>
+  <div class="notepad">
+    <p><%= @user.notes %></p>
+    <%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.text_area :notes, cols: "60", rows: "8" %>
     </div>
+    <div class="submit">
+      <%= f.submit "Add Note"%>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="user-notes">
     <%= link_to "Notes" %>
   </div>
 

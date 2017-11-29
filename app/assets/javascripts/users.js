@@ -34,7 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function toggleDiv(div){
-    div.style.display = div.style.display ? "block" : "none";
+    if (div.style.display = "none"){
+      div.style.display = "block";
+    } else {
+      div.style.display = "none";
+    }
   }
 
   taskLink.addEventListener('click', function(e){
