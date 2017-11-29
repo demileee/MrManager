@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var body      = document.querySelector('body');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
-  var tasksPane = document.getElementById("#tasks-pane")
-  var taskLink = document.querySelector('.task-link')
+  var tasksPane = document.getElementById("tasks-pane")
+  var taskLink = document.querySelector('.user-tasks')
   var taskLinkTwo = document.querySelector('.user-task-link')
   var notepadLink = document.querySelector('.notepad-link')
   var notepad     = document.querySelector('.notepad')
@@ -40,23 +40,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // function toggleDiv(){
-  //   if (tasksPane.style.display === "none"){
-  //     tasksPane.style.display = "block";{
-  //     } else {
-  //       tasksPane.style.display = "none";
-  //     }
-  //   }
-  // }
-  //
-  //
-  // taskLink.addEventListener('click', function(e){
-  //   e.preventDefault();
-  //   toggleDiv(tasksPane);
-  // })
 
-  // notepadLink.addEventListener('click', function(e){
-  //   e.preventDefault();
-  //   toggleDiv(notepad);
-  // })
+  function toggleDiv(div){
+    if (div.style.display === 'none'){
+      div.style.display = "block";
+    } else {
+      div.style.display = 'none';
+    }
+  }
+
+  tasksPane.style.display = 'none';
+  notepad.style.display = 'none';
+
+  taskLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDiv(tasksPane);
+  })
+
+  notepadLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDiv(notepad);
+  })
 });
