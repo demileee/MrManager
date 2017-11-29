@@ -33,7 +33,7 @@ main{
 header, footer{
   background-color: #000;
   position: relative;
-  height: 2vh;
+  height: 20px;
   a {
     color: #fff;
   }
@@ -51,4 +51,12 @@ header, footer{
   p{
     text-align: center;
   }
+}
+
+.display-block{
+  display: block;
+}
+
+.display-none{
+  display: none;
 }
