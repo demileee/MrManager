@@ -25,7 +25,6 @@ class MembersController < ApplicationController
 
     if @member.save
       redirect_to project_url(@project)
-      UserMailer.welcome_email(@member.user).deliver_now
     else
       flash[:alert] = "That user doesn't exist"
       render :new
@@ -51,6 +50,13 @@ class MembersController < ApplicationController
       flash[:alert] = "Did not successfully join"
       render request.referer
     end
+  end
+
+  def invite
+    @new_member_email = params[:email][0]
+    UserMailer.new_member_email(@new_member_email).deliver_now
+    flash[:notice] = "An invitation email has been sent to #{@new_member_email}."
+    redirect_to new_project_member_url
   end
 
 end

@@ -8,7 +8,7 @@
   </ul>
   <% end %>
 
-  <%= form_for [@project, @member] do |f| %>
+  <%= form_for(project_members_path([@project, @member])) do |f| %>
     <% if @member.errors.any? %>
       <ul class="errors">
         <% @member.errors.full_messages.each do |m| %>
@@ -29,17 +29,17 @@
        <%= f.text_field :role, placeholder: "Frozen banana seller" %>
     </div>
 
-     <%= f.submit %>
+     <%= f.submit "Add Member to Project"%>
 
   <% end %>
 
-  <%= form_tag(:invite_member) do %>
+  <%= form_tag(invite_project_members_path(project_id: @project), method: "POST") do %>
     <div class="field">
       <%= label_tag :email, "Email: " %>
-      <%= email_field :email %>
+      <%= email_field :email, "" %>
     </div>
 
-    <%= submit_tag %>
+    <%= submit_tag "Invite New Member" %>
   <% end %>
 
 </div>
