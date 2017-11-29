@@ -1,25 +1,36 @@
 <div class="project-index">
   <div class="project-list">
-    <%= link_to "Create New Project", new_project_path %>
+    <div class="create-project">
+      <%= link_to new_project_path do %>
+        <h2>Create New Project</h2>
+      <% end %>
+    </div>
 
     <% if flash.any? %>
-    <% flash.each do |type, msg| %>
-    <p><%= msg %></p>
-    <% end %>
+      <div class="flash-card">
+        <% flash.each do |type, msg| %>
+        <p><%= msg %></p>
+        <% end %>
+      </div>
     <% end %>
 
     <% if @invites.any? %>
-    <h1>Pending invites</h1>
-    <% @invites.each do |invite| %>
-    <h3><%= invite.project.title %></h3>
-    <%= link_to "Join project", join_project_member_path(invite.project, invite), method: :patch %>
-    <% end %>
+      <div class="invite-card">
+        <h1>Pending Project Invites</h1>
+        <% @invites.each do |invite| %>
+        <h3>Project Name: <%= invite.project.title %> |
+        <%= link_to "Join Project", join_project_member_path(invite.project, invite), method: :patch %>
+        </h3>
+        <% end %>
+      </div>
     <% end %>
 
     <% @projects.each do |project| %>
       <div class="project-card">
         <div class="project-title">
-          <h1><%= project.project.title %></h1>
+          <%= link_to(project_path(project.project), class: "title-link") do %>
+            <h1><%= project.project.title %></h1>
+          <% end %>
         </div>
         <div class="project-card-left">
           <h2><%= project.role %></h2>
