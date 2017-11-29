@@ -5,14 +5,15 @@
     <title></title>
   </head>
   <body>
-    <h1>Welcome to Mr Manager, <%= @user_email %></h1>
+    <h1>Invitation to Join Mr. Manager</h1>
     <p>
-      You have successfully signed up to Mr Manager,
-      your username is: <%= @user_email %>.<br>
+      <%= @user_email %>, you have been invited to contribute to a project on Mr. Manager!
+      <br>The project name is <%= @project_title %>.
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      To sign up and start working on the project, please follow this link: <%= @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
+    <p>Mr. Manager</p>
   </body>
 </html>

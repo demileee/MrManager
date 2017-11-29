@@ -26,7 +26,7 @@ class MembersController < ApplicationController
     if @member.save
       redirect_to project_url(@project)
     else
-      flash[:alert] = "That user doesn't exist"
+      flash[:alert] = "This user doesn't exist, please invite them to Mr Manager."
       render :new
     end
   end
@@ -54,8 +54,14 @@ class MembersController < ApplicationController
 
   def invite
     @new_member_email = params[:email][0]
-    UserMailer.new_member_email(@new_member_email).deliver_now
-    flash[:notice] = "An invitation email has been sent to #{@new_member_email}."
+    @project = Project.find(params[:project_id])
+
+    if User.find_by(email: @new_member_email)
+      flash[:alert] = "This user already exists, please add them as a member to your project."
+    else
+      UserMailer.new_member_email(@new_member_email, @project.title).deliver_now
+      flash[:notice] = "An invitation email has been sent to #{@new_member_email}."
+    end
     redirect_to new_project_member_url
   end
 
