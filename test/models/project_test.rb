@@ -81,13 +81,6 @@ class ProjectTest < ActiveSupport::TestCase
     assert_equal project.soft_deadline, date
   end
 
-  test "user can delete soft_deadline" do
-    project = build(:project, soft_deadline: Date.today)
-    project.save
-    project.remove_soft_deadline
-    assert_nil project.soft_deadline
-  end
-
   test "user is told if there are no tasks" do
     project = build(:project)
     project.save
