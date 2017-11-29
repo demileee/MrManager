@@ -11,13 +11,15 @@
   </div>
 
   <div class="user-summary">
-    <h1>Welcome, <%= @user.first_name %></h1>
-    <% if @user.task.present? %>
+    <div class="welcome-div">
+      <span class="name">Welcome, <%= @user.first_name %></span>
+      <% if @user.task.present? %>
       <h2><%= @user.task.task_body %></h2>
-    <% else %>
+      <% else %>
       <h2>What are you focused on today?</h2>
-      <%= link_to "See all tasks" %>
-    <% end %>
+      <%= link_to "See all tasks", "#", :class => "task-link" %>
+      <% end %>
+    </div>
 
     <h1>Notifications</h1>
     <% if @notifications.present? %>
@@ -55,20 +57,19 @@
     <%= link_to "Tasks","#", :class => "task-link" %>
   </div>
 
-  <div class="notepad">
-    <p><%= @user.notes %></p>
-    <%= form_for(@user) do |f| %>
-    <div class="field">
-      <%= f.text_area :notes, cols: "60", rows: "8" %>
-    </div>
-    <div class="submit">
-      <%= f.submit "Add Note"%>
-    </div>
-    <% end %>
-  </div>
-  
   <div class="user-notes">
-    <%= link_to "Notes" %>
+    <div class="notepad">
+      <p><%= @user.notes %></p>
+      <%= form_for(@user) do |f| %>
+        <div class="field">
+          <%= f.text_area :notes, cols: "60", rows: "8" %>
+        </div>
+        <div class="submit">
+          <%= f.submit "Add Note"%>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
 </div>
