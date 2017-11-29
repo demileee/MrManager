@@ -17,18 +17,27 @@
     <% end %>
 
     <% @projects.each do |project| %>
-      <h1><%= project.project.title %></h1>
-      <h2><%= project.role %></h2>
-      <p><%= project.project.hard_deadline %></p>
-      <p><%= project.project.time_remaining %></p>
-      <p><%= project.project.description %></p>
-      <%= link_to "Project Page", project_path(project.project) %>
-      <% if project.project.user == current_user %>
-      |
-      <%= link_to "Edit", edit_project_path(project.project) %>
-      |
-      <%= link_to "Delete", project_path(project.project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.project.title}? This cannot be undone."} %>
-      <% end %>
+      <div class="project-card">
+        <div class="project-title">
+          <h1><%= project.project.title %></h1>
+        </div>
+        <div class="project-card-left">
+          <h2><%= project.role %></h2>
+          <p>Project Due Date: <%= project.project.hard_deadline %></p>
+          <p>Time Remaining: <%= project.project.time_remaining %></p>
+          <%= link_to "Project Page", project_path(project.project) %>
+          <% if project.project.user == current_user %>
+          |
+          <%= link_to "Edit", edit_project_path(project.project) %>
+          |
+          <%= link_to "Delete", project_path(project.project), method: :delete, data: { confirm: "Are you sure you want to delete #{project.project.title}? This cannot be undone."} %>
+          <% end %>
+        </div>
+
+        <div class="project-card-right">
+          <p><%= project.project.description %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
