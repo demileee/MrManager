@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
+    if (document.contains(document.querySelector('.quote'))){
+      document.querySelector('.quote').remove();
+    }
 
     $.ajax({
       url: 'http://quotes.rest/qod.json?category=inspire',
