@@ -25,6 +25,10 @@ Rails.application.routes.draw do
       member do
         patch :join
       end
+
+      collection do
+        post  :invite
+      end
     end
     resources :tasks do
       member do
