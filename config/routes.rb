@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'events' => 'events#index'
 
-  get '/auth/slack/callback', to: 'slack#update' 
+  get '/auth/slack/callback', to: 'slack#update'
 
   root 'sessions#new'
 
@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     resources :members do
       member do
         patch :join
+      end
+
+      collection do
+        post  :invite
       end
     end
     resources :tasks do
