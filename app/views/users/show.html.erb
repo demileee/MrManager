@@ -10,24 +10,25 @@
     <h2><%= @user.task.task_body %></h2>
     <% else %>
     <h2>What are you focused on today?</h2>
-    <%= link_to "See all tasks", "#", :class => "user-task-link" %>
+    <div id="user-task-link">
+      <%= link_to "See all tasks", "#"%>
+    </div>
     <% end %>
-  </div>
-
-  <div class="get-quotes">
-   <%= link_to "Need Encouragement?" %>
-  </div>
-
-  <div class="user-summary">
-    <h1>Notifications</h1>
-    <% if @notifications.present? %>
+    <div class="user-summary">
+      <h1>Notifications</h1>
+      <% if @notifications.present? %>
       <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
       <div id="notifications">
         <%= render @notifications %>
       </div>
-    <% else %>
+      <% else %>
       <p>You're up to date!</p>
     <% end %>
+    </div>
+  </div>
+
+  <div class="get-quotes">
+   <%= link_to "Need Encouragement?" %>
   </div>
 
   <div id="tasks-pane">
@@ -52,7 +53,7 @@
   </div>
 
   <div class="user-tasks">
-    <%= link_to "Tasks","#", :onclick => "toggleDiv()", :class => "task-link" %>
+    <%= link_to "Tasks","#", :class => "task-link" %>
   </div>
 
   <div class="notepad">

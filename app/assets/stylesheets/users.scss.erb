@@ -19,8 +19,12 @@
     top: 40%;
     span.name{
       font-size: 5em;
+    } .user-summary{
+      width: 45%;
+      margin: 0 auto;
+    }  p{
+      text-align: center;}
     }
-  }
   .projects-page-link{
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -30,12 +34,6 @@
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     text-align: right;
-  } .user-summary{
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    position: relative;
-    padding-top: 80px;
-    p{ text-align: center;}
   } .user-tasks {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
@@ -54,7 +52,7 @@
   overflow-y: scroll;
   background: rgba(0,0,0,0.3);
   color: #dedede;
-  height: 150%;
+  height: 35vh;
   ul{
     padding: 0;
   }
@@ -65,7 +63,6 @@
 }
 
 #tasks-pane{
-  display: none;
   height: 70%;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
@@ -78,7 +75,6 @@
 }
 
 .notepad{
-  display: none;
   grid-row: 3 / 4;
   grid-column: 3 / 4;
   position: absolute;
