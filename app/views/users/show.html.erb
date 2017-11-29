@@ -32,8 +32,7 @@
 
 
   <div class="user-tasks">
-    <%= link_to "Tasks" %>
-    <div class="tasks-pane">
+    <div id="tasks-pane">
       <ul>
         <% @tasks.each do |task| %>
         <li>
@@ -52,10 +51,10 @@
         <% end %>
       </ul>
     </div>
+    <%= link_to "Tasks","#", :class => "task-link" %>
   </div>
 
   <div class="user-notes">
-    <%= link_to "Notes" %>
     <div class="notepad">
       <p><%= @user.notes %></p>
       <%= form_for(@user) do |f| %>
@@ -67,6 +66,7 @@
         </div>
       <% end %>
     </div>
+    <%= link_to "Notes" %>
   </div>
 
 </div>

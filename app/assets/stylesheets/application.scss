@@ -21,11 +21,16 @@
 
 body{
   height: 100vh;
+  min-height: 100%;
   background-size: cover; //This should probably be 100% auto after we resize all elements on the views
   background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
+  // overflow: hidden;
+  transition: -webkit-filter 0.5s ease;
 }
-
+main{
+  display: flex;
+}
 .logged-in {
   background-color: #000;
   text-align: right;

@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var body      = document.querySelector('body');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
+  var tasksPane = document.querySelector("#tasks-pane")
+  var taskLink = document.querySelector('.task-link')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -30,4 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
       quoteDiv.insertBefore(newpTag, getQuotes);
     });
   });
+
+  function toggleDiv(div){
+    div.style.display = div.style.display ? "block" : "none";
+  }
+
+  taskLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDiv(tasksPane);
+  })
 });
