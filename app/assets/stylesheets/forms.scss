@@ -5,6 +5,13 @@
   width: 25rem;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  input {
+    color: white;
+  }
+  input[type="submit"]{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
 }
 
 .field {
