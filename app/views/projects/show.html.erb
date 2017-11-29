@@ -43,7 +43,6 @@
   </div>
 
   <div class="project-tasks">
-    <%= link_to "Tasks" %>
     | <%= link_to "Add Task", new_project_task_path(@project) %>
     <% if @tasks.present? %>
     <div class="tasks-list">
@@ -74,10 +73,10 @@
       </ul>
     </div>
     <% end %>
+    <%= link_to "Tasks" %>
   </div>
 
   <div class="message-board">
-    <%= link_to "Discussion" %>
     <div class="discussion">
       <% if @project.messages %>
         <% @project.messages.each do |message| %>
@@ -89,6 +88,7 @@
       <%= render 'message_form' %>
       <% end %>
     </div>
+    <%= link_to "Discussion" %>
   </div>
 
 </div>

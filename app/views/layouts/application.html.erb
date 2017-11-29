@@ -11,18 +11,24 @@
   </head>
 
   <body data-hex="<%= new_image.hex %>" style="background-image:url(<%= new_image.image %>)";>
+    <% if session[:user_id] %>
     <header>
-      <% if session[:user_id] %>
+      <div class="logged-in-left">
+        <%= link_to "Projects", projects_path(current_user) %>
+      </div>
         <div class="logged-in">
-          <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %> |
+          <%= link_to "#{current_user.first_name}'s Dashboard", user_path(current_user) %>
           | <%= link_to "Logout", :logout, method: :delete %>
         </div>
-      <% end %>
     </header>
+    <% end %>
 
     <main>
       <%= yield %>
     </main>
 
   </body>
+  <footer>
+    <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com", target: "_blank" %>. Photographer: <%= new_image.photographer %> (see their <%= link_to "portfolio", new_image.portfolio_link, target: "_blank" %>).</p> 
+  </footer>
 </html>

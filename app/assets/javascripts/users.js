@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var body      = document.querySelector('body');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
+  var tasksPane = document.querySelector("#tasks-pane")
+  var taskLink = document.querySelector('.task-link')
+  var notepadLink = document.querySelector('.notepad-link')
+  var notepad   = document.querySelector('.notepad')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -30,4 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
       quoteDiv.insertBefore(newpTag, getQuotes);
     });
   });
+
+  function toggleDiv(div){
+    if (div.style.display = "none"){
+      div.style.display = "block";
+    } else {
+      div.style.display = "none";
+    }
+  }
+
+  taskLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDiv(tasksPane);
+  })
+
+  notepadLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleDiv(notepad);
+  })
 });
