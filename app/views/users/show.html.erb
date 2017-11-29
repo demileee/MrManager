@@ -5,21 +5,21 @@
     <%= link_to "Edit yourself", edit_user_path %>
   </div>
 
+  <div class="welcome-div">
+    <span class="name">Welcome, <%= @user.first_name %></span>
+    <% if @user.task.present? %>
+    <h2><%= @user.task.task_body %></h2>
+    <% else %>
+    <h2>What are you focused on today?</h2>
+    <%= link_to "See all tasks", "#", :class => "task-link" %>
+    <% end %>
+  </div>
 
   <div class="get-quotes">
    <%= link_to "Need Encouragement?" %>
   </div>
 
   <div class="user-summary">
-    <div class="welcome-div">
-      <span class="name">Welcome, <%= @user.first_name %></span>
-      <% if @user.task.present? %>
-      <h2><%= @user.task.task_body %></h2>
-      <% else %>
-      <h2>What are you focused on today?</h2>
-      <%= link_to "See all tasks", "#", :class => "task-link" %>
-      <% end %>
-    </div>
 
     <h1>Notifications</h1>
     <% if @notifications.present? %>
