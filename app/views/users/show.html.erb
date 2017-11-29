@@ -20,10 +20,14 @@
     <% end %>
 
     <h1>Notifications</h1>
-    <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
-    <div id="notifications">
-      <%= render @notifications %>
-    </div>
+    <% if @notifications.present? %>
+      <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
+      <div id="notifications">
+        <%= render @notifications %>
+      </div>
+    <% else %>
+      <p>You're up to date!</p>
+    <% end %>
   </div>
 
 

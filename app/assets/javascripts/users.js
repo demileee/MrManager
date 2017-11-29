@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var getQuotes = document.querySelector(".get-quotes > a");
   var quoteDiv  = document.querySelector(".get-quotes");
   var body      = document.querySelector('body');
-  var notifications = document.querySelector('#mark-as-read');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
 
@@ -31,13 +30,4 @@ document.addEventListener('DOMContentLoaded', function() {
       quoteDiv.insertBefore(newpTag, getQuotes);
     });
   });
-
-  // notifications.addEventListener('click', function(e){
-  //   e.preventDefault();
-  //   $.ajax({
-  //     method: 'GET',
-  //     url: user,
-  //
-  //   })
-  // })
 });
