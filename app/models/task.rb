@@ -20,6 +20,7 @@ class Task < ApplicationRecord
 
   def completed
     self.completed_on = Date.today unless complete?
+    self.user.remove_pinned_task
   end
 
   def is_project_owner?

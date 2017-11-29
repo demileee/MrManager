@@ -17,7 +17,11 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
       @tasks = @user.tasks.select{ |task| !task.complete?}
-      @notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
+      if @user.last_read.present?
+        @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id )
+      else
+        @notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
+      end
     else
       redirect_to login_url
     end
@@ -34,6 +38,14 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     else
       render :show
+    end
+  end
+
+  def last_read
+    @user = current_user
+    @user.last_read = Time.now
+    if @user.save(validate: false)
+      redirect_to request.referer
     end
   end
 
