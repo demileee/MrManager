@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'events' => 'events#index'
 
-  get '/auth/slack/callback', to: 'slack#update' 
+  get '/auth/slack/callback', to: 'slack#update'
 
   root 'sessions#new'
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resource :user, except: [:index] do
     member do
       patch :pin_task
+      patch :last_read
     end
   end
 
