@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var tasksPane = document.getElementById("tasks-pane")
   var taskLink = document.querySelector('.user-tasks')
   var taskLinkTwo = document.getElementById('user-task-link')
-  var notepadLink = document.querySelector('.notepad-link')
+  var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
+  var editSelf = document.querySelector('.edit-link')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = "#" + hex;
+    link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
 
@@ -32,32 +33,43 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.contains(document.querySelector('.quote'))){
       document.querySelector('.quote').remove();
     }
-
     $.ajax({
       url: 'http://quotes.rest/qod.json?category=inspire',
       method: 'GET'
     }).done(function(data){
       var quote = data.contents.quotes[0].quote
       var newpTag = document.createElement('p')
-      newpTag.className = "quote"
+      newpTag.classList.add('quote', 'animated', 'fadeInUp')
       newpTag.innerText = quote
       quoteDiv.appendChild(newpTag, getQuotes);
     });
   });
 
-  function toggleDivLeft(div){
+  function toggleDivLeft(div, link, linkTwo){
     if (div.style.display === 'none'){
-      div.classList.remove('slideOutLeft')
-      div.classList.add('slideInLeft')
+      // Remove slide outs
+      div.classList.remove('slideOutLeft');
+      link.classList.remove('slideOutLeft');
+      linkTwo.classList.remove('slideOutLeft');
+      // Add slide ins
+      div.classList.add('slideInLeft');
+      link.classList.add('slide-from-left', 'slideInLeft');
+      linkTwo.classList.add('slide-from-left', 'slideInLeft');
       div.style.display = "block";
     } else {
+      // Remove slide ins
       div.classList.remove('slideInLeft')
+      link.classList.remove('slide-from-left', 'slideInLeft')
+      linkTwo.classList.remove('slide-from-left', 'slideInLeft')
+      // Add slide outs
       div.classList.add('slideOutLeft')
+      link.classList.add('slideOutLeft')
+      linkTwo.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
 
-  function toggleDivRight(div){
+  function toggleUserRight(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
       div.classList.add('slideInRight')
@@ -76,16 +88,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
   notepadLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivRight(notepad);
+    toggleUserRight(notepad);
   })
 });

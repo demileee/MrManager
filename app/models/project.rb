@@ -31,7 +31,7 @@ class Project < ApplicationRecord
       completed = self.tasks.select { |task| task.complete? }
       "#{((completed.count.to_f / self.tasks.count.to_f).round(2) * 100).to_i}%"
     else
-      "There are no currently tasks"
+      "There are currently no tasks"
     end
   end
 
