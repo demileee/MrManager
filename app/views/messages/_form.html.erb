@@ -1,6 +1,6 @@
 <%= form_for ([@project, @message]) do |f| %>
   <div class="field">
-    <%= f.text_area :message_body, cols: "60", rows: "8" %>
+    <%= f.text_area :message_body, cols: "60", rows: "2" %>
   </div>
 
   <% if current_user === @project.user %>
@@ -9,7 +9,7 @@
       <%= f.check_box :announcement, {}, true, false %>
     </div>
   <% end %>
-  
+
   <div class="submit">
     <%= f.submit %>
   </div>

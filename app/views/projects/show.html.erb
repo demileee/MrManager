@@ -90,7 +90,7 @@
       </div>
       <% end %>
         <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
-        <%= render 'message_form' %>
+        <%= render 'messages/form' %>
         <% end %>
     </div>
   </div>
