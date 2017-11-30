@@ -30,6 +30,8 @@
     }
     span.name{
       font-size: 5em;
+    } h2 {
+      padding: 0 20%;
     } #user-task-link{
       display: inline;
     } .user-summary{
@@ -68,9 +70,10 @@
 #notifications{
   overflow-y: scroll;
   background: rgba(0,0,0,0.3);
-  color: #dedede;
   height: 35vh;
   text-align: left;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   ul{
     padding: 0;
   }

@@ -12,11 +12,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
     @members = @project.members.select { |member| member.invite_accepted? }
     @tasks = @project.tasks.order('completed_on DESC, priority')
     @task = Task.new
     @message = Message.new
+    @messages = @project.messages.order('created_at')
     @events = Event.where('project_id = ?', params[:id]).last(5).reverse
   end
 

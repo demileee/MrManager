@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .discussion{
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-
+  grid-column: 3 / 5;
+  grid-row: 1 / 5;
+  height: 100%;
+  overflow: scroll;
+  width: 70%;
+  margin-left: 7%;
   .message-board {
     background-color: rgba(0, 0, 0, 0.3);
 
@@ -32,6 +35,7 @@
     .message-owner {
       display: grid;
       grid-template-columns: auto;
+      text-align: right;
       .message_body {
         grid-column: 1 / 2;
       }
@@ -43,6 +47,7 @@
       }
       .profile_pic {
         grid-column: 2 / 3;
+        transform: scalex(-1);
       }
     }
 
@@ -64,7 +69,7 @@
       height: 100%;
       width: 100%;
       a {
-        color: white;
+        color: #dedede;
         padding: 1rem;
         display: flex;
         justify-content: center;
@@ -85,4 +90,13 @@
       margin: 0.5rem;
     }
   }
+}
+
+#discussion {
+  grid-column: 3 / 4;
+  grid-row: 4;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
 }

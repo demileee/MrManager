@@ -1,11 +1,12 @@
 class MembersController < ApplicationController
+
+  before_action :find_project, only: [:new, :create, :invite]
+  
   def index
   end
 
   def new
-    @project = Project.find(params[:project_id])
     @member = @project.members.build
-
     user_mail = User.all.map { |user| user.email }
     respond_to do |format|
       format.html
@@ -17,7 +18,6 @@ class MembersController < ApplicationController
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @member = @project.members.build
     @member.project = @project
     @member.user = User.find_by('email = ?', params[:member][:user])
@@ -54,7 +54,6 @@ class MembersController < ApplicationController
 
   def invite
     @new_member_email = params[:email][0]
-    @project = Project.find(params[:project_id])
     @current_user = current_user
 
     if User.find_by(email: @new_member_email)
@@ -66,4 +65,7 @@ class MembersController < ApplicationController
     redirect_to new_project_member_url
   end
 
+  def find_project
+    @project = Project.find(params[:project_id])
+  end
 end
