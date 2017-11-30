@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
+  console.log(messageForm.action);
   var submitMessage = messageForm.querySelector('input[type="submit"]');
   var allMessages = document.querySelector('.all-messages');
+  allMessages.scrollTop = allMessages.scrollHeight;
 
   var ownerMessage = document.querySelector('.message-owner')
 
@@ -52,7 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   send.addEventListener('click', function(e) {
-    send.style.color = '#908d8d';
+    console.log(messageForm.action);
+
+    send.action = 'submit'
+    send.style.color = '#696464';
     setTimeout(function() {send.style.color = '#dedede'}, 350);
     $.ajax({
       url: messageForm.action,
@@ -60,10 +65,18 @@ document.addEventListener('DOMContentLoaded', function() {
       dataType: 'json',
       data: $(messageForm).serialize()
     }).done(function(data) {
+      console.log(data);
       var newMessage = ownerMessage.cloneNode(true);
-      newMessage.querySelector('message_body').innerText = data.message;
+      newMessage.querySelector('.message_body').innerText = data.message_body;
 
       allMessages.append(newMessage);
+      allMessages.scrollTop = allMessages.scrollHeight;
+    }).fail(function(data, a, b) {
+      console.log('in fail');
+      console.log(data);
+      console.log(a);
+      console.log(b);
+
     })
   })
 })
