@@ -98,8 +98,8 @@ h2:hover {
   display: grid;
   grid-template-columns: 45% 55%;
   grid-template-rows: 30% 70%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   } .project-title {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
