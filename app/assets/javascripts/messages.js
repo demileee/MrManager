@@ -6,12 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
+  discussion.scrollTop = discussion.scrollHeight;
 
-  function toggleDivRight(div){
+  function toggleMessages(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
       div.classList.add('slideInRight')
-      div.style.display = "block";
+      div.style.display = "flex";
     } else {
       div.classList.remove('slideInRight')
       div.classList.add('slideOutRight')
@@ -21,6 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
-    toggleDivRight(messageBoard);
+    toggleMessages(messageBoard);
   });
 })

@@ -83,14 +83,15 @@
   <div class="discussion">
     <div class="message-board">
       <% if @messages.present? %>
+      <div class="all-messages">
         <% @messages.each do |message| %>
         <%= render 'messages/message', message: message %>
         <% end %>
+      </div>
       <% end %>
-
-      <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
-      <%= render 'message_form' %>
-      <% end %>
+        <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
+        <%= render 'message_form' %>
+        <% end %>
     </div>
   </div>
 
