@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   notepadLink.addEventListener('click', function(e){
-    console.log('clicked');
     e.preventDefault();
     toggleUserRight(notepad);
   })
