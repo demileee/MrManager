@@ -8,9 +8,8 @@
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
     <div class="pin-task">
-      <%= truncate(@user.task.task_body, :length => 80) %></h1>
+      <%= truncate(@user.task.task_body, :length => 70) %></h1>
     </div>
-
 
     <%= link_to project_path(@user.task.project) do %>
       <div class="task-prop green"><%= @user.task.project.title %></div>
