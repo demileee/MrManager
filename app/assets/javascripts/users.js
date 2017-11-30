@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
+  var editSelf = document.querySelector('.edit-link')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -45,15 +46,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  function toggleDivLeft(div, link){
+  function toggleDivLeft(div, link, linkTwo){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutLeft')
       div.classList.add('slideInLeft')
       link.classList.add('slide-from-left')
+      editSelf.classList.add('slide-from-left')
       div.style.display = "block";
     } else {
       div.classList.remove('slideInLeft')
       link.classList.remove('slide-from-left')
+      editSelf.classList.remove('slide-from-left')
       div.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
@@ -84,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
     toggleDivLeft(tasksPane, taskLink);
+    console.log(editSelf);
   })
 
   notepadLink.addEventListener('click', function(e){
