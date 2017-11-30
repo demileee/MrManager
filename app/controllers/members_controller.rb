@@ -1,12 +1,12 @@
 class MembersController < ApplicationController
 
   before_action :find_project, only: [:new, :create, :invite]
+  
   def index
   end
 
   def new
     @member = @project.members.build
-
     user_mail = User.all.map { |user| user.email }
     respond_to do |format|
       format.html
