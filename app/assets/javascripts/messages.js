@@ -12,16 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function toggleMessages(div){
     if (div.style.display === 'none'){
-      div.classList.remove('slideOutRight')
-      div.classList.add('slideInRight')
+      div.classList.remove('slideOutRight');
+      div.classList.add('slideInRight');
       div.style.display = "flex";
     } else {
-      div.classList.remove('slideInRight')
-      div.classList.add('slideOutRight')
+      div.classList.remove('slideInRight');
+      div.classList.add('slideOutRight');
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
 
+    function toggleNewMessage(div) {
+      if (div.style.display === 'none'){
+        div.classList.remove('slideDown');
+        div.classList.add('slideUp');
+        div.style.display = 'block'
+      } else {
+        div.classList.remove('slideUp');
+        div.classList.add('slideDown');
+        setTimeout(function() {div.style.display = 'none'}, 200)
+      }
+
+    }
 
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
