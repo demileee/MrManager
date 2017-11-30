@@ -90,6 +90,7 @@
       </div>
       <% end %>
         <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
+        <p>Add to the discussion <i class="material-icons">comment</i></p>
         <%= render 'message_form' %>
         <% end %>
     </div>
