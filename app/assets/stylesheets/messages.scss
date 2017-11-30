@@ -8,7 +8,6 @@
   overflow: scroll;
   width: 70%;
   margin-left: 7%;
-  padding-bottom: 1rem;
   .message-board {
     background-color: rgba(0, 0, 0, 0.3);
 
@@ -48,6 +47,7 @@
       }
       .profile_pic {
         grid-column: 2 / 3;
+        transform: scalex(-1);
       }
     }
 

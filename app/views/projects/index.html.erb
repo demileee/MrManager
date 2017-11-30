@@ -6,14 +6,6 @@
       <% end %>
     </div>
 
-    <% if flash.any? %>
-      <div class="flash-card">
-        <% flash.each do |type, msg| %>
-        <p><%= msg %></p>
-        <% end %>
-      </div>
-    <% end %>
-
     <% if @invites.any? %>
       <div class="invite-card">
         <h1>Pending Project Invites</h1>

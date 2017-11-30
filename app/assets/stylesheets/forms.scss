@@ -4,7 +4,8 @@
   padding: 1rem 0;
   width: 25rem;
   background-color: rgba(0, 0, 0, 0.3);
-  color: #dedede;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   input {
     color: #dedede;
   }
@@ -20,7 +21,7 @@
   justify-content: space-between;
   input{
     border: none;
-    border-bottom: 2px black solid;
+    border-bottom: 2px #dedede solid;
     background: none;
   }
   .field_with_errors {

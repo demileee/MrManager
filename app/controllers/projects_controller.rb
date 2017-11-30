@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     @tasks = @project.tasks.order('completed_on DESC, priority')
     @task = Task.new
     @message = Message.new
+    @messages = @project.messages.order('created_at')
     @events = Event.where('project_id = ?', params[:id]).last(5).reverse
   end
 

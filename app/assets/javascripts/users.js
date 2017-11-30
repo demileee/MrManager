@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var tasksPane = document.getElementById("tasks-pane")
   var taskLink = document.querySelector('.user-tasks')
   var taskLinkTwo = document.getElementById('user-task-link')
-  var notepadLink = document.querySelector('.notepad-link')
+  var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
 
@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = "#ffffff";
+    link.style.color = '#ffffff';
+    link.style.textDecoration = 'none';
   })
 
   getQuotes.addEventListener('click', function(e){
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function toggleDivRight(div){
+  function toggleUserRight(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
       div.classList.add('slideInRight')
@@ -84,7 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   notepadLink.addEventListener('click', function(e){
+    console.log('clicked');
     e.preventDefault();
-    toggleDivRight(notepad);
+    toggleUserRight(notepad);
   })
 });

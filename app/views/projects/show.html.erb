@@ -82,8 +82,8 @@
   <div id="discussion"><%= link_to "Discussion", id: "discussion"%></div>
   <div class="discussion">
     <div class="message-board">
-      <% if @project.messages %>
-        <% @project.messages.each do |message| %>
+      <% if @messages.present? %>
+        <% @messages.each do |message| %>
         <%= render 'messages/message', message: message %>
         <% end %>
       <% end %>
