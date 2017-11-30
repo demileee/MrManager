@@ -10,10 +10,7 @@
   width: 100%;
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 25% 25% 25% 25%;
-  .get-details {
-    grid-column: 1 / 2;
-    grid-row: 1 / 4;
-  } .project-summary{
+ .project-summary{
     grid-column: 2 / 3;
     grid-row-start: 2;
     grid-row-end: span 2;

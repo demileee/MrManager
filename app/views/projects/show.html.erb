@@ -1,6 +1,6 @@
 <div class="project-page">
 
-  <div class="get-details">
+  <div class="get-details top-left">
     <%= link_to "Project Details" %>
     <div class="project-details">
       <p><%= @project.description %></p>
@@ -76,7 +76,7 @@
     </div>
     <% end %>
     <%= render 'tasks/form', locals: {task: @task, project: @project} %>
-    <%= link_to "Tasks" %>
+    <div class="bottom-left"><%= link_to "Tasks" %></div>
   </div>
 
   <div id="discussion"><%= link_to "Discussion", id: "discussion"%></div>

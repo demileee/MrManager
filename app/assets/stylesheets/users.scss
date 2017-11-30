@@ -43,34 +43,6 @@
      p {
       text-align: center;}
     }
-  .edit-link{
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    top: 0;
-    left: 0;
-    padding-left: 0.8em;
-    padding-top: 0.4em;
-    width: 110%;
-    z-index: 1;
-  } .get-quotes{
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    text-align: right;
-    padding-top: 0.4em;
-  } .user-tasks {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-    position: absolute;
-    bottom: 0px;
-    padding-left: 0.8em;
-    z-index: 1;
-  } .user-notes{
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
-    position: absolute;
-    bottom: 0px;
-    right: 0;
-  }
 }
 
 #notifications{
