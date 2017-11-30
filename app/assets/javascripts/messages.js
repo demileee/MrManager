@@ -3,7 +3,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
-  var messageForm = document.getElementById('new_message')
+  var messageForm = document.getElementById('new_message');
+  var addMessage = document.getElementById('add-new-message')
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
@@ -24,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleNewMessage(div) {
       if (div.style.display === 'none'){
-        div.classList.remove('slideDown');
-        div.classList.add('slideUp');
+        div.classList.remove('slideOutDown');
+        div.classList.add('slideInUp');
         div.style.display = 'block'
       } else {
-        div.classList.remove('slideUp');
-        div.classList.add('slideDown');
+        div.classList.remove('slideInUp');
+        div.classList.add('slideOutDown');
         setTimeout(function() {div.style.display = 'none'}, 200)
       }
 
@@ -39,4 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     toggleMessages(messageBoard);
   });
+
+  addMessage.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleNewMessage(messageForm);
+  })
 })

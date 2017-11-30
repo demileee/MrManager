@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .discussion{
-  grid-column: 3 / 5;
+  grid-column: 3 / 4;
   grid-row: 1 / 5;
   height: 100%;
-  width: 70%;
+  width: 93%;
   margin-left: 7%;
   .message-board {
     background-color: rgba(0, 0, 0, 0.3);
@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    width: 100%;
     .message, .message-owner {
       margin: 1rem auto;
     }
