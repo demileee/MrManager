@@ -79,8 +79,8 @@
     <%= link_to "Tasks" %>
   </div>
 
+  <%= link_to "Discussion" id: "discussion"%>
   <div class="discussion">
-  <%= link_to "Discussion" %>
     <div class="message-board">
       <% if @project.messages %>
         <% @project.messages.each do |message| %>
