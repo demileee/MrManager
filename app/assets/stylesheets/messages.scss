@@ -4,10 +4,11 @@
 .discussion{
   grid-column: 3 / 5;
   grid-row: 1 / 5;
-  height: 99%;
+  height: 100%;
   overflow: scroll;
   width: 70%;
   margin-left: 7%;
+  padding-bottom: 1rem;
   .message-board {
     background-color: rgba(0, 0, 0, 0.3);
 

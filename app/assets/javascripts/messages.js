@@ -4,5 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion')
   var messageBoard = document.querySelector('.message-board')
 
-  
+  discussion.addEventListener('click', function(e) {
+    e.preventDefault();
+
+  })
+
+
+
 })
