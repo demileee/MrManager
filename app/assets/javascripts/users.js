@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink);
   })
 
   notepadLink.addEventListener('click', function(e){
