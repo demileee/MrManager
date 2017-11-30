@@ -50,6 +50,7 @@
     left: 0;
     padding-left: 0.8em;
     padding-top: 0.4em;
+    width: 110%;
     z-index: 1;
   } .get-quotes{
     grid-column: 3 / 4;
@@ -136,6 +137,6 @@
 }
 
 .slide-from-left{
-  left: 75% !important;
+  left: 70% !important;
   position: absolute;
 }
