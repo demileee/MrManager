@@ -15,12 +15,13 @@
     padding: 7px 20px;
     border: none;
     border-radius: 2px;
-    transition: 0.25s ease;
+    transition: 0.25s ease-in-out;
+    margin: 0 auto;
   }
   input[type="submit"]:hover{
     background: black;
     color: white;
-    transition: 0.25s ease;
+    transition: 0.25s ease-in-out;
   }
 }
 

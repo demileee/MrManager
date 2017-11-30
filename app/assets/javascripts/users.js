@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = '#ffffff';
+    link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
 
@@ -45,13 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  function toggleDivLeft(div){
+  function toggleDivLeft(div, link){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutLeft')
       div.classList.add('slideInLeft')
+      link.classList.add('slide-from-left')
       div.style.display = "block";
     } else {
       div.classList.remove('slideInLeft')
+      link.classList.remove('slide-from-left')
       div.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink);
   })
 
   taskLinkTwo.addEventListener('click', function(e){
