@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.notepad-link')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
+  var styleSheet = window.document.styleSheets[11];
+
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = "#" + hex;
+    link.style.color = '#ffffff';
     link.style.textDecoration = 'none';
   })
 
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   notepadLink.addEventListener('click', function(e){
+    console.log('clicked');
     e.preventDefault();
     toggleDivRight(notepad);
   })
