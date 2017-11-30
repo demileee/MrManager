@@ -48,20 +48,24 @@
     grid-row: 1 / 2;
     top: 0;
     left: 0;
+    padding-left: 0.8em;
+    padding-top: 0.4em;
   } .get-quotes{
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     text-align: right;
+    padding-top: 0.4em;
   } .user-tasks {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
+    padding-left: 0.8em;
   } .user-notes{
     grid-column: 3 / 4;
     grid-row: 3 / 4;
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     right: 0;
   }
 }
@@ -73,12 +77,14 @@
   text-align: left;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  color:white;
   ul{
     padding: 0;
   }
   li{
     list-style: none;
-    padding: 0 5%;
+    padding: 0.5em 1em;
+    margin-top: 0.5em;
   }
 }
 
@@ -91,6 +97,7 @@
   box-sizing: border-box;
   overflow: hidden;
   background-color: #000000;
+  color:white;
   .task-list{
     overflow-y: scroll;
     height: 100%;
@@ -101,6 +108,13 @@
   }
   li{
     margin: 3em 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+    padding-bottom: 1em;
+    // background: black; /* For browsers that do not support gradients */
+    // background: -webkit-linear-gradient(top,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Safari 5.1-6*/
+    // background: -o-linear-gradient(bottom,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Opera 11.1-12*/
+    // background: -moz-linear-gradient(bottom,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Fx 3.6-15*/
+    // background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(128, 128, 128, 0.3));
   }
 }
 
@@ -112,6 +126,13 @@
   display: inline-block;
   padding: 5px 8px;
   border-radius: 8px;
+}
+
+.notif-time{
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 700;
+  display: inline-block;
 }
 
 .green{
