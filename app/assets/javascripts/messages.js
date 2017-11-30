@@ -65,10 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
       dataType: 'json',
       data: $(messageForm).serialize()
     }).done(function(data) {
-      console.log(data);
       var newMessage = ownerMessage.cloneNode(true);
       newMessage.querySelector('.message_body').innerText = data.message_body;
-
       allMessages.append(newMessage);
       allMessages.scrollTop = allMessages.scrollHeight;
     }).fail(function(data, a, b) {
