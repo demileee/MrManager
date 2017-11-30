@@ -2,19 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .discussion{
-  grid-column: 3 / 5;
+  grid-column: 3 / 4;
   grid-row: 1 / 5;
   height: 100%;
-  overflow: scroll;
-  width: 70%;
+  width: 93%;
   margin-left: 7%;
   .message-board {
     background-color: rgba(128, 128, 128, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
 
     .message, .message-owner {
       margin: 1rem auto;
     }
-
+    .all-messages {
+      overflow: scroll;
+    }
     .message {
       display: grid;
       grid-template-columns: 6rem;
@@ -31,7 +39,6 @@
         grid-column: 2 / 3;
       }
     }
-
     .message-owner {
       display: grid;
       grid-template-columns: auto;
@@ -81,13 +88,36 @@
       overflow: scroll;
     }
   }
+  #add-new-message{
+    text-align: center;
+  }
 
   form{
-    padding-bottom: 0.5rem;
+    padding: 1rem 0;
+
+    label{
+      margin-right: 0.5rem;
+    }
+    .field{
+      margin: 0rem 4rem 0rem 1rem;
+    }
     .submit, .announcement {
       display: flex;
       justify-content: center;
       margin: 0.5rem;
+
+      textarea {
+        max-height: 5rem;
+        resize: none;
+      }
+    }
+    .material-icons {
+      position: absolute;
+      font-size: 2.5rem;
+      right: 1rem;
+      bottom: 1rem;
+      font-family: "Material Icons";
+      cursor: pointer;
     }
   }
 }

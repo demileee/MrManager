@@ -16,6 +16,7 @@
 
 @import 'normalize';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
 @import 'users';
 @import 'projects';
 @import 'animate';
@@ -188,4 +189,8 @@ footer{
     font-size: 0.7em;
 
   }
+}
+
+.material-icons {
+  font-family: "Material Icons"
 }
