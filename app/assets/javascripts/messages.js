@@ -4,12 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
-  var addMessage = document.getElementById('add-new-message')
+  var addMessage = document.getElementById('add-new-message');
+  var submitMessage = messageForm.querySelector('input[type="submit"]');
+
+  var send = document.createElement('i')
+  send.classList.add('material-icons');
+  send.innerText = 'send';
+  messageForm.appendChild(send)
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
   messageForm.classList.add('animated');
   messageForm.style.display = 'none';
+  submitMessage.style.display = 'none'
 
   function toggleMessages(div){
     if (div.style.display === 'none'){
