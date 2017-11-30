@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
   var submitMessage = messageForm.querySelector('input[type="submit"]');
+  var allMessages = document.querySelector('.all-messages');
+
+  var ownerMessage = document.querySelector('.message-owner')
 
   var send = document.createElement('i')
   send.classList.add('material-icons');
@@ -49,11 +52,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   send.addEventListener('click', function(e) {
+    send.style.color = '#908d8d';
+    setTimeout(function() {send.style.color = '#dedede'}, 350);
     $.ajax({
       url: messageForm.action,
       method:messageForm.method,
       dataType: 'json',
       data: $(messageForm).serialize()
+    }).done(function(data) {
+      var newMessage = ownerMessage.cloneNode(true);
+      newMessage.querySelector('message_body').innerText = data.message;
+
+      allMessages.append(newMessage);
     })
   })
 })
