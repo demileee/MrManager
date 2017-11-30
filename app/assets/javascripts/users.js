@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
+  var editSelf = document.querySelector('.edit-link')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = '#ffffff';
+    link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
 
@@ -45,14 +46,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  function toggleDivLeft(div){
+  function toggleDivLeft(div, link, linkTwo){
     if (div.style.display === 'none'){
-      div.classList.remove('slideOutLeft')
-      div.classList.add('slideInLeft')
+      // Remove slide outs
+      div.classList.remove('slideOutLeft');
+      link.classList.remove('slideOutLeft');
+      linkTwo.classList.remove('slideOutLeft');
+      // Add slide ins
+      div.classList.add('slideInLeft');
+      link.classList.add('slide-from-left', 'slideInLeft');
+      linkTwo.classList.add('slide-from-left', 'slideInLeft');
       div.style.display = "block";
     } else {
+      // Remove slide ins
       div.classList.remove('slideInLeft')
+      link.classList.remove('slide-from-left', 'slideInLeft')
+      linkTwo.classList.remove('slide-from-left', 'slideInLeft')
+      // Add slide outs
       div.classList.add('slideOutLeft')
+      link.classList.add('slideOutLeft')
+      linkTwo.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
@@ -76,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
   notepadLink.addEventListener('click', function(e){

@@ -1,6 +1,7 @@
 <div class="project-page">
 
-  <div class="get-details">
+  <div class="get-details top-left">
+    <%= link_to "Project Details" %>
     <div class="project-details">
       <p><%= @project.description %></p>
       <% @members.each do |member| %>
@@ -84,6 +85,8 @@
         <%= render 'tasks/form', locals: {task: @task, project: @project} %>
       </ul>
     <% end %>
+    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
+    <div class="bottom-left"><%= link_to "Tasks" %></div>
   </div>
 
 
