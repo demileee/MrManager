@@ -134,6 +134,37 @@ header, footer{
   }
 }
 
+#tasks-pane{
+  height: calc(100vh - 20px);
+  grid-row: 1 / 4;
+  grid-column: 1 / 2;
+  width: 70%;
+  padding: 1em 1em 9em 1em;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #000000;
+  color:white;
+  .task-list{
+    overflow-y: scroll;
+    height: 100%;
+    // margin: -3em 0;
+    height: calc(100vh - 80px);
+  }
+  p{
+    line-height: 1em;
+  }
+  li{
+    margin: 3em 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+    padding-bottom: 1em;
+    // background: black; /* For browsers that do not support gradients */
+    // background: -webkit-linear-gradient(top,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Safari 5.1-6*/
+    // background: -o-linear-gradient(bottom,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Opera 11.1-12*/
+    // background: -moz-linear-gradient(bottom,rgba(255,0,0,0),rgba(128, 128, 128, 0.3)); /*Fx 3.6-15*/
+    // background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(128, 128, 128, 0.3));
+  }
+}
+
 header{
   top:0;
   justify-content: space-between;
