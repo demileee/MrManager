@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
     toggleMessages(messageBoard);
+    toggleNewMessage(messageForm);
   });
 
   addMessage.addEventListener('click', function(e) {
     e.preventDefault();
-    toggleNewMessage(messageForm);
   })
 })
