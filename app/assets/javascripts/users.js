@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       // Remove slide ins
       div.classList.remove('slideInLeft')
-      link.classList.remove('slide-from-left', 'slideOutLeft')
-      linkTwo.classList.remove('slide-from-left', 'slideOutLeft')
+      link.classList.remove('slide-from-left', 'slideInLeft')
+      linkTwo.classList.remove('slide-from-left', 'slideInLeft')
       // Add slide outs
       div.classList.add('slideOutLeft')
       link.classList.add('slideOutLeft')
@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
     toggleDivLeft(tasksPane, taskLink, editSelf);
-    console.log(editSelf);
   })
 
   notepadLink.addEventListener('click', function(e){
