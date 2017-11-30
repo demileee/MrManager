@@ -38,7 +38,7 @@
 
 #events {
   overflow-y: scroll;
-  background: rgba(0,0,0,0.3);
+  background: rgba(128, 128, 128, 0.3);
   height: 80%;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -65,7 +65,7 @@
 }
 
 .create-project, .invite-card, .flash-card {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(128, 128, 128, 0.3);
   margin-bottom: 2rem;
   padding: 0.1rem 1rem;
   text-align: center;
@@ -95,7 +95,7 @@ h2:hover {
   margin: 2rem auto;
   padding: 1rem 2rem;
   padding-bottom: 2rem;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(128, 128, 128, 0.3);
   display: grid;
   grid-template-columns: 45% 55%;
   grid-template-rows: 30% 70%;

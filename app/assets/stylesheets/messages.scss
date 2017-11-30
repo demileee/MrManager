@@ -9,7 +9,7 @@
   width: 70%;
   margin-left: 7%;
   .message-board {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(128, 128, 128, 0.3);
 
     .message, .message-owner {
       margin: 1rem auto;
@@ -59,13 +59,13 @@
     }
     .user_name {
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(128, 128, 128, 0.3);
       margin: 0;
       padding: 1rem 0;
 
     }
     .create_task {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(128, 128, 128, 0.3);
       height: 100%;
       width: 100%;
       a {
