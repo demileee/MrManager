@@ -7,7 +7,7 @@
   <div class="welcome-div">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <h2><%= @user.task.task_body %></h2>
+    <div class="pin-task"><%= @user.task.task_body %></div>
     <% else %>
     <h2>What are you focused on today?</h2>
     <div id="user-task-link">
@@ -37,15 +37,17 @@
       <% @tasks.each do |task| %>
       <li>
         <p><%= task.task_body %></p>
-        <p><%= task.project.title %></p>
-        <p><%= task.project.hard_deadline %></p>
+        <%= link_to project_path(task.project) do %>
+          <div class="task-prop green"><%= task.project.title %></div>
+        <% end %>
+        <div class="task-prop red"><%= task.project.hard_deadline %></div>
 
-        <% unless task.complete? %>
-        <%= link_to "See Project", project_path(task.project) %>
-        <%= link_to "Task completed?", completed_project_task_path(task.project, task), method: :patch %>
-        <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
-        <% else %>
-        <p>Task completed on <%= task.completed_on %></p>
+        <%= link_to completed_project_task_path(task.project, task), method: :patch do %>
+          <div class="task-prop blue">Complete</div>
+        <% end %>
+
+        <%= link_to pin_task_user_path(task: task), method: :patch do %>
+          <div class="task-prop white">Pin</div>
         <% end %>
       </li>
       <% end %>

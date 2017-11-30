@@ -17,6 +17,17 @@
     position: absolute;
     width: 150%;
     top: 40%;
+    .pin-task{
+      max-width: 12em;
+      text-align: left;
+      margin: 1em auto;
+      background-color: red;
+      padding: 1em;
+      box-sizing: border-box;
+      border-radius: 1em;
+      font-size: 2em;
+
+    }
     span.name{
       font-size: 5em;
     } #user-task-link{
@@ -81,7 +92,36 @@
   .task-list{
     overflow-y: scroll;
     height: 100%;
+    margin: -3em 0;
   }
+  p{
+    line-height: 1em;
+  }
+  li{
+    margin: 3em 0;
+  }
+  .task-prop{
+    text-transform: uppercase;
+    font-size: 0.6em;
+    font-weight: 700;
+    color:black;
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
+}
+
+.green{
+  background-color: rgb(103, 247, 143);
+}
+.red{
+  background-color: rgb(255, 108, 103);
+}
+.white{
+  background-color: white;
+}
+.blue{
+  background-color: rgb(162, 230, 255);
 }
 
 .notepad{
