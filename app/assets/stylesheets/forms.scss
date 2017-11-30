@@ -4,6 +4,8 @@
   padding: 1rem 0;
   width: 25rem;
   background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   input {
     color: #dedede;
   }
