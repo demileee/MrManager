@@ -35,7 +35,7 @@ body{
 main{
   position: relative;
   top:20px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 20px);
 }
 
 ul{
@@ -46,6 +46,36 @@ ul{
     margin: 0;
     padding:0;
   }
+}
+
+.task-prop{
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 700;
+  color:black;
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+.notif-time{
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.green{
+  background-color: rgb(103, 247, 143);
+}
+.red{
+  background-color: rgb(255, 108, 103);
+}
+.white{
+  background-color: white;
+}
+.blue{
+  background-color: rgb(162, 230, 255);
 }
 
 
@@ -85,7 +115,7 @@ header{
 
 footer{
   bottom:0;
-  height:40px;
+
   justify-content: center;
   color:white;
   background: black; /* For browsers that do not support gradients */
@@ -95,6 +125,6 @@ footer{
   background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,0.2));
   p{
     font-size: 0.7em;
-    padding-top: 2em;
+
   }
 }
