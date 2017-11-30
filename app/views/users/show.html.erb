@@ -17,7 +17,7 @@
     <div class="user-summary">
       <h1>Notifications</h1>
       <% if @notifications.present? %>
-      <%= link_to "Mark as Read", last_read_user_path, method: :patch %>
+      <%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %>
       <div id="notifications">
         <%= render @notifications %>
       </div>
