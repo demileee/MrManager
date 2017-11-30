@@ -1,10 +1,10 @@
 <div class="project-index">
+  <div class="create-project">
+    <%= link_to new_project_path do %>
+    <h2>Create New Project</h2>
+    <% end %>
+  </div>
   <div class="project-list">
-    <div class="create-project">
-      <%= link_to new_project_path do %>
-        <h2>Create New Project</h2>
-      <% end %>
-    </div>
 
     <% if @invites.any? %>
       <div class="invite-card">
