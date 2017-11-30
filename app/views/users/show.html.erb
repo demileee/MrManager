@@ -7,7 +7,15 @@
   <div class="welcome-div">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <div class="pin-task"><%= @user.task.task_body %></div>
+    <div class="pin-task">
+      <%= @user.task.task_body %></h1>
+    </div>
+
+
+    <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
+      <div class="task-prop blue">Complete</div>
+    <% end %>
+
     <% else %>
     <h2>What are you focused on today?</h2>
     <div id="user-task-link">
