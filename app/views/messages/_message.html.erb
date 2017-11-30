@@ -12,6 +12,10 @@
     <%= image_tag(message.user.profile_pic, class: "profile_pic") %>
     <p class="message_body"><%= message.message_body %></p>
     <p class="user_name"><%= message.user.full_name %></p>
-    <div class="create_task"></div>
+    <div class="create_task">
+      <% if current_user == @project.user %>
+        <%= link_to "Create Task from message", new_project_task_path(@project, {task_body: message.message_body}) %>
+      <% end %>
+    </div>
   </div>
 <% end %>
