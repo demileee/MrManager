@@ -2,4 +2,7 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion')
+  var messageBoard = document.querySelector('.message-board')
+
+  
 })
