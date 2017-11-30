@@ -44,6 +44,15 @@
     }
 }
 
+.get-quotes p{
+  text-align: center;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  position: absolute;
+  width: 100%;
+  left: 25%;
+  font-style: italic;
+}
 #notifications{
   overflow-y: scroll;
   background: rgba(128, 128, 128, 0.3);
