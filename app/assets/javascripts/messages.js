@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
-  var addMessage = document.getElementById('add-new-message');
   var submitMessage = messageForm.querySelector('input[type="submit"]');
 
   var send = document.createElement('i')
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   messageBoard.style.display = 'none';
   messageForm.classList.add('animated');
   messageForm.style.display = 'none';
-  submitMessage.style.display = 'none'
+  document.querySelector('div.submit').style.display = 'none'
 
   function toggleMessages(div){
     if (div.style.display === 'none'){
@@ -49,7 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleNewMessage(messageForm);
   });
 
-  addMessage.addEventListener('click', function(e) {
-    e.preventDefault();
+  send.addEventListener('click', function(e) {
+    $.ajax({
+      url: messageForm.action,
+      method:messageForm.method,
+      dataType: 'json',
+      data: $(messageForm).serialize()
+    })
   })
 })
