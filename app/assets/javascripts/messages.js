@@ -3,9 +3,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
+  var messageForm = document.getElementById('new_message')
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
+  messageForm.classList.add('animated');
+  messageForm.style.display = 'none';
 
   function toggleMessages(div){
     if (div.style.display === 'none'){
@@ -18,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
+
 
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
