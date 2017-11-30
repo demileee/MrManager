@@ -33,14 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.contains(document.querySelector('.quote'))){
       document.querySelector('.quote').remove();
     }
-
     $.ajax({
       url: 'http://quotes.rest/qod.json?category=inspire',
       method: 'GET'
     }).done(function(data){
       var quote = data.contents.quotes[0].quote
       var newpTag = document.createElement('p')
-      newpTag.className = "quote"
+      newpTag.classList.add('quote', 'animated', 'fadeInUp')
       newpTag.innerText = quote
       quoteDiv.appendChild(newpTag, getQuotes);
     });
@@ -99,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   notepadLink.addEventListener('click', function(e){
-    console.log('clicked');
     e.preventDefault();
     toggleUserRight(notepad);
   })

@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update(user_params)
     @user.notes = params[:user][:notes]
     if @user.save(validate: false)
       redirect_to user_url(@user)

@@ -7,11 +7,13 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.project = Project.find(params[:project_id])
     @message.user = current_user
+    error = {error: "Could not save, and error has occured"}
 
     if @message.save
-      redirect_to project_path(@message.project.id)
+      respond_to { |format| format.json { render json: @message }
     else
-      render project_path(@message.project.id)
+      respond_to { |format| format.json { render json: error }
+
     end
   end
 
