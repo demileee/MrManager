@@ -48,16 +48,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function toggleDivLeft(div, link, linkTwo){
     if (div.style.display === 'none'){
-      div.classList.remove('slideOutLeft')
-      div.classList.add('slideInLeft')
-      link.classList.add('slide-from-left')
-      editSelf.classList.add('slide-from-left')
+      // Remove slide outs
+      div.classList.remove('slideOutLeft');
+      link.classList.remove('slideOutLeft');
+      linkTwo.classList.remove('slideOutLeft');
+      // Add slide ins
+      div.classList.add('slideInLeft');
+      link.classList.add('slide-from-left', 'slideInLeft');
+      linkTwo.classList.add('slide-from-left', 'slideInLeft');
       div.style.display = "block";
     } else {
+      // Remove slide ins
       div.classList.remove('slideInLeft')
-      link.classList.remove('slide-from-left')
-      editSelf.classList.remove('slide-from-left')
+      link.classList.remove('slide-from-left', 'slideOutLeft')
+      linkTwo.classList.remove('slide-from-left', 'slideOutLeft')
+      // Add slide outs
       div.classList.add('slideOutLeft')
+      link.classList.add('slideOutLeft')
+      linkTwo.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
@@ -81,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane, taskLink);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDivLeft(tasksPane, taskLink);
+    toggleDivLeft(tasksPane, taskLink, editSelf);
     console.log(editSelf);
   })
 
