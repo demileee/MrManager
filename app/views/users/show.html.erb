@@ -8,7 +8,7 @@
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
     <div class="pin-task">
-      <%= @user.task.task_body %></h1>
+      <%= truncate(@user.task.task_body, :length => 80) %></h1>
     </div>
 
 
