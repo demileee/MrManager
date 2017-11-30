@@ -32,11 +32,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = current_user
   end
 
   def update
-    # @user = current_user
     @user.notes = params[:user][:notes]
     if @user.save(validate: false)
       redirect_to user_url(@user)
@@ -46,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def last_read
-    # @user = current_user
     @user.last_read = Time.now
     if @user.save(validate: false)
       redirect_to request.referer
@@ -54,7 +51,6 @@ class UsersController < ApplicationController
   end
 
   def pin_task
-    # @user = current_user
     @user.task = Task.find(params[:task])
     if @user.save(validate: false)
       flash[:notice] = "Successfully created..."
@@ -65,7 +61,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # @user = current_user
     if @user
       @user.delete
       redirect_to root_url
