@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function toggleDivRight(div){
+  function toggleUserRight(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
       div.classList.add('slideInRight')
@@ -87,6 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
   notepadLink.addEventListener('click', function(e){
     console.log('clicked');
     e.preventDefault();
-    toggleDivRight(notepad);
+    toggleUserRight(notepad);
   })
 });
