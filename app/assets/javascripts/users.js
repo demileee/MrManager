@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   body.style.color = fontColour(hex);
   allLinks.forEach(function(link){
-    link.style.color = "#" + hex;
-    link.style.textDecoration = 'none';
+    link.style.color = "#ffffff";
   })
 
   getQuotes.addEventListener('click', function(e){
