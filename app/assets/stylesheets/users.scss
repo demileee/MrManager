@@ -18,14 +18,13 @@
     width: 150%;
     top: 40%;
     .pin-task{
-      max-width: 12em;
+      max-width: 20em;
       text-align: center;
-      margin: 1em auto 0 auto;
-      padding-bottom: 1em;
+      margin: 0 auto;
+      padding: 1em;
       box-sizing: border-box;
       border-radius: 1em;
-      font-size: 2em;
-
+      font-size: 1.5em;
     }
     span.name{
       font-size: 5em;
@@ -45,6 +44,15 @@
     }
 }
 
+.get-quotes p{
+  text-align: center;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  position: absolute;
+  width: 100%;
+  left: 25%;
+  font-style: italic;
+}
 #notifications{
   overflow-y: scroll;
   background: rgba(128, 128, 128, 0.3);
