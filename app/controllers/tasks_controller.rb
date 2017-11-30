@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :load_project, except: %i(index)
+  before_action :find_task, except: %i(index new create show)
 
   def index
   end
@@ -32,11 +33,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
   end
 
   def completed
-    @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
     @task.completed
     if @task.save
       redirect_to request.referer
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
     if @task.save
       flash[:notice] = "Task for #{@task.user.first_name} has been successfully updated!"
       redirect_to projects_url
@@ -57,13 +58,17 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
     @task.destroy
     flash[:notice] = "The task has been successfully deleted."
     redirect_to project_url(@project)
   end
 
   private
+
+  def find_task
+    @task = Task.find(params[:id])
+  end
 
   def load_project
     @project = Project.find(params[:project_id])
