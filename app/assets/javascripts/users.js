@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }).done(function(data){
       var quote = data.contents.quotes[0].quote
       var newpTag = document.createElement('p')
-      // newpTag.className = "quote"
       newpTag.classList.add('quote', 'animated', 'fadeInUp')
       newpTag.innerText = quote
       quoteDiv.appendChild(newpTag, getQuotes);
