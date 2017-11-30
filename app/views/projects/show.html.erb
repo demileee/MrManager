@@ -1,7 +1,6 @@
 <div class="project-page">
 
   <div class="get-details">
-    <%= link_to "Project Details" %>
     <div class="project-details">
       <p><%= @project.description %></p>
       <% @members.each do |member| %>
@@ -36,6 +35,10 @@
     <p><%= @project.time_remaining %> Remaining</p>
     <p><%= @project.percentage_complete %></p>
 
+    <div class="details-link">
+      <%= link_to "Project Details","#", :class => "detail-link" %>
+    </div>
+
     <div class="events-container">
       <h1 class="activity-log-title">Activity Log</h1>
       <div id="events">
@@ -44,42 +47,45 @@
     </div>
   </div>
 
-  <div class="project-tasks">
+  <div class="tasks-link">
+    <%= link_to "Tasks","#", :class => "task-link" %>
+  </div>
+
+  <div id="tasks-pane">
+    <h1>Project Tasks</h1>
     <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
     <% end %>
 
     <% if @tasks.present? %>
-    <div class="tasks-list">
-      <ul>
+      <ul class="task-list">
         <% @tasks.each do |task| %>
-        <li>
+          <li>
 
-          <p> <%= task.task_body %></p>
-          <span><%= task.user.full_name %></span>
-          <% if !task.complete? && (task.project.user == current_user || task.user == current_user) %>
-          <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
-          <% end %>
+            <p> <%= task.task_body %></p>
+            <span><%= task.user.full_name %></span>
+            <% if !task.complete? && (task.project.user == current_user || task.user == current_user) %>
+            <%= link_to "Edit Task", edit_project_task_path(@project, task) %>
+            <% end %>
 
-          <% if task.project.user == current_user %>
-          <%= link_to "Delete Task", project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} %>
-          <% end %>
+            <% if task.project.user == current_user %>
+            <%= link_to "Delete Task", project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} %>
+            <% end %>
 
-          <% if task.user == current_user && !task.complete? %>
-          <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
-          <% end %>
+            <% if task.user == current_user && !task.complete? %>
+            <%= link_to "Task completed?", completed_project_task_path(@project, task), method: :patch %> | <%= link_to "Pin Task", pin_task_user_path(task: task), method: :patch %>
+            <% end %>
 
-          <% if task.complete? %>
-          <p>Task completed on <%= task.completed_on %></p>
-          <% end %>
+            <% if task.complete? %>
+            <p>Task completed on <%= task.completed_on %></p>
+            <% end %>
 
-        </li>
+          </li>
         <% end %>
+        <%= render 'tasks/form', locals: {task: @task, project: @project} %>
       </ul>
-    </div>
     <% end %>
-    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
-    <%= link_to "Tasks" %>
   </div>
+
 
   <div id="discussion"><%= link_to "Discussion", id: "discussion"%></div>
   <div class="discussion">
