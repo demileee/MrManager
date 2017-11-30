@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       url: 'new.json',
       method: 'GET'
     }).done(function(data){
+        datalist.textContent = '';
         data.forEach(function(user) {
           var option = document.createElement('option');
           option.value = user;
