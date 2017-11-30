@@ -32,13 +32,15 @@
   </div>
 
   <div class="project-summary">
-    <h1><%= @project.title %></h1>
+    <span class="name"><%= @project.title %></span>
     <p><%= @project.time_remaining %> Remaining</p>
     <p><%= @project.percentage_complete %></p>
-    <h1 class="activity-log-title">Activity Log</h1>
 
-    <div id="events">
-      <%= render @events %>
+    <div class="events-container">
+      <h1 class="activity-log-title">Activity Log</h1>
+      <div id="events">
+        <%= render @events %>
+      </div>
     </div>
   </div>
 
