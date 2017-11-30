@@ -1,14 +1,15 @@
 <div class="project-page">
 
 
-  <%= link_to "Details" %>
+  <div class="details-link">
+    <%= link_to "Project Details","#", :class => "detail-link" %>
+  </div>
 
   <div class="project-details" id="tasks-pane">
 
     <h1><%= @project.title %></h1>
 
     <p><%= @project.description %></p>
-
 
     <% if @project.soft_deadline.present? %>
       <p><div class="task-prop blue">
@@ -60,9 +61,6 @@
     <p><%= @project.time_remaining %> Remaining</p>
     <p><%= @project.percentage_complete %></p>
 
-    <div class="details-link">
-      <%= link_to "Project Details","#", :class => "detail-link" %>
-    </div>
 
     <div class="events-container">
       <h1 class="activity-log-title">Activity Log</h1>
@@ -87,6 +85,12 @@
           <li>
 
             <p> <%= task.task_body %></p>
+            <div class="time">
+              priority: <%(task.priority).times do%><i class="material-icons">star_rate</i> <%end%>
+            </div><br />
+
+
+
             <div class="task-prop white"><%= task.user.full_name %></div>
             <% if !task.complete? && (task.project.user == current_user || task.user == current_user) %>
               <%= link_to edit_project_task_path(@project, task) do %>
