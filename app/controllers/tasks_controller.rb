@@ -33,11 +33,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    # @task = Task.find(params[:id])
   end
 
   def completed
-    # @task = Task.find(params[:id])
     @task.completed
     if @task.save
       redirect_to request.referer
@@ -47,10 +45,10 @@ class TasksController < ApplicationController
   end
 
   def update
-    # @task = Task.find(params[:id])
+    @task.update(task_params)
     if @task.save
       flash[:notice] = "Task for #{@task.user.first_name} has been successfully updated!"
-      redirect_to projects_url
+      redirect_to project_url(@project)
     else
       render :edit
     end
@@ -58,7 +56,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    # @task = Task.find(params[:id])
     @task.destroy
     flash[:notice] = "The task has been successfully deleted."
     redirect_to project_url(@project)
