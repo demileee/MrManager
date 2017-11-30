@@ -9,11 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var tasksPane = document.getElementById("tasks-pane")
   var taskLink = document.querySelector('.user-tasks')
   var taskLinkTwo = document.getElementById('user-task-link')
-  var notepadLink = document.querySelector('.notepad-link')
+  var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
-  var styleSheet = window.document.styleSheets[11];
-
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
