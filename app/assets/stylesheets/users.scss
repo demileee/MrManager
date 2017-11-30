@@ -43,7 +43,7 @@
      p {
       text-align: center;}
     }
-  .projects-page-link{
+  .edit-link{
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     top: 0;
@@ -133,4 +133,9 @@
     height: 20em;
     width: 15em;
   }
+}
+
+.slide-from-left{
+  left: 75% !important;
+  position: absolute;
 }
