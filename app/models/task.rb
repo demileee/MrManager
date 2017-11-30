@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   after_save do |task|
-    create_event_and_notification_for_new_task(task) if !task.complete?
+    create_event_and_notification_for_newupdate_task(task) if !task.complete?
     create_event_and_notification_for_completed_task(task) if task.complete?
   end
 
@@ -33,12 +33,16 @@ class Task < ApplicationRecord
 
   private
 
-  def create_event_and_notification_for_new_task(task)
-    Event.create message: "A new task has been created: #{task.task_body}", project_id: task.project_id
-
-    n = Notification.create message: "You've been assigned to a new task: #{task.task_body}", user_id: task.user_id
-
-    Slack.new.post_message(task.user, n)
+  def create_event_and_notification_for_newupdate_task(task)
+    if task.created_at == task.updated_at
+      Event.create message: "New task: #{task.task_body}", project_id: task.project_id
+      n = Notification.create message: "New task for #{task.project.title}: #{task.task_body}", user_id: task.user_id
+      Slack.new.post_message(task.user, n)
+    elsif task.created_at < task.updated_at
+      Event.create message: "Updated task: #{task.task_body}", project_id: task.project_id
+      n = Notification.create message: "Updated task for #{task.project.title}: #{task.task_body}", user_id: task.user_id
+      Slack.new.post_message(task.user, n)
+    end
 
   end
 

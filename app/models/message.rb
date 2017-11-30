@@ -12,11 +12,11 @@ class Message < ApplicationRecord
   private
 
   def create_event(message)
-    Event.create message: "A new announcement has been created: #{message.message_body}", project_id: message.project_id
+    Event.create message: "Announcement: #{message.message_body}", project_id: message.project_id
   end
 
   def create_notification(message)
-    n = Notification.create message: "#{message.project.title}: #{message.message_body}", user_id: message.user_id
+    n = Notification.create message: "Announcement for #{message.project.title}: #{message.message_body}", user_id: message.user_id
 
     Slack.new.post_message(message.user, n)
   end

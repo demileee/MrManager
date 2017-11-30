@@ -45,8 +45,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update(task_params)
-    if @task.save
+    if @task.update(task_params)
       flash[:notice] = "Task for #{@task.user.first_name} has been successfully updated!"
       redirect_to project_url(@project)
     else
