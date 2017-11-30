@@ -12,6 +12,11 @@
     </div>
 
 
+    <%= link_to project_path(@user.task.project) do %>
+      <div class="task-prop green"><%= @user.task.project.title %></div>
+    <% end %>
+    <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
+
     <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
       <div class="task-prop blue">Complete</div>
     <% end %>
