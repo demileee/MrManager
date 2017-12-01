@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
-  console.log(messageForm.action);
+  var messageBody = document.getElementById('message_message_body');
   var submitMessage = messageForm.querySelector('input[type="submit"]');
   var allMessages = document.querySelector('.all-messages');
   allMessages.scrollTop = allMessages.scrollHeight;
@@ -54,9 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   send.addEventListener('click', function(e) {
-    console.log(messageForm.action);
-
-    send.action = 'submit'
+    send.action = 'submit';
     send.style.color = '#696464';
     setTimeout(function() {send.style.color = ''}, 350);
     $.ajax({
