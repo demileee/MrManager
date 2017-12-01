@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @tasks = @user.tasks.select{ |task| !task.complete? }
       @tasks = @user.tasks.select{ |task| !task.complete? }
       if @user.last_read.present?
-        @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id )
+        @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id ).reverse
       else
         @notifications = Notification.where('user_id = ?', current_user.id).last(10).reverse
       end
