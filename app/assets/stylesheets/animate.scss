@@ -8,15 +8,18 @@
  * Copyright (c) 2017 Daniel Eden
  */
 
+ .animated {
+   animation-duration: 1.5s;
+   animation-fill-mode: both;
+ }
+
 .animated.fadeIn {
   animation-duration: 2.5s;
-  animation-fill-mode: both;
 }
 
 .animated.fadeInLeft,
 .animated.fadeInRight {
   animation-duration: 0.2s;
-  animation-fill-mode: both;
 }
 
 .animated.infinite {
