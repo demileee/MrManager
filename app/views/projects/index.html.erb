@@ -28,7 +28,7 @@
           <div class="project-card-left">
             <h2><%= project.role %></h2>
             <p>Project Due Date: <%= project.project.hard_deadline %></p>
-            <p>Time Remaining: <%= project.project.time_remaining %></p>
+            <p>Time Remaining: <%= project.project.time_remaining_hard_dd %></p>
             <%= link_to "Project Page", project_path(project.project) %>
             <% if project.project.user == current_user %>
             |
