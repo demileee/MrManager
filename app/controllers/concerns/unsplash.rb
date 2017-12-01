@@ -22,9 +22,6 @@ class Unsplash
   end
 
   def get_hex(image)
-    puts "***************************************"
-    puts image
-    puts "***************************************"
     original = Magick::Image.read(image).first
     quantized = original.quantize(1, Magick::RGBColorspace)
     hist = quantized.color_histogram
