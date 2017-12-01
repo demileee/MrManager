@@ -10,10 +10,9 @@ class MessagesController < ApplicationController
     error = {error: "Could not save, and error has occured"}
 
     if @message.save
-      respond_to { |format| format.json { render json: @message }
+      respond_to { |format| format.json { render json: @message } }
     else
-      respond_to { |format| format.json { render json: error }
-
+      respond_to { |format| format.json { render json: error } }
     end
   end
 
