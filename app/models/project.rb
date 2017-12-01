@@ -21,9 +21,12 @@ class Project < ApplicationRecord
     self.soft_deadline = nil
   end
 
+  def time_remaining_hard_dd
+    time_ago_in_words(self.hard_deadline)
+  end
 
-  def time_remaining
-      time_ago_in_words(self.hard_deadline)
+  def time_remaining_soft_dd
+    time_ago_in_words(self.soft_deadline)
   end
 
   def percentage_complete
