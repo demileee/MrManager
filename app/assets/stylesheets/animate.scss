@@ -17,7 +17,11 @@
   animation-duration: 2s;
 }
 
-.delayed{
+.animated.bounce {
+  animation-duration: 1s;
+}
+
+.animated.delayed{
   animation-duration: 3s;
 }
 
