@@ -17,8 +17,10 @@
   animation-duration: 2.5s;
 }
 
-.animated.fadeInLeft,
-.animated.fadeInRight {
+.animated.slideInLeft,
+.animated.slideInRight,
+.animated.slideOutLeft,
+.animated.slideOutRight, {
   animation-duration: 0.2s;
 }
 
