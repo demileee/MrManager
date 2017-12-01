@@ -33,10 +33,10 @@
     <div class="user-summary">
       <!-- <h1>Notifications</h1> --><br />
       <% if @notifications.present? %>
-      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <div id="notifications">
         <%= render @notifications %>
       </div>
+      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <% else %>
       <p>You're up to date!</p>
     <% end %>
