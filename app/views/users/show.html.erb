@@ -6,10 +6,10 @@
     <% end %>
   </div>
 
-  <div class="welcome-div animated bounce">
+  <div class="welcome-div animated">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <div class="pin-task animated bounce">
+    <div class="pin-task animated">
       <%= truncate(@user.task.task_body, :length => 70) %></h1>
     </div>
 
