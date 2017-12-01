@@ -5,7 +5,6 @@
       <i class="material-icons" style="font-size: 1.3em;">account_circle</i>
     <% end %>
   </div>
-
   <div class="welcome-div animated">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
@@ -67,7 +66,7 @@
 
 
           <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
-            <div class="task-prop white"><i class="material-icons" style="font-size: 1em;">add_alert</i></div>
+            <div class="task-prop white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
           <% end %>
 
         </li>
