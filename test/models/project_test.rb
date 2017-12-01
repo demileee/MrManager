@@ -84,7 +84,7 @@ class ProjectTest < ActiveSupport::TestCase
   test "user is told if there are no tasks" do
     project = build(:project)
     project.save
-    assert_equal "There are no currently tasks", project.percentage_complete
+    assert_equal "There are currently no tasks", project.percentage_complete
   end
 
   test "can find out the percentage of completed tasks" do
