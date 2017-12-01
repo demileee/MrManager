@@ -40,6 +40,7 @@ class Project < ApplicationRecord
 
   def assign_mr_manager_to_project
     Member.create(user: self.user, project: self, role: "Mr. Manager", invite_accepted: true)
+    Message.create(user: self.user, project: self, message_body: "Welcome to #{self.title}!")
   end
 
 end
