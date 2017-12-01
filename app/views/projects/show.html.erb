@@ -1,8 +1,11 @@
 <div class="project-page">
 
+  <div class="task-form-cont">
+    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
+  </div>
 
   <div class="top-left details-link">
-    <%= link_to "Project Details","#", :class => "detail-link" %>
+    <%= link_to "Details","#", :class => "detail-link" %>
   </div>
 
   <div class="project-details" id="details-pane">
@@ -76,9 +79,11 @@
 
   <div id="tasks-pane">
     <h1>Project Tasks</h1>
+    <div class="add-task-button">
+      <%= link_to "+ Add a task", "#"%>
+    </div>
     <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
     <% end %>
-    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
 
     <% if @tasks.present? %>
       <ul class="task-list">
