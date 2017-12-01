@@ -13,7 +13,7 @@ add-task form-page
 
   <div class="field task-form-field">
     <%= f.label :task_body %>
-    <%= f.text_area :task_body %>
+    <%= f.text_area :task_body, value: params[:task_body]%>
   </div>
 
   <div class="field task-form-field">
