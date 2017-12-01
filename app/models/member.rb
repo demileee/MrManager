@@ -15,6 +15,7 @@ class Member < ApplicationRecord
 
   def join_project
     self.invite_accepted = true
+    Message.create(user: self.user, project: self.project, message_body: "Hi everyone, I've joined #{self.project.title}")
   end
 
   private
