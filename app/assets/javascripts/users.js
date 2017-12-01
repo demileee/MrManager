@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   body.style.color = fontColour(hex);
+
   allLinks.forEach(function(link){
     link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
+  
+  document.querySelector('.text-area-box').style.color = fontColour(hex);
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();

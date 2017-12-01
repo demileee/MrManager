@@ -11,6 +11,18 @@
   width: 100%;
   grid-template-columns: 33% 34% 33%;
   grid-template-rows: 33% 34% 33%;
+  textarea{
+    resize:none;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+  }
+  textarea:focus{
+    background-color: rgba(255, 255, 255, 0.77);
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+  }
   .project-summary{
     text-align: center;
     grid-column: 1 / 3;
