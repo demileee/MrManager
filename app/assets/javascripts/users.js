@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
   var editSelf = document.querySelector('.edit-link')
+  var completed = document.getElementById('completed')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
-  
+
   document.querySelector('.text-area-box').style.color = fontColour(hex);
 
   getQuotes.addEventListener('click', function(e){
@@ -105,5 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
+  completed.addEventListener('mouseover', function(e){
+  console.log("Hello!")
+  })
 
 });
