@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleFadeIn(taskForm);
   })
 
-  createTaskMessage.addEventListener('click', function(e) {
-    console.log('clicked');
-    e.preventDefault();
-    toggleFadeIn(taskForm);
-  })
+  // createTaskMessage.addEventListener('click', function(e) {
+  //   console.log('clicked');
+  //   e.preventDefault();
+  //   toggleFadeIn(taskForm);
+  // })
 
 
 })
