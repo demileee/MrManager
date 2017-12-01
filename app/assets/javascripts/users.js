@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelector('.quote').remove();
     }
     $.ajax({
-      url: 'http://quotes.rest/qod.json?category=inspire',
+      url: 'https://quotes.rest/qod.json?category=inspire',
       method: 'GET'
     }).done(function(data){
       var quote = data.contents.quotes[0].quote
