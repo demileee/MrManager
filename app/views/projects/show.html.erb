@@ -86,7 +86,7 @@
 
             <p> <%= task.task_body %></p>
             <div class="time">
-              priority: <%(task.priority).times do%><i class="material-icons">star_rate</i> <%end%>
+              priority: <%(task.priority).times do%><i class="material-icons" style="font-size: 0.6em; width: 1em;">star_rate</i><%end%>
             </div><br />
 
 
@@ -100,7 +100,7 @@
 
             <% if task.project.user == current_user %>
               <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} do %>
-                <div class="task-prop green">delete</div>
+                <div class="task-prop red">delete</div>
               <% end %>
             <% end %>
 
