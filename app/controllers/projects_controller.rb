@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def show
     @members = @project.members.select { |member| member.invite_accepted? }
-    @tasks = @project.tasks.order('completed_on DESC, priority')
+    @tasks = @project.tasks.order('completed_on DESC, priority DESC')
     @task = Task.new
     @message = Message.new
     @messages = @project.messages.order('created_at')

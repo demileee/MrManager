@@ -17,10 +17,15 @@
   animation-duration: 2.5s;
 }
 
+.delayed{
+  animation-duration: 3s;
+}
+
 .animated.slideInLeft,
 .animated.slideInRight,
 .animated.slideOutLeft,
-.animated.slideOutRight, {
+.animated.slideOutRight,
+.animated.slideInUp {
   animation-duration: 0.2s;
 }
 
