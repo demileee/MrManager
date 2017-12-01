@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  
+
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -72,7 +72,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'mrmanager247@gmail.com',
-    password:             'frozenbanana',
+    password:             "#{ENV["EMAIL_PASSWORD"]}",
     authentication:       'plain',
     enable_starttls_auto: true  }
 
