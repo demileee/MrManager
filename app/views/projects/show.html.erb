@@ -134,13 +134,13 @@
   <div id="discussion" class="bottom-right" style="padding-right: 1em;"><%= link_to "Discussion", id: @project.id %></div>
   <div class="discussion">
     <div class="message-board">
-      <% if @messages.present? %>
       <div class="all-messages">
-        <% @messages.each do |message| %>
-        <%= render 'messages/message', message: message %>
+        <% if @messages.present? %>
+          <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <% end %>
         <% end %>
       </div>
-      <% end %>
         <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
         <%= render 'messages/form' %>
         <% end %>
