@@ -5,11 +5,10 @@
       <i class="material-icons" style="font-size: 1.3em;">account_circle</i>
     <% end %>
   </div>
-
-  <div class="welcome-div animated bounce">
+  <div class="welcome-div animated">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <div class="pin-task animated bounce">
+    <div class="pin-task animated">
       <%= truncate(@user.task.task_body, :length => 70) %></h1>
     </div>
 
@@ -19,24 +18,24 @@
     <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
 
     <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
-      <div class="task-prop blue"><i class="material-icons" style="font-size: 0.8em;">done</i></div>
+      <div class="task-prop blue" id="completed">Mark Completed</div>
     <% end %>
 
     <% else %>
     <h2>What are you focused on today?</h2>
     <div id="user-task-link">
       <%= link_to "#" do %>
-      See All Tasks <i class="material-icons" style="font-size: 1em;">add_alert</i>
+      See All Tasks
       <%end%>
     </div>
     <% end %>
     <div class="user-summary">
       <!-- <h1>Notifications</h1> --><br />
       <% if @notifications.present? %>
-      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <div id="notifications">
         <%= render @notifications %>
       </div>
+      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <% else %>
       <p>You're up to date!</p>
     <% end %>
@@ -45,7 +44,7 @@
 
   <div class="get-quotes top-right">
    <%= link_to "#" do %>
-    <i class="material-icons" style="font-size: 1.3em;">thumb_up</i>
+    Need Encouragement?
    <% end %>
   </div>
 
@@ -67,7 +66,7 @@
 
 
           <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
-            <div class="task-prop white"><i class="material-icons" style="font-size: 1em;">add_alert</i></div>
+            <div class="task-prop white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
           <% end %>
 
         </li>

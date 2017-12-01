@@ -59,13 +59,14 @@
   </div>
 
 
-  <div class="project-summary animated bounce">
+  <div class="project-summary animated">
     <span class="name"><%= @project.title %></span>
     <p>
-    <% if @project.soft_deadline.present? %>
-      <div class="task-prop white"><%= @project.time_remaining_soft_dd %> from soft deadline</div>
-    <% end %>
-      <div class="task-prop white"><%= @project.time_remaining_hard_dd %> from hard deadline</div></p>
+      <% if @project.soft_deadline.present? %>
+        <div class="task-prop white"><%= @project.time_remaining_soft_dd %> from soft deadline</div>
+      <% end %>
+      <div class="task-prop white"><%= @project.time_remaining_hard_dd %> from hard deadline</div>
+    </p>
     <p><div class="progress-bar">
       <div class="progress-bar-inside green" style="width: <%= @project.percentage_complete %>">
       <%= @project.percentage_complete %></div>
