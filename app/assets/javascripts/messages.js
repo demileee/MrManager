@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     send.action = 'submit'
     send.style.color = '#696464';
-    setTimeout(function() {send.style.color = '#dedede'}, 350);
+    setTimeout(function() {send.style.color = ''}, 350);
     $.ajax({
       url: messageForm.action,
       method:messageForm.method,
@@ -67,8 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }).done(function(data) {
       var newMessage = ownerMessage.cloneNode(true);
       newMessage.querySelector('.message_body').innerText = data.message_body;
-      allMessages.append(newMessage);
       allMessages.scrollTop = allMessages.scrollHeight;
+      allMessages.append(newMessage);
+      newMessage.scrollIntoView();
+      newMessage.classList.add("animated", "slideInUp");
     }).fail(function(data, a, b) {
       console.log('in fail');
       console.log(data);
