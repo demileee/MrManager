@@ -76,6 +76,7 @@
 
   <div id="tasks-pane">
     <h1>Project Tasks</h1>
+    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
     <% if @project.members.where('user_id = ?', current_user.id).count > 0 %>
     <% end %>
 
@@ -121,13 +122,11 @@
 
           </li>
         <% end %>
-        <%= render 'tasks/form', locals: {task: @task, project: @project} %>
       </ul>
     <% end %>
-    <%= render 'tasks/form', locals: {task: @task, project: @project} %>
-    <div class="bottom-left"><%= link_to "Tasks" %></div>
   </div>
 
+  <div class="bottom-left"><%= link_to "Tasks" %></div>
 
   <div id="discussion"><%= link_to "Discussion", id: "discussion"%></div>
   <div class="discussion">

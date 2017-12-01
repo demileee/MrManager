@@ -1,9 +1,10 @@
-<%= form_for ([@project, @task]) do |f| %>
+<div class="form-page task-form">
+  <%= form_for ([@project, @task]) do |f| %>
 
   <% if flash.any? %>
-    <% flash.each do |type, msg| %>
-      <%= msg %>
-    <% end %>
+  <% flash.each do |type, msg| %>
+  <%= msg %>
+  <% end %>
   <% end %>
 
   <div class="field">
@@ -17,14 +18,15 @@
   </div>
 
   <% if @project.user == current_user %>
-    <div class="field">
-      <%= f.label :user, "Assign to Member" %>
-      <% members_array = @project.members.map{ |m| m.user } %>
-      <%= f.collection_select(:user_id, members_array, :id, :full_name) %>
-    </div>
+  <div class="field">
+    <%= f.label :user, "Assign to Member" %>
+    <% members_array = @project.members.map{ |m| m.user } %>
+    <%= f.collection_select(:user_id, members_array, :id, :full_name) %>
+  </div>
   <% end %>
 
   <div>
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+</div>
