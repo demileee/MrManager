@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
   tasksPane.style.display = 'none';
   notepad.style.display = 'none';
 
+
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
     toggleDivLeft(tasksPane, taskLink, editSelf);
