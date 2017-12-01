@@ -26,7 +26,7 @@ class Project < ApplicationRecord
   end
 
   def time_remaining_soft_dd
-    time_ago_in_words(self.soft_deadline)
+    time_ago_in_words(self.soft_deadline) if self.soft_deadline.present?
   end
 
   def percentage_complete
