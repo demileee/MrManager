@@ -69,6 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  notepadLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleUserRight(notepad);
+  })
+
   function toggleUserRight(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
@@ -97,8 +102,5 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
-  notepadLink.addEventListener('click', function(e){
-    e.preventDefault();
-    toggleUserRight(notepad);
-  })
+
 });
