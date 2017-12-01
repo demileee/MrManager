@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCalTimezone.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
 
+  var tasksPane = document.getElementById("tasks-pane");
+  var taskLink = document.querySelector('.tasks-link');
+  var detailsLink = document.querySelector('.details-link');
+
   function toggleDivLeft(div, link, linkTwo){
     if (div.style.display === 'none'){
       // Remove slide outs
