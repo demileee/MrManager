@@ -20,14 +20,16 @@
     .pin-task{
       max-width: 20em;
       text-align: center;
-      margin: 0 auto;
-      padding: 1em;
+      margin: 1em auto;
+      padding: 0em;
       box-sizing: border-box;
       border-radius: 1em;
       font-size: 1.5em;
+      border-bottom: 10px solid rgba(128, 128, 128, 0.3);
     }
     span.name{
       font-size: 5em;
+      font-weight: 700;
     } h2 {
       padding: 0 20%;
     } #user-task-link{
