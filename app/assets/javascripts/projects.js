@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   var tasksPane = document.getElementById("tasks-pane");
+  var detailsPane = document.getElementById("details-pane");
   var taskLink = document.querySelector('.tasks-link');
   var detailsLink = document.querySelector('.details-link');
 
@@ -37,10 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   tasksPane.classList.add('animated');
   tasksPane.style.display = 'none';
+  detailsPane.classList.add('animated');
+  detailsPane.style.display = 'none';
 
   taskLink.addEventListener('click', function(e) {
     console.log('clicked');
     e.preventDefault();
     toggleDivLeft(tasksPane, taskLink, detailsLink);
+  })
+
+  detailsLink.addEventListener('click', function(e) {
+    console.log('clicked');
+    e.preventDefault();
+    toggleDivLeft(detailsPane, taskLink, detailsLink);
   })
 })
