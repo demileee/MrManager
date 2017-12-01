@@ -4,10 +4,10 @@
     <%= link_to "Edit Yourself", edit_user_path %>
   </div>
 
-  <div class="welcome-div">
+  <div class="welcome-div animated bounce">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <div class="pin-task">
+    <div class="pin-task animated bounce">
       <%= truncate(@user.task.task_body, :length => 70) %></h1>
     </div>
 
