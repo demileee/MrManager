@@ -1,7 +1,9 @@
 <div class="user-page">
 
   <div class="edit-link top-left">
-    <%= link_to "Edit Yourself", edit_user_path %>
+    <%= link_to edit_user_path do %>
+      <i class="material-icons" style="font-size: 1.3em;">account_circle</i>
+    <% end %>
   </div>
 
   <div class="welcome-div animated bounce">
@@ -17,13 +19,15 @@
     <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
 
     <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
-      <div class="task-prop blue">Complete</div>
+      <div class="task-prop blue"><i class="material-icons" style="font-size: 0.8em;">done</i></div>
     <% end %>
 
     <% else %>
     <h2>What are you focused on today?</h2>
     <div id="user-task-link">
-      <%= link_to "See all tasks", "#"%>
+      <%= link_to "#" do %>
+      See All Tasks <i class="material-icons" style="font-size: 1em;">add_alert</i>
+      <%end%>
     </div>
     <% end %>
     <div class="user-summary">
@@ -40,30 +44,38 @@
   </div>
 
   <div class="get-quotes top-right">
-   <%= link_to "Need Encouragement?" %>
+   <%= link_to "#" do %>
+    <i class="material-icons" style="font-size: 1.3em;">thumb_up</i>
+   <% end %>
   </div>
 
   <div id="tasks-pane">
     <h1>Your Tasks</h1>
-    <ul class="task-list">
-      <% @tasks.each do |task| %>
-      <li>
-        <p><%= task.task_body %></p>
-        <%= link_to project_path(task.project) do %>
-          <div class="task-prop green"><%= task.project.title %></div>
-        <% end %>
-        <div class="task-prop red"><%= task.project.hard_deadline %></div>
+    <% if @tasks.present? %>
+      <ul class="task-list">
+        <% @tasks.each do |task| %>
+        <li>
+          <p><%= task.task_body %></p>
+          <%= link_to project_path(task.project) do %>
+            <div class="task-prop green"><%= task.project.title %></div>
+          <% end %>
+          <div class="task-prop red"><%= task.project.hard_deadline %></div>
 
-        <%= link_to completed_project_task_path(task.project, task), method: :patch do %>
-          <div class="task-prop blue">Complete</div>
-        <% end %>
+          <%= link_to completed_project_task_path(task.project, task), method: :patch do %>
+            <div class="task-prop blue"><i class="material-icons" style="font-size: 1em;">done</i></div>
+          <% end %>
 
-        <%= link_to pin_task_user_path(task: task), method: :patch do %>
-          <div class="task-prop white">Pin</div>
+
+          <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+            <div class="task-prop white"><i class="material-icons" style="font-size: 1em;">add_alert</i></div>
+          <% end %>
+
+        </li>
         <% end %>
-      </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% else %>
+      <p>There's no work to be done!</p>
+    <% end %>
   </div>
 
   <div class="user-tasks bottom-left">
