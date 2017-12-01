@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   body.style.color = fontColour(hex);
+
   allLinks.forEach(function(link){
     link.style.color = fontColour(hex);
     link.style.textDecoration = 'none';
   })
+  
+  document.querySelector('.text-area-box').style.color = fontColour(hex);
 
   getQuotes.addEventListener('click', function(e){
     e.preventDefault();
@@ -69,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  notepadLink.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleUserRight(notepad);
+  })
+
   function toggleUserRight(div){
     if (div.style.display === 'none'){
       div.classList.remove('slideOutRight')
@@ -97,8 +105,5 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
-  notepadLink.addEventListener('click', function(e){
-    e.preventDefault();
-    toggleUserRight(notepad);
-  })
+
 });
