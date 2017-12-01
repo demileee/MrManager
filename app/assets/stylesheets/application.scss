@@ -36,7 +36,7 @@ body{
 main{
   position: relative;
   top:20px;
-  height: calc(100vh - 20px);
+  height: calc(100vh - 40px);
 }
 
 ul{
@@ -48,6 +48,19 @@ ul{
     padding:0;
   }
 }
+
+.progress-bar,
+.progress-bar-inside{
+  background-color: white;
+  width:100%;
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+
+.progress-bar-inside{
+  padding: 1em;
+}
+
 
 .task-prop{
   text-transform: uppercase;

@@ -1,4 +1,4 @@
-<div class="user-page animated fadeIn">
+<div class="user-page">
 
   <div class="edit-link top-left">
     <%= link_to "Edit Yourself", edit_user_path %>
@@ -27,9 +27,9 @@
     </div>
     <% end %>
     <div class="user-summary">
-      <h1>Notifications</h1>
+      <!-- <h1>Notifications</h1> --><br />
       <% if @notifications.present? %>
-      <%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %>
+      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <div id="notifications">
         <%= render @notifications %>
       </div>

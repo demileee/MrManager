@@ -58,8 +58,11 @@
 
   <div class="project-summary">
     <span class="name"><%= @project.title %></span>
-    <p><%= @project.time_remaining %> Remaining</p>
-    <p><%= @project.percentage_complete %></p>
+    <p><div class="task-prop red"><%= @project.time_remaining %> Remaining</div></p>
+    <p><div class="progress-bar">
+      <div class="progress-bar-inside green" style="width: <%= @project.percentage_complete %>">
+      <%= @project.percentage_complete %></div>
+    </div></p>
 
 
     <div class="events-container">
