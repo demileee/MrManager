@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     send.action = 'submit'
     send.style.color = '#696464';
-    setTimeout(function() {send.style.color = '#dedede'}, 350);
+    setTimeout(function() {send.style.color = ''}, 350);
     $.ajax({
       url: messageForm.action,
       method:messageForm.method,
