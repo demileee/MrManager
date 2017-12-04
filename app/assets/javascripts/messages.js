@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
+  var messageField = document.querySelector(".message-field");
   var messageBody = document.getElementById('message_message_body');
   var submitMessage = messageForm.querySelector('input[type="submit"]');
   var allMessages = document.querySelector('.all-messages');
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var send = document.createElement('i')
   send.classList.add('material-icons');
   send.innerText = 'send';
-  messageForm.appendChild(send)
+  messageField.appendChild(send)
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
