@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
   var editSelf = document.querySelector('.edit-link')
-  var completed = document.getElementById('completed')
+  var completeTasks = document.querySelectorAll('.complete_task')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -106,8 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDivLeft(tasksPane, taskLink, editSelf);
   })
 
-  completed.addEventListener('mouseover', function(e){
-  console.log("Hello!")
+  completeTasks.forEach(function(task) {
+    task.firstChild.innerText = 'check_box_outline_blank';
+    task.addEventListener('mouseover', function(e){
+      task.firstChild.innerText = 'check_box';
+    })
+    task.addEventListener('mouseout', function() {
+      task.firstChild.innerText = 'check_box_outline_blank';
+    })
   })
 
 });
