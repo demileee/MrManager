@@ -61,7 +61,7 @@
           <div class="task-prop red"><%= task.project.hard_deadline %></div>
 
           <%= link_to completed_project_task_path(task.project, task), method: :patch do %>
-            <div class="task-prop blue"><i class="material-icons" style="font-size: 1em;">done</i></div>
+            <div class="task-prop blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
           <% end %>
 
 
