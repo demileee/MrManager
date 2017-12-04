@@ -5,40 +5,41 @@
       <i class="material-icons" style="font-size: 1.3em;">account_circle</i>
     <% end %>
   </div>
+
   <div class="welcome-div animated">
     <span class="name">Welcome, <%= @user.first_name %></span>
     <% if @user.task.present? %>
-    <div class="pin-task animated">
-      <%= truncate(@user.task.task_body, :length => 70) %></h1>
-    </div>
+      <div class="pin-task animated">
+        <%= truncate(@user.task.task_body, :length => 70) %></h1>
+      </div>
 
-    <%= link_to project_path(@user.task.project) do %>
-      <div class="task-prop green"><%= @user.task.project.title %></div>
-    <% end %>
-    <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
+      <%= link_to project_path(@user.task.project) do %>
+        <div class="task-prop green"><%= @user.task.project.title %></div>
+      <% end %>
+      <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
 
-    <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
+      <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
       <div class="task-prop blue" id="completed">Mark Completed</div>
-    <% end %>
+      <% end %>
+      <br />
+      <p id="user-task-link">View all tasks</p>
 
     <% else %>
-    <h2>What are you focused on today?</h2>
-    <div id="user-task-link">
-      <%= link_to "#" do %>
-      See All Tasks
-      <%end%>
-    </div>
+      <h2 id="user-task-link">What is your main task today?</h2>
     <% end %>
+
     <div class="user-summary">
       <!-- <h1>Notifications</h1> --><br />
       <% if @notifications.present? %>
-      <div id="notifications">
-        <%= render @notifications %>
-      </div>
-      <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
+        <div id="notifications">
+          <ul>
+            <%= render @notifications %>
+          </ul>
+        </div>
+        <div class="time"><%= link_to "Mark as Read", last_read_user_path, method: :patch, :class => 'mark-read' %></div>
       <% else %>
-      <p>You're up to date!</p>
-    <% end %>
+        <p>You're up to date!</p>
+      <% end %>
     </div>
   </div>
 

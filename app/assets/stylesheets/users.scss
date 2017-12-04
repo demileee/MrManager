@@ -45,7 +45,8 @@
     } h2 {
       padding: 0 20%;
     } #user-task-link{
-      display: inline;
+      display: inline-block;
+      cursor: pointer;
     } .user-summary{
       width: 45%;
       margin: 0 auto;
