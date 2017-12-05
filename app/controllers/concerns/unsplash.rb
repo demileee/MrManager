@@ -8,7 +8,7 @@ class Unsplash
   def initialize
     @cache = Rails.application.cache
     if @cache.read(:image) == nil
-      response = HTTParty.get("https://api.unsplash.com/photos/random/?client_id=#{ENV["UNSPLASH_KEY"]}&query=nature&count=1")
+      response = HTTParty.get("https://api.unsplash.com/photos/random/?client_id=#{ENV["UNSPLASH_KEY"]}&collections=1461505&count=1")
       parsed_response = JSON.parse(response.body)
       @cache.write(:photographer, parsed_response[0]["user"]["name"])
       @cache.write(:portfolio_link, parsed_response[0]["user"]["links"]["html"])
