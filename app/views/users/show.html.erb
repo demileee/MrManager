@@ -25,11 +25,11 @@
       <p id="user-task-link">View all tasks</p>
 
     <% else %>
-      <h2 id="user-task-link">What is your main task today?</h2>
+      <h2 id="user-task-link">What is your main <u>task</u> today?</h2>
     <% end %>
 
     <div class="user-summary">
-      <!-- <h1>Notifications</h1> --><br />
+      <br />
       <% if @notifications.present? %>
         <div id="notifications">
           <ul>
@@ -43,10 +43,8 @@
     </div>
   </div>
 
-  <div class="get-quotes top-right">
-   <%= link_to "#" do %>
-    Need Encouragement?
-   <% end %>
+  <div class="top-right user-notes">
+   <%= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
   <div id="tasks-pane">
@@ -78,10 +76,6 @@
     <% end %>
   </div>
 
-  <div class="user-tasks bottom-left">
-    <%= link_to "Tasks","#", :class => "task-link" %>
-  </div>
-
   <div class="notepad">
     <%= form_for(@user) do |f| %>
       <div class="field">
@@ -91,9 +85,6 @@
         <%= f.submit "Add Note"%>
       </div>
     <% end %>
-  </div>
-  <div class="user-notes bottom-right">
-    <%= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
 </div>
