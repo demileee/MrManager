@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
       @tasks = @user.tasks.select{ |task| !task.complete? }
-      @tasks = @user.tasks.select{ |task| !task.complete? }
+      @tasks_sorted_by_deadline = @tasks.sort_by{ |task| task.project.hard_deadline }
+      @tasks_sorted_by_creation = @tasks.sort_by{ |task| task.created_at }
       if @user.last_read.present?
         @notifications = Notification.where('created_at > ? AND user_id = ?', current_user.last_read, current_user.id ).reverse
       else

@@ -72,4 +72,36 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDivLeft(tasksPane, editSelf);
   })
 
+  var priorityTasks = document.querySelector('.priority-task')
+  var creationTasks = document.querySelector('.creation-task')
+  var deadlineTasks = document.querySelector('.deadline-task')
+  var sortButtonPriority = document.querySelector('.sort-button-priority')
+  var sortButtonCreation = document.querySelector('.sort-button-creation')
+  var sortButtonDeadline = document.querySelector('.sort-button-deadline')
+
+  function toggleSortTasks(div){
+      priorityTasks.style.display = 'none';
+      creationTasks.style.display = 'none';
+      deadlineTasks.style.display = 'none';
+      div.style.display = "block";
+  }
+
+  sortButtonPriority.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleSortTasks(priorityTasks);
+    console.log("hellooo");
+  })
+
+  sortButtonCreation.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleSortTasks(creationTasks);
+    console.log("hellooo");
+  })
+
+  sortButtonDeadline.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleSortTasks(deadlineTasks);
+    console.log("hellooo");
+  })
+
 });
