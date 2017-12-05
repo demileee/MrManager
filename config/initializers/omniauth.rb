@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :slack, ENV["MRMANAGER_ID"], ENV["MRMANAGER_SECRET"], scope: 'users:read'
+  provider :slack, ENV["MRMANAGER_ID"], ENV["MRMANAGER_SECRET"], scope: 'users:read,chat:write:bot'
 end
