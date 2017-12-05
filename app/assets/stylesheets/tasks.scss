@@ -7,8 +7,15 @@
   grid-column: 1 / 3;
   width: 150%;
   z-index: 3;
-  
+
   .task-form-field {
     text-align: left;
+  }
+}
+
+#completed {
+  .material-icons{
+    font-size: 1em;
+    vertical-align: middle;
   }
 }
