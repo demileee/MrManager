@@ -74,7 +74,13 @@
 
 
     <div class="events-container">
-      <h1 class="activity-log-title">Activity Log</h1>
+      <div class="title-tasks">
+        <h1 class="activity-log-title">Activity Log</h1>
+        <%= link_to "#" do %>
+        <div class="task-prop purple tasks-link"> View all tasks
+        </div>
+        <% end %>
+      </div>
       <div id="events">
         <%= render @events %>
       </div>
@@ -129,7 +135,7 @@
     <% end %>
   </div>
 
-  <div class="bottom-left tasks-link"><%= link_to "Tasks" %></div>
+  <!-- <div class="bottom-left tasks-link"><%#= link_to "Tasks" %></div> -->
 
   <div id="discussion" class="bottom-right" style="padding-right: 1em;"><%= link_to "Discussion", id: @project.id %></div>
   <div class="discussion">
