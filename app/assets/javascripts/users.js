@@ -4,42 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
 
-  function toggleDivLeft(div, link){
-    if (div.style.display === 'none'){
-      div.classList.remove('slideOutLeft');
-      link.classList.remove('slideOutLeft');
-      div.classList.add('slideInLeft');
-      link.classList.add('slide-from-left', 'slideInLeft');
-      div.style.display = "block";
-    } else {
-      div.classList.remove('slideInLeft')
-      link.classList.remove('slide-from-left', 'slideInLeft')
-      div.classList.add('slideOutLeft')
-      link.classList.add('slideOutLeft')
-      setTimeout(function() {div.style.display = 'none'}, 200)
-    }
-  }
-
   notepadLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleUserRight(notepad);
+    toggleDiv(notepad, notepadLink, "slideInRight", "slideOutRight")
   })
-
-  function toggleUserRight(div){
-    if (div.style.display === 'none'){
-      div.classList.remove('slideOutRight')
-      div.classList.add('slideInRight')
-      div.style.display = "block";
-    } else {
-      div.classList.remove('slideInRight')
-      div.classList.add('slideOutRight')
-      setTimeout(function() {div.style.display = 'none'}, 200)
-    }
-  }
 
   notepad.classList.add('animated')
   notepad.style.display = 'none';
 
+
+  //// Toggle sort buttons for tasks in User Dashboard
   var priorityTasks = document.querySelector('.priority-task')
   var creationTasks = document.querySelector('.creation-task')
   var deadlineTasks = document.querySelector('.deadline-task')
