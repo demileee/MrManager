@@ -51,7 +51,21 @@
 
   <div id="tasks-pane">
     <h1>Your Tasks</h1>
+
+    <div class="sort_by_priority">
+      <div class="task-prop red">by priority</div>
+    </div>
+
+    <div class="sort_by_project_deadline">
+      <div class="task-prop red">by project </div>
+    </div>
+
+    <div class="sort_by_creation">
+
+    </div>
+
     <% if @tasks.present? %>
+
       <ul class="task-list">
         <% @tasks.each do |task| %>
         <li>
@@ -73,6 +87,55 @@
         </li>
         <% end %>
       </ul>
+
+      <ul class="task-list"  style="display:none">
+        <% @tasks_sorted_by_deadline.each do |task| %>
+        <li>
+          <p><%= task.task_body %></p>
+          <%= link_to project_path(task.project) do %>
+            <div class="task-prop green"><%= task.project.title %></div>
+          <% end %>
+          <div class="task-prop red"><%= task.project.hard_deadline %></div>
+
+          <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+            <div class="task-prop blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
+          <% end %>
+
+
+          <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+            <div class="task-prop white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+          <% end %>
+
+        </li>
+        <% end %>
+      </ul>
+
+      <ul class="task-list" style="display:none">
+        <% @tasks_sorted_by_creation.each do |task| %>
+        <li>
+          <p><%= task.task_body %></p>
+          <%= link_to project_path(task.project) do %>
+            <div class="task-prop green"><%= task.project.title %></div>
+          <% end %>
+          <div class="task-prop red"><%= task.project.hard_deadline %></div>
+
+          <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+            <div class="task-prop blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
+          <% end %>
+
+
+          <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+            <div class="task-prop white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+          <% end %>
+
+        </li>
+        <% end %>
+      </ul>
+
+
+
+
+
     <% else %>
       <p>There's no work to be done!</p>
     <% end %>
