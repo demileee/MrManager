@@ -30,7 +30,7 @@
     </main>
 
     <footer>
-      <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com", target: "_blank" %>. Photographer: <%= new_image.photographer %> (see their <%= link_to "portfolio", new_image.portfolio_link, target: "_blank" %>).</p>
+      <p>Image Courtesy of <%= link_to "Unsplash", "http://unsplash.com?utm_source=Mr_Manager&utm_medium=referral&utm_campaign=api-credit", target: "_blank" %>. Photographer: <%= new_image.photographer %> (<%= link_to "see their portfolio", (new_image.portfolio_link+"?utm_source=Mr_Manager&utm_medium=referral&utm_campaign=api-credit"), target: "_blank" %>).</p>
     </footer>
   </body>
 
