@@ -18,8 +18,8 @@
       <% end %>
       <div class="task-prop red"><%= @user.task.project.hard_deadline %></div>
 
-      <%= link_to completed_project_task_path(@user.task.project, @user.task), method: :patch do %>
-        <div class="task-prop blue complete_task" id="completed">Mark Completed </div>
+      <%= link_to completed_project_task_path(@user.task.project, @user.task), class: "complete_link", method: :patch do %>
+        <div class="task-prop blue complete_task" id="completed">Mark Completed</div>
       <% end %>
       <br />
       <p id="user-task-link">View all tasks</p>
@@ -61,7 +61,7 @@
           <% end %>
           <div class="task-prop red"><%= task.project.hard_deadline %></div>
 
-          <%= link_to completed_project_task_path(task.project, task), method: :patch do %>
+          <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
             <div class="task-prop blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
           <% end %>
 
