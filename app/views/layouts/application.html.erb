@@ -19,6 +19,10 @@
         <%= link_to "Projects", projects_path(current_user) %>
       </div>
       <div class="logged-in">
+        <div class="get-quotes">
+          <%= link_to "#" do  %>
+           Need Encouragement?
+          <% end %> | </div>
         <%= link_to "Dashboard", user_path(current_user) %>
         &nbsp;|&nbsp; <%= link_to "Logout", :logout, method: :delete %>
       </div>

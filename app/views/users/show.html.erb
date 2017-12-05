@@ -43,10 +43,11 @@
     </div>
   </div>
 
-  <div class="get-quotes top-right">
-   <%= link_to "#" do %>
-    Need Encouragement?
-   <% end %>
+  <div class="get-quotes top-right user-notes">
+   <%#= link_to "#" do %>
+    <!-- Need Encouragement? -->
+   <%# end %>
+   <%= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
   <div id="tasks-pane">
@@ -78,9 +79,6 @@
     <% end %>
   </div>
 
-  <!-- <div class="user-tasks ">
-  </div> -->
-
   <div class="notepad">
     <%= form_for(@user) do |f| %>
       <div class="field">
@@ -91,8 +89,8 @@
       </div>
     <% end %>
   </div>
-  <div class="user-notes bottom-right">
-    <%= link_to "Notes", "#", :class => "notepad-link" %>
+  <div class=" ">
+    <%#= link_to "Notes", "#", :class => "notepad-link" %>
   </div>
 
 </div>
