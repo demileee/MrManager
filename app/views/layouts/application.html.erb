@@ -24,10 +24,13 @@
           <div class="get-quotes">
             <%= link_to "#" do  %>
              Need Encouragement?
-            <% end %> | </div>
+            <% end %>&nbsp;|&nbsp;</div>
           <% end %>
-        <%= link_to "Dashboard", user_path(current_user) %>
-        &nbsp;|&nbsp; <%= link_to "Logout", :logout, method: :delete %>
+        <% unless controller_name == 'users' && action_name == 'show' %>
+          <%= link_to "Dashboard", user_path(current_user) %>
+          &nbsp;|&nbsp;
+        <% end %>
+        <%= link_to "Logout", :logout, method: :delete %>
       </div>
     </header>
     <% end %>
