@@ -6,6 +6,9 @@
   background-color: rgba(128, 128, 128, 0.3);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  .field {
+    margin: 2rem;
+  }
   input {
     color: #ffffff;
   }
@@ -30,7 +33,6 @@
 }
 
 .field {
-  margin: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   input{

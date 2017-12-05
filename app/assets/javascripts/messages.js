@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var allMessages = document.querySelector('.all-messages');
   allMessages.scrollTop = allMessages.scrollHeight;
 
-  var ownerMessage = document.querySelector('.message-owner')
+  var ownerMessage = document.querySelector('.message-owner');
 
   var send = document.createElement('i')
   send.classList.add('material-icons');
   send.innerText = 'send';
-  messageField.appendChild(send)
+  messageField.appendChild(send);
 
   messageBoard.classList.add('animated');
   messageBoard.style.display = 'none';
