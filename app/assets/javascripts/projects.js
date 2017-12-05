@@ -16,26 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
   var submitButton = document.querySelector('.submit-button');
   var createTaskMessage = document.querySelector('.create_task_button');
 
-  function toggleDivLeft(div, link, linkTwo){
+  function toggleDivLeft(div, link){
     if (div.style.display === 'none'){
       // Remove slide outs
       div.classList.remove('slideOutLeft');
       link.classList.remove('slideOutLeft');
-      linkTwo.classList.remove('slideOutLeft');
       // Add slide ins
       div.classList.add('slideInLeft');
       link.classList.add('slide-from-left', 'slideInLeft');
-      linkTwo.classList.add('slide-from-left', 'slideInLeft');
       div.style.display = "block";
     } else {
       // Remove slide ins
       div.classList.remove('slideInLeft')
       link.classList.remove('slide-from-left', 'slideInLeft')
-      linkTwo.classList.remove('slide-from-left', 'slideInLeft')
       // Add slide outs
       div.classList.add('slideOutLeft')
       link.classList.add('slideOutLeft')
-      linkTwo.classList.add('slideOutLeft')
       setTimeout(function() {div.style.display = 'none'}, 200)
     }
   }
@@ -62,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   taskLink.addEventListener('click', function(e) {
     console.log('clicked');
     e.preventDefault();
-    toggleDivLeft(tasksPane, taskLink, detailsLink);
+    toggleDivLeft(tasksPane, detailsLink);
   })
 
   detailsLink.addEventListener('click', function(e) {
     console.log('clicked');
     e.preventDefault();
-    toggleDivLeft(detailsPane, taskLink, detailsLink);
+    toggleDivLeft(detailsPane, detailsLink);
   })
 
   addTaskButton.addEventListener('click', function(e) {
@@ -76,12 +72,5 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     toggleFadeIn(taskForm);
   })
-
-  // createTaskMessage.addEventListener('click', function(e) {
-  //   console.log('clicked');
-  //   e.preventDefault();
-  //   toggleFadeIn(taskForm);
-  // })
-
 
 })
