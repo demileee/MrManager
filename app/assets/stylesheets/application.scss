@@ -58,6 +58,19 @@ ul{
   }
 }
 
+
+#get-quotes {
+  display: inline-block;
+  p {
+    text-align: center;
+    // grid-column: 1 / 3;
+    // grid-row: 1 / 2;
+    position: absolute;
+    width: 100%;
+    left: 25%;
+    font-style: italic;
+  }
+}
 .progress-bar,{
   background-color: white;
   width:45%;
@@ -141,7 +154,7 @@ ul{
 //     transition: text-shadow 1.2s ease-out;
 //   }
 // }
-// 
+//
 // .bottom-right{
 //   grid-column: 3 / 4;
 //   grid-row: 3 / 4;

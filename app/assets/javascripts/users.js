@@ -1,8 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function() {
-  var getQuotes = document.querySelector(".get-quotes > a");
-  var quoteDiv  = document.querySelector(".get-quotes");
+  // var getQuotes = document.querySelector(".get-quotes > a");
+  // var quoteDiv  = document.querySelector(".get-quotes");
   var body      = document.querySelector('body');
   var dataHex   = document.body.getAttribute('data-hex');
   var hex       = dataHex.slice(1);
@@ -30,22 +30,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelector('.text-area-box').style.color = fontColour(hex);
 
-  getQuotes.addEventListener('click', function(e){
-    e.preventDefault();
-    if (document.contains(document.querySelector('.quote'))){
-      document.querySelector('.quote').remove();
-    }
-    $.ajax({
-      url: 'https://quotes.rest/qod.json?category=inspire',
-      method: 'GET'
-    }).done(function(data){
-      var quote = data.contents.quotes[0].quote
-      var newpTag = document.createElement('p')
-      newpTag.classList.add('quote', 'animated', 'fadeInUp')
-      newpTag.innerText = quote
-      quoteDiv.appendChild(newpTag, getQuotes);
-    });
-  });
+  // getQuotes.addEventListener('click', function(e){
+  //   e.preventDefault();
+  //   if (document.contains(document.querySelector('.quote'))){
+  //     document.querySelector('.quote').remove();
+  //   }
+  //   $.ajax({
+  //     url: 'https://quotes.rest/qod.json?category=inspire',
+  //     method: 'GET'
+  //   }).done(function(data){
+  //     var quote = data.contents.quotes[0].quote
+  //     var newpTag = document.createElement('p')
+  //     newpTag.classList.add('quote', 'animated', 'fadeInUp')
+  //     newpTag.innerText = quote
+  //     quoteDiv.appendChild(newpTag, getQuotes);
+  //   });
+  // });
 
   function toggleDivLeft(div, link){
     if (div.style.display === 'none'){
