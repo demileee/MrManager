@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepad     = document.querySelector('.notepad')
   var allLinks = document.querySelectorAll('a')
   var editSelf = document.querySelector('.edit-link')
-  var completed = document.getElementById('completed')
 
   var fontColour = function(hex){
     var r = parseInt(hex.substr(0,2),16);
@@ -104,10 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
   taskLinkTwo.addEventListener('click', function(e){
     e.preventDefault();
     toggleDivLeft(tasksPane, taskLink, editSelf);
-  })
-
-  completed.addEventListener('mouseover', function(e){
-  console.log("Hello!")
   })
 
 });
