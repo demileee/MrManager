@@ -1,0 +1,36 @@
+<ul class="task-list">
+  <% @tasks.each do |task| %>
+    <li>
+
+      <p> <%= task.task_body %></p>
+      <div class="time">
+        priority: <%(task.priority).times do%><i class="material-icons" style="font-size: 0.6em; width: 1em;">star_rate</i><%end%>
+      </div><br />
+
+
+
+      <div class="button white"><%= task.user.full_name %></div>
+        <% if !task.complete? && (task.project.user == current_user || task.user == current_user) %>
+          <%= link_to edit_project_task_path(@project, task) do %>
+            <div class="button green">edit</div>
+          <% end %>
+        <% end %>
+
+      <% if task.user == current_user && !task.complete? %>
+        <%= link_to completed_project_task_path(@project, task), class: "complete_link", method: :patch do %>
+          <div class="button blue complete_task">complete</div>
+        <% end %>
+
+        <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} do %>
+          <div class="button red">delete</div>
+        <% end %>
+
+      <% end %>
+
+      <% if task.complete? %>
+        <div class="button blue">completed on <%= task.completed_on %></div>
+      <% end %>
+
+    </li>
+  <% end %>
+</ul>

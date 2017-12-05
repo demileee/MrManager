@@ -1,0 +1,68 @@
+<ul class="task-list priority-task">
+  <li>priority tasks</li>
+  <% @tasks.each do |task| %>
+  <li>
+    <p><%= task.task_body %></p>
+    <%= link_to project_path(task.project) do %>
+      <div class="button green"><%= task.project.title %></div>
+    <% end %>
+    <div class="button red"><%= task.project.hard_deadline %></div>
+
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+      <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
+    <% end %>
+
+
+    <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+      <div class="button white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+    <% end %>
+
+  </li>
+  <% end %>
+</ul>
+
+<ul class="task-list deadline-task"  style="display:none">
+  <li>deadline tasks</li>
+  <% @tasks_sorted_by_deadline.each do |task| %>
+  <li>
+    <p><%= task.task_body %></p>
+    <%= link_to project_path(task.project) do %>
+      <div class="button green"><%= task.project.title %></div>
+    <% end %>
+    <div class="button red"><%= task.project.hard_deadline %></div>
+
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+      <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
+    <% end %>
+
+
+    <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+      <div class="button white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+    <% end %>
+
+  </li>
+  <% end %>
+</ul>
+
+<ul class="task-list creation-task" style="display:none">
+  <li>creation tasks</li>
+  <% @tasks_sorted_by_creation.each do |task| %>
+  <li>
+    <p><%= task.task_body %></p>
+    <%= link_to project_path(task.project) do %>
+      <div class="button green"><%= task.project.title %></div>
+    <% end %>
+    <div class="button red"><%= task.project.hard_deadline %></div>
+
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+      <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
+    <% end %>
+
+
+    <%= link_to pin_task_user_path(task: task), method: :patch, class: "pin-button" do %>
+      <div class="button white">  <i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+    <% end %>
+
+  </li>
+  <% end %>
+</ul>
