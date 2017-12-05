@@ -105,3 +105,17 @@
     }
   }
 }
+
+textarea{
+  resize:none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+}
+
+textarea:focus{
+  background-color: rgba(255, 255, 255, 0.77);
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
