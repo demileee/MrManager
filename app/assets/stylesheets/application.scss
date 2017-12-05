@@ -59,17 +59,15 @@ ul{
 }
 
 
-#get-quotes {
+.get-quotes {
   display: inline-block;
-  p {
-    text-align: center;
-    // grid-column: 1 / 3;
-    // grid-row: 1 / 2;
-    position: absolute;
-    width: 100%;
-    left: 25%;
-    font-style: italic;
-  }
+}
+.quote-style {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  font-style: italic;
+  top: 5%;
 }
 .progress-bar,{
   background-color: white;

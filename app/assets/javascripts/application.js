@@ -16,7 +16,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 // var getQuotes = document.querySelector(".get-quotes > a");
-var quoteDiv  = document.getElementById("get-quotes");
+var quoteDiv  = document.querySelector(".get-quotes");
 var body      = document.querySelector('body');
 var main      = document.querySelector('main');
 
@@ -31,7 +31,7 @@ quoteDiv.addEventListener('click', function(){
 
     var quote = data.contents.quotes[0].quote
     var newpTag = document.createElement('p')
-    newpTag.classList.add('quote', 'animated', 'fadeInUp')
+    newpTag.classList.add('quote', 'animated', 'fadeInUp', 'quote-style')
     newpTag.innerText = quote
     body.insertBefore(newpTag, main);
   });
