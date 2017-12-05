@@ -114,6 +114,7 @@ ul{
   grid-row: 1 / 2;
   text-align: right;
   padding-top: 0.8em;
+  padding-right: 0.8em;
 
   a:hover{
     text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
@@ -144,6 +145,7 @@ ul{
 .bottom-right{
   grid-column: 3 / 4;
   grid-row: 3 / 4;
+  padding-right: 0.8em;
   position: absolute;
   bottom: 0px;
   right: 0;
