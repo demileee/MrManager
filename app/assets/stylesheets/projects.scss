@@ -89,6 +89,7 @@
   display: grid;
   grid-template-columns: 25% 50% 25%;
   position: absolute;
+  width: 100%;
   .project-list{
     grid-column: 2 / 3;
     height: 70vh;
