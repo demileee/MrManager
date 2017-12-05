@@ -29,7 +29,7 @@
     <% end %>
 
     <div class="user-summary">
-      <!-- <h1>Notifications</h1> --><br />
+      <br />
       <% if @notifications.present? %>
         <div id="notifications">
           <ul>
@@ -78,9 +78,8 @@
     <% end %>
   </div>
 
-  <div class="user-tasks bottom-left">
-    <%= link_to "Tasks","#", :class => "task-link" %>
-  </div>
+  <!-- <div class="user-tasks ">
+  </div> -->
 
   <div class="notepad">
     <%= form_for(@user) do |f| %>
