@@ -16,37 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var submitButton = document.querySelector('.submit-button');
   var createTaskMessage = document.querySelector('.create_task_button');
 
-  function toggleDivLeft(div, link){
-    if (div.style.display === 'none'){
-      // Remove slide outs
-      div.classList.remove('slideOutLeft');
-      link.classList.remove('slideOutLeft');
-      // Add slide ins
-      div.classList.add('slideInLeft');
-      link.classList.add('slide-from-left', 'slideInLeft');
-      div.style.display = "block";
-    } else {
-      // Remove slide ins
-      div.classList.remove('slideInLeft')
-      link.classList.remove('slide-from-left', 'slideInLeft')
-      // Add slide outs
-      div.classList.add('slideOutLeft')
-      link.classList.add('slideOutLeft')
-      setTimeout(function() {div.style.display = 'none'}, 200)
-    }
-  }
-
-  function toggleFadeIn(div){
-    if (div.style.display === 'none'){
-      div.classList.remove('fadeOut')
-      div.classList.add('fadeIn')
-      div.style.display = "block";
-    } else {
-      div.classList.remove('fadeIn')
-      div.classList.add('fadeOut')
-      setTimeout(function() {div.style.display = 'none'}, 200)
-    }
-  }
 
   tasksPane.classList.add('animated');
   tasksPane.style.display = 'none';
@@ -55,22 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
   taskForm.classList.add('animated');
   taskForm.style.display = 'none';
 
+
   taskLink.addEventListener('click', function(e) {
-    console.log('clicked');
     e.preventDefault();
-    toggleDivLeft(tasksPane, detailsLink);
+    toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
   })
 
   detailsLink.addEventListener('click', function(e) {
-    console.log('clicked');
     e.preventDefault();
-    toggleDivLeft(detailsPane, detailsLink);
+    toggleDiv(detailsPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", tasksPane)
   })
 
   addTaskButton.addEventListener('click', function(e) {
-    console.log('clicked');
     e.preventDefault();
-    toggleFadeIn(taskForm);
+    toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
   })
 
 })
