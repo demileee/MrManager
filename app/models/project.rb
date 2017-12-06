@@ -4,9 +4,9 @@ include ActionView::Helpers::DateHelper
 
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :members
-  has_many :tasks
-  has_many :messages
+  has_many :members, dependent: :destroy
+  has_many :tasks, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :title, :user, :description, :hard_deadline, presence: true
   validates :title, length: { maximum: 150 }
