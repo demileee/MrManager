@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
-    toggleMessages(messageBoard, messageForm);
+    toggleMessages(messageBoard, messageForm, discussion, 'slide-right');
   });
 
   send.addEventListener('click', function(e) {
