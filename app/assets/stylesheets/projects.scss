@@ -5,25 +5,6 @@
 // Project Show Page
 
 .project-page{
-  position: relative;
-  display: grid;
-  height: 100%;
-  grid-template-columns: 33% 34% 33%;
-  grid-template-rows: 33% 34% 33%;
-
-  textarea{
-    resize:none;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: none;
-  }
-
-  textarea:focus{
-    background-color: rgba(255, 255, 255, 0.77);
-    -webkit-transition: background-color 0.5s ease-out;
-    -moz-transition: background-color 0.5s ease-out;
-    -o-transition: background-color 0.5s ease-out;
-    transition: background-color 0.5s ease-out;
-  }
 
   .project-summary{
     text-align: center;
@@ -62,26 +43,6 @@
   }
 }
 
-#events {
-  overflow-y: scroll;
-  background: rgba(128, 128, 128, 0.3);
-  height: 35vh;
-  text-align: left;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  font-size: 0.9em;
-
-  ul{
-    padding: 0;
-  }
-
-  li{
-    list-style: none;
-    padding: 0.5em 1em;
-    margin-top: 0.5em;
-  }
-
-}
 
 // Project Index
 
