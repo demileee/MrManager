@@ -50,4 +50,15 @@ class MemberTest < ActiveSupport::TestCase
     expected = 3
     assert_equal(expected, member.project_tasks_total(project))
   end
+
+  test 'project_tasks_completed returns total tasks completed' do
+    member = build(:member)
+    task = build(:task, project: member.project, user: member.user)
+    task.completed_on = Time.now
+    task.save
+    task2 = build(:task, project: member.project, user: member.user)
+    task2.save
+    expected = 1
+    assert_equal(expected, member.project_tasks_completed(member.project))
+  end
 end
