@@ -60,6 +60,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal task, user.task
   end
 
+  test "pin task is removed from user" do
+    task = build(:task)
+    user = task.user
+    user.task = task
+    user.remove_pinned_task
+    refute user.task
+  end
+
   test "Robohash name is equal to first_name + last_name" do
     user = build(:user)
     user.save
