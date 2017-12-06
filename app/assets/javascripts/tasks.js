@@ -2,16 +2,16 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function() {
 
-  var tasksPane = document.getElementById("tasks-pane")
-  var taskLink = document.querySelector('#user-task-link')
-  var editSelf = document.querySelector('.edit-link')
-  
+  var tasksPane = document.getElementById("tasks-pane");
+  var taskLink = document.querySelector('#user-task-link');
+  var editSelf = document.querySelector('.edit-link');
+
   var completePinnedTask = document.getElementById('completed');
   var completeTasks = document.querySelectorAll('.complete_task');
   var completeLinks = document.querySelectorAll('.complete_link');
   var checkBox = document.createElement('i');
 
-  tasksPane.classList.add('animated')
+  tasksPane.classList.add('animated');
   tasksPane.style.display = 'none';
 
 
@@ -33,5 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
   checkBox.classList.add('material-icons');
   checkBox.innerText = 'check_box_outline_blank'
   completePinnedTask.appendChild(checkBox);
+
+
+  completeLinks.forEach(function(link){
+    link.preventDefault();
+
+    link.addEventListener('click', function(e){
+      console.log(link);
+    });
+    //   console.log('clicked!');
+    //   $.ajax({
+    //     type: link.dataset.method,
+    //     url: link.href
+    //   }).done(function(){
+    //     console.log("done!");
+    //   });
+    // });
+  });
 
 });

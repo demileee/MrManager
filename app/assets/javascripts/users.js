@@ -3,10 +3,21 @@
 document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
+  var form        = document.querySelector('.edit_user')
+  var submit      = form.querySelector('.submit')
 
   notepadLink.addEventListener('click', function(e){
     e.preventDefault();
-    toggleDiv(notepad, notepadLink, "slideInRight", "slideOutRight")
+    submit.style.display = 'none';
+
+    toggleDiv(notepad, notepadLink, "slideInRight", "slideOutRight");
+
+    $.ajax({
+      url: form.getAttribute('action'),
+      method: form.getAttribute('method'),
+      dataType: 'json',
+      data: $(form).serialize()
+    });
   })
 
   notepad.classList.add('animated')
