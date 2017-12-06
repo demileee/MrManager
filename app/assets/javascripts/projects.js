@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
   taskForm.classList.add('animated');
   taskForm.style.display = 'none';
 
-
   taskLink.addEventListener('click', function(e) {
     e.preventDefault();
     toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
@@ -40,4 +39,30 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
   })
 
+  //// Toggle sort buttons for tasks in Project Page
+  var projectPriorityTasks = document.querySelector('.project-priority-task')
+  var projectUserTasks = document.querySelector('.project-user-task')
+  var projectSortButtonPriority = document.querySelector('.project-sort-button-priority')
+  var projectSortButtonUser = document.querySelector('.project-sort-button-user')
+
+  function toggleProjectSortTasks(div){
+      projectPriorityTasks.style.display = 'none';
+      projectUserTasks.style.display = 'none';
+      projectSortButtonPriority.classList.remove("yellow-active");
+      projectSortButtonUser.classList.remove("yellow-active");
+      div.style.display = "block";
+  }
+
+  projectSortButtonPriority.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleProjectSortTasks(projectPriorityTasks);
+    projectSortButtonPriority.classList.add("yellow-active")
+  })
+
+  projectSortButtonUser.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleProjectSortTasks(projectUserTasks);
+    projectSortButtonUser.classList.add("yellow-active")
+  })
+  
 })
