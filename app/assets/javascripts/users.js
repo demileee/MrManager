@@ -25,22 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
       priorityTasks.style.display = 'none';
       creationTasks.style.display = 'none';
       deadlineTasks.style.display = 'none';
+      sortButtonPriority.classList.remove("yellow-active");
+      sortButtonCreation.classList.remove("yellow-active");
+      sortButtonDeadline.classList.remove("yellow-active");
       div.style.display = "block";
   }
 
   sortButtonPriority.addEventListener('click', function(e){
     e.preventDefault();
     toggleSortTasks(priorityTasks);
+    sortButtonPriority.classList.add("yellow-active")
   })
 
   sortButtonCreation.addEventListener('click', function(e){
     e.preventDefault();
     toggleSortTasks(creationTasks);
+    sortButtonCreation.classList.add("yellow-active")
   })
 
   sortButtonDeadline.addEventListener('click', function(e){
     e.preventDefault();
     toggleSortTasks(deadlineTasks);
+    sortButtonDeadline.classList.add("yellow-active")
   })
 
 });

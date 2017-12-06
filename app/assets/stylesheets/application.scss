@@ -135,6 +135,7 @@ ul{
 
 .sort-button{
   display: inline-block;
+  cursor: pointer;
 }
 
 .green{
@@ -156,6 +157,10 @@ ul{
 .yellow{
   background-color: rgb(254, 239, 140);
 }
+.yellow-active{
+  background-color: rgb(246, 202, 16);
+}
+
 
 header, footer{
   display: flex;
@@ -201,7 +206,7 @@ header, footer{
 
   .task-list{
     overflow-y: scroll;
-    height: calc(100vh - 140px);
+    height: 70vh;
   }
 
   li{

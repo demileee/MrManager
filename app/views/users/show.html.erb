@@ -7,7 +7,7 @@
   </div>
 
   <div class="welcome-div animated">
-    <div class="name">Welcome, <%= @user.first_name %></div>
+    <div class="name">Welcome, <%= @user.first_name.capitalize %></div>
     <% if @user.task.present? %>
       <div class="pin-task animated">
         <%= truncate(@user.task.task_body, :length => 70) %></h1>
@@ -49,19 +49,10 @@
 
   <div id="tasks-pane">
     <h1>Your Tasks</h1>
-
-    <div class="sort-button sort-button-priority">
-      <div class="button yellow">by priority</div>
-    </div>
-
-    <div class="sort-button sort-button-deadline">
-      <div class="button yellow">by project </div>
-    </div>
-
-    <div class="sort-button sort-button-creation">
-      <div class="button yellow">by creation </div>
-    </div>
-
+    <div class="sort-button sort-button-priority button yellow yellow-active">by priority</div>
+    <div class="sort-button sort-button-deadline button yellow">by deadline </div>
+    <div class="sort-button sort-button-creation button yellow">by creation </div>
+    <br />
     <% if @tasks.present? %>
       <%= render "tasks/tasks" %>
     <% else %>

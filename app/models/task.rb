@@ -6,8 +6,8 @@ class Task < ApplicationRecord
 
   belongs_to :project
   belongs_to :user
-  has_many   :pinned_user, through: :users, source: :task
-  has_one    :message
+  has_many   :pinned_user, through: :users, source: :task, dependent: :destroy
+  has_one    :message, dependent: :destroy
 
   validates :project, :user, :task_body, :priority, presence: true
   validates :task_body, length: { maximum: 400 }
