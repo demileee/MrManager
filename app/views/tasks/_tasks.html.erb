@@ -1,5 +1,4 @@
 <ul class="task-list priority-task">
-  <li>priority tasks</li>
   <% @tasks.each do |task| %>
   <li>
     <p><%= task.task_body %></p>
@@ -22,7 +21,6 @@
 </ul>
 
 <ul class="task-list deadline-task"  style="display:none">
-  <li>deadline tasks</li>
   <% @tasks_sorted_by_deadline.each do |task| %>
   <li>
     <p><%= task.task_body %></p>
@@ -45,7 +43,6 @@
 </ul>
 
 <ul class="task-list creation-task" style="display:none">
-  <li>creation tasks</li>
   <% @tasks_sorted_by_creation.each do |task| %>
   <li>
     <p><%= task.task_body %></p>
