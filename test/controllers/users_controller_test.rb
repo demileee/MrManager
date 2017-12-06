@@ -6,6 +6,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'a', "Sign up here!"
   end
-
-
 end
