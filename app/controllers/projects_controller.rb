@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
   before_action :ensure_ownership, only: %i(edit update destroy)
 
   def index
-    @projects = Member.where(user: current_user, invite_accepted: true)
-    @invites = Member.where(user: current_user, invite_accepted: false)
+    @projects = Member.where(user: current_user, invite_accepted: true).sort_by{ |member| member.project.hard_deadline }
+    @invites = Member.where(user: current_user, invite_accepted: false).sort_by{ |member| member.created_at }
   end
 
   def new
@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def show
     @members = @project.members.select { |member| member.invite_accepted? }
     @tasks = @project.tasks.order('completed_on DESC, priority DESC')
+    @tasks_sorted_by_user = @tasks.sort_by{ |task| task.user.first_name }
     @task = Task.new
     @message = Message.new
     @messages = @project.messages.order('created_at')
