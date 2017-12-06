@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var notepadLink = document.querySelector('.user-notes')
   var notepad     = document.querySelector('.notepad')
   var form        = document.querySelector('.edit_user')
+  var submit      = form.querySelector('.submit')
 
   notepadLink.addEventListener('click', function(e){
     e.preventDefault();
+    submit.style.display = 'none';
+
     toggleDiv(notepad, notepadLink, "slideInRight", "slideOutRight");
 
     $.ajax({
@@ -14,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       method: form.getAttribute('method'),
       dataType: 'json',
       data: $(form).serialize()
-    }).always(function(){
-      console.log("finished");
-    })
+    });
   })
 
   notepad.classList.add('animated')
