@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class EventBroadcastJobTest < ActiveJob::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Event is created after joining a project" do
+    project = build(:project)
+    project.save
+    event = Event.where("project_id = ?", project.id)
+    assert_equal "Sally Lee has joined the project.", event.first.message
+  end
 end
