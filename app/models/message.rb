@@ -8,6 +8,13 @@ class Message < ApplicationRecord
   belongs_to :user
 
   validates :project, :user, :message_body, presence: true
+  validate :announcement_made_by_owner
+
+  def announcement_made_by_owner
+    if self.announcement == true && self.user != self.project.user
+      errors.add(:announcement, "has to be made by the owner")
+    end
+  end
 
   private
 

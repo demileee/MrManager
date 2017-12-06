@@ -27,13 +27,10 @@ class MessageTest < ActiveSupport::TestCase
     refute message.valid?
   end
 
-  # test "only project owner can assign announcement" do
-  #   project = build(:project)
-  #   user = project.user
-  #   user_two = build(:user)
-  #   user_two.save
-  #   message = build(:message, user_id: user)
-  #   message.announcement =
-  # end
+  test "only project owner can assign announcement" do
+    user = build(:user)
+    message = build(:message, user: user, announcement: true)
+    refute message.valid?
+  end
 
 end
