@@ -11,8 +11,11 @@ class MessagesController < ApplicationController
 
     if @message.save
       respond_to { |format| format.json { render json: @message } }
+      # redirect_to project_url(@message.project)
     else
       respond_to { |format| format.json { render json: error } }
+      # flash.now[:alert] = "There was an error in saving the message."
+      # redirect_to project_url(@message.project)
     end
   end
 
