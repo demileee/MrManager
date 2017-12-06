@@ -18,6 +18,28 @@ class Member < ApplicationRecord
     Message.create(user: self.user, project: self.project, message_body: "Hi everyone, I've joined #{self.project.title}")
   end
 
+  def project_tasks_total(project)
+    tasks = self.user.tasks.where("project_id = ?", project.id)
+    high = tasks.where("priority = ?", 3).count.to_f
+    med = tasks.where("priority = ?", 2).count.to_f
+    low = tasks.where("priority = ?", 1).count.to_f
+    total = (high*3) + (med*2) + (low*1)
+    return total
+  end
+
+  def project_tasks_completed(project)
+    self.user.tasks.where("project_id = ?", project.id).where.not(completed_on: nil).count.to_f
+  end
+
+  def project_tasks_completed_percent(project)
+    ratio = (self.project_tasks_completed(project) / self.project_tasks_total(project)).round(2)
+    if self.user.tasks.where("project_id = ?", project.id).count > 0
+      return "#{(ratio*100).floor}"
+    else
+      return ""
+    end
+  end
+
   private
 
   def create_notification_for_new_member(member)
