@@ -26,3 +26,21 @@ function toggleDiv(div, link, animationIn, animationOut, moveLink, div2){
     link.classList.add(animationIn)
   }
 }
+
+function toggleMessages(div, div2){
+  if (div.style.display === 'none'){
+    div.classList.remove('slideOutRight');
+    div.classList.add('slideInRight');
+    div.style.display = "flex";
+    div2.classList.remove('slideOutDown');
+    div2.classList.add('slideInUp');
+    div2.style.display = 'block'
+  } else {
+    div.classList.remove('slideInRight');
+    div.classList.add('slideOutRight');
+    div2.classList.remove('slideInUp');
+    div2.classList.add('slideOutDown');
+    setTimeout(function() {div2.style.display = 'none'}, 200)
+    setTimeout(function() {div.style.display = 'none'}, 200)
+  }
+}

@@ -23,24 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
   messageForm.style.display = 'none';
   document.querySelector('div.submit').style.display = 'none'
 
-  function toggleMessages(div, div2){
-    if (div.style.display === 'none'){
-      div.classList.remove('slideOutRight');
-      div.classList.add('slideInRight');
-      div.style.display = "flex";
-      div2.classList.remove('slideOutDown');
-      div2.classList.add('slideInUp');
-      div2.style.display = 'block'
-    } else {
-      div.classList.remove('slideInRight');
-      div.classList.add('slideOutRight');
-      div2.classList.remove('slideInUp');
-      div2.classList.add('slideOutDown');
-      setTimeout(function() {div2.style.display = 'none'}, 200)
-      setTimeout(function() {div.style.display = 'none'}, 200)
-    }
-  }
-
   discussion.addEventListener('click', function(e) {
     e.preventDefault();
     toggleMessages(messageBoard, messageForm);
@@ -57,17 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
       data: $(messageForm).serialize()
     }).done(function(data) {
       var newMessage = ownerMessage.cloneNode(true);
-      newMessage.querySelector('.message_body').innerText = data.message_body;
+      if (data.error !== undefined) {
+        newMessage.querySelector('.message_body').innerText = data.error;;
+      } else {
+        newMessage.querySelector('.message_body').innerText = data.message_body;
+      }
       allMessages.scrollTop = allMessages.scrollHeight;
       allMessages.append(newMessage);
       newMessage.scrollIntoView();
       newMessage.classList.add("animated", "slideInUp");
-    }).fail(function(data, a, b) {
-      console.log('in fail');
-      console.log(data);
-      console.log(a);
-      console.log(b);
-
-    })
-  })
-})
+    });
+  });
+});
