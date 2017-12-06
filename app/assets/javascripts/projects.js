@@ -39,6 +39,16 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
   })
 
+  $(document).keydown(function(e) {
+    // ESCAPE key pressed = Add task modal disappears
+    if (e.keyCode == 27 && taskForm.style.display === "block") {
+      e.preventDefault();
+      console.log("hi")
+      toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
+    }
+  });
+
+
   //// Toggle sort buttons for tasks in Project Page
   var projectPriorityTasks = document.querySelector('.project-priority-task')
   var projectUserTasks = document.querySelector('.project-user-task')
@@ -64,5 +74,5 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleProjectSortTasks(projectUserTasks);
     projectSortButtonUser.classList.add("yellow-active")
   })
-  
+
 })
