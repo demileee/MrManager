@@ -7,7 +7,8 @@
     <% end %>
     <div class="button red"><%= task.project.hard_deadline %></div>
 
-    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%#= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link" do %>
       <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
     <% end %>
 
@@ -29,7 +30,8 @@
     <% end %>
     <div class="button red"><%= task.project.hard_deadline %></div>
 
-    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%#= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link" do %>
       <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
     <% end %>
 
@@ -51,7 +53,8 @@
     <% end %>
     <div class="button red"><%= task.project.hard_deadline %></div>
 
-    <%= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%#= link_to completed_project_task_path(task.project, task), class: "complete_link", method: :patch do %>
+    <%= link_to completed_project_task_path(task.project, task), class: "complete_link" do %>
       <div class="button blue complete_task"><i class="material-icons" style="font-size: 1em;">done</i></div>
     <% end %>
 
