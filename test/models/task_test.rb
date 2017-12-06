@@ -91,4 +91,14 @@ class TaskTest < ActiveSupport::TestCase
     assert_equal task.message, message
   end
 
+  test "pinned task is removed from user on completion" do
+    task = build(:task)
+    user = task.user
+    user.task = task
+    user.save
+    task.completed
+    task.save
+    refute user.task
+  end
+
 end
