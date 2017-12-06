@@ -101,4 +101,9 @@ class TaskTest < ActiveSupport::TestCase
     refute user.task
   end
 
+  test "if task was assigned by owner" do
+    task = build(:task)
+    assert task.assigned_by_owner?
+  end
+
 end
