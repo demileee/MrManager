@@ -33,4 +33,23 @@ class MessageTest < ActiveSupport::TestCase
     refute message.valid?
   end
 
+  test "message is created when user creates project" do
+    project = build(:project)
+    project.save
+    expected_message = "Welcome to #{project.title}!"
+    assert_equal expected_message, project.messages.first.message_body
+  end
+
+  test "message is created when member joins project" do
+    project = build(:project)
+    project.save
+    user = build(:user)
+    user.save
+    new_member = build(:member, project: project, user: user)
+    new_member.join_project
+    new_member.save
+    expected_message = "Hi everyone, I've joined #{project.title}"
+    assert_equal expected_message, project.messages.last.message_body
+  end
+
 end
