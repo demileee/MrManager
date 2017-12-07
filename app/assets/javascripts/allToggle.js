@@ -10,8 +10,8 @@ function toggleDiv(div, link, animationIn, animationOut, moveLink, div2){
     div.classList.remove(animationIn);
     div.classList.add(animationIn);
     div.style.display = "block"
-    link.classList.remove(animationIn);
-    link.classList.add(moveLink, animationOut);
+    link.classList.remove(animationOut);
+    link.classList.add(moveLink, animationIn);
 
   } else if (div.style.display === 'block'){
     if (div2 !== undefined) {
@@ -22,8 +22,8 @@ function toggleDiv(div, link, animationIn, animationOut, moveLink, div2){
     div.classList.remove(animationOut);
     div.classList.add(animationOut);
     setTimeout(function() {div.style.display = 'none'}, 200);
-    link.classList.remove(moveLink, animationOut);
-    link.classList.add(animationIn);
+    link.classList.remove(moveLink, animationIn);
+    link.classList.add(animationOut);
   }
 }
 

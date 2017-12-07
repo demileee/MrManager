@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function() {
   var discussion = document.getElementById('discussion');
+  var discussionLink = document.querySelector('.discussion-link');
   var messageBoard = document.querySelector('.message-board');
   var messageForm = document.getElementById('new_message');
   var messageField = document.querySelector(".message-field");
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   messageForm.style.display = 'none';
   document.querySelector('div.submit').style.display = 'none'
 
-  discussion.addEventListener('click', function(e) {
+  discussionLink.addEventListener('click', function(e) {
     e.preventDefault();
     toggleMessages(messageBoard, messageForm, discussion, 'slide-right');
   });

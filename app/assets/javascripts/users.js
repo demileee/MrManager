@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 document.addEventListener('DOMContentLoaded', function() {
-  var notepadLink = document.querySelector('.user-notes')
+  var notepadLink = document.querySelector('.notepad-link')
   var notepad     = document.querySelector('.notepad')
   var form        = document.querySelector('.edit_user')
   var submit      = form.querySelector('.submit')
