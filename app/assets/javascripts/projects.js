@@ -15,7 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
   var taskForm = document.querySelector('.task-form-cont');
   var submitButton = document.querySelector('.submit-button');
   var createTaskMessage = document.querySelector('.create_task_button');
+  var body = document.querySelector('body');
+  var whiteBow = document.querySelector('.white-bow');
+  var blackBow = document.querySelector('.black-bow');
+  var allTitles = document.querySelectorAll(".project-card-left > h2")
 
+// Project Index: Add black or white bow to Mr Manager projects
+  allTitles.forEach(function(title){
+    if (title.innerText === "Mr. Manager" && body.style.color === 'white'){
+        // console.log("white!");
+        whiteBow.style.display = 'block';
+      }
+    else if (title.innerText === "Mr. Manager" && body.style.color === 'black') {
+        blackBow.style.display = 'block';
+      }
+  })
 
   tasksPane.classList.add('animated');
   tasksPane.style.display = 'none';
@@ -47,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
     }
   });
-
+  // // Insert black or white bow tie to Project Index page for Mr.Managers
 
   //// Toggle sort buttons for tasks in Project Page
   var projectPriorityTasks = document.querySelector('.project-priority-task')
