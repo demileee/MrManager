@@ -290,5 +290,11 @@ footer{
   height: 100%;
   width: 100%;
   grid-template-columns: 33% 34% 33%;
-  grid-template-rows: 33% 34% 33%;
+  grid-template-rows: 33% 34% 33%; }
+
+@media screen and (max-width: 768px){
+  #tasks-pane{
+    width: 110% !important; 
+  }
+
 }
