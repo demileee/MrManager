@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var tasksPane = document.getElementById("tasks-pane");
   var detailsPane = document.getElementById("details-pane");
   var taskLink = document.querySelector('.tasks-link');
+  var detailLink = document.querySelector('.detail-link');
   var detailsLink = document.querySelector('.details-link');
   var addTaskButton = document.querySelector('.add-task-button');
   var taskForm = document.querySelector('.task-form-cont');
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
   })
 
-  detailsLink.addEventListener('click', function(e) {
+  detailLink.addEventListener('click', function(e) {
     e.preventDefault();
     toggleDiv(detailsPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", tasksPane)
   })

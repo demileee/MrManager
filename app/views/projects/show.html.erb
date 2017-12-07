@@ -110,7 +110,7 @@
     <% end %>
   </div>
 
-  <div id="discussion" class="top-right hover-shadow" style="padding-right: 1em;"><%= link_to "Discussion", id: @project.id %></div>
+  <div id="discussion" class="top-right hover-shadow" style="padding-right: 1em;"><%= link_to "Discussion", { id: @project.id }, class: "discussion-link" %></div>
   <div class="discussion">
     <div class="message-board">
       <div class="all-messages">
