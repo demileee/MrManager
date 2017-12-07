@@ -11,13 +11,15 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     user = build(:user)
-    user.save
-    get login_url
     post sessions_url, params: { email: user.email, password: user.password }
-    assert_response :redirect
-    follow_redirect!
     assert_response :success
-    assert_select 'div', "Welcome, #{user.first_name.capitalize}"
+  end
+
+  test "wrong login" do
+    post sessions_url, params: { email: "test@email.com", password: "password" }
+    assert_response :success
+    assert_select 'h1', "Login"
+
   end
 
   test "should get destroy" do
