@@ -8,7 +8,7 @@ class UnsplashConcernTest < ActionDispatch::IntegrationTest
   test "cache exists" do
     @cache = Rails.application.cache
 
-    @cache.present?
+    assert @cache.present?
   end
 
 end
