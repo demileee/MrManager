@@ -18,18 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var submitButton = document.querySelector('.submit-button');
   var createTaskMessage = document.querySelector('.create_task_button');
   var body = document.querySelector('body');
-  var whiteBow = document.querySelector('.white-bow');
+  var whiteBow = document.querySelectorAll('.white-bow');
   var blackBow = document.querySelector('.black-bow');
   var allTitles = document.querySelectorAll(".project-card-left > h2")
 
-// Project Index: Add black or white bow to Mr Manager projects
-  allTitles.forEach(function(title){
+  allTitles.forEach(function(title, i){
     if (title.innerText === "Mr. Manager" && body.style.color === 'white'){
-        // console.log("white!");
-        whiteBow.style.display = 'block';
+        whiteBow[i].style.display = 'block';
       }
     else if (title.innerText === "Mr. Manager" && body.style.color === 'black') {
-        blackBow.style.display = 'block';
+        blackBow[i].style.display = 'block';
       }
   })
 
