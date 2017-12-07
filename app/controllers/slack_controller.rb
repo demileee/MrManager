@@ -1,5 +1,3 @@
-require 'securerandom'
-
 class SlackController < ApplicationController
 
   def update
@@ -8,7 +6,7 @@ class SlackController < ApplicationController
     @user.slack_id = request.env["omniauth.auth"]["info"]["user_id"]
 
     if @user.save(validate: false)
-      redirect_to user_url(@user)
+      redirect_to user_url
     else
       render :edit
     end

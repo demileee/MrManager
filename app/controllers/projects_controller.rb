@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :not_authenticated
   before_action :load_project, only: %i(show edit update destroy)
   before_action :ensure_ownership, only: %i(edit update destroy)
 
@@ -64,7 +65,7 @@ class ProjectsController < ApplicationController
 
   def ensure_ownership
     if @project.user != current_user
-      flash[:alert] = "Only the project owner can perform this action."
+      flash[:alert] = "Only Mr Manager can perform this action."
       redirect_to projects_url
     end
   end

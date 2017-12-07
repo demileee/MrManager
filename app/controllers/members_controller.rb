@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
-
+  before_action :not_authenticated
   before_action :find_project, only: [:new, :create, :invite]
-  
+
   def index
   end
 

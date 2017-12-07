@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :not_authenticated, except: %i(new create)
   before_action :load_user,  except: %i(new create show)
 
   def new

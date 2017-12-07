@@ -11,15 +11,14 @@ class ApplicationController < ActionController::Base
 
   def user_is_logged_in
     if current_user
-      redirect_to user_url(current_user)
+      redirect_to user_url
     end
   end
 
   helper_method :new_image
   helper_method :current_user
 
-  private
   def not_authenticated
-    redirect_to login_path, alert: "Please login first"
+    redirect_to login_path, alert: "Please login first" unless current_user
   end
 end

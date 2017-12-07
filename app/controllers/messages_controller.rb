@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-
+  before_action :not_authenticated
+  
   def index
   end
 

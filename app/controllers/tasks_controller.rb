@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :not_authenticated
   before_action :load_project, except: %i(index)
   before_action :find_task, except: %i(index new create show)
 
