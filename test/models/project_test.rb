@@ -110,4 +110,20 @@ class ProjectTest < ActiveSupport::TestCase
     members = project.members.map { |m| m.user }
     assert_includes members, project.user
   end
+
+  test "can remove soft deadline" do
+    project = build(:project, soft_deadline: Date.today)
+    project.remove_soft_deadline
+    refute project.soft_deadline
+  end
+
+  test "display time till hard deadline" do
+    project = build(:project, hard_deadline: Date.today + 7.days)
+    assert_equal "6 days", project.time_remaining_hard_dd
+  end
+
+  test "display time till soft deadline" do
+    project = build(:project, soft_deadline: Date.today + 5.days)
+    assert_equal "4 days", project.time_remaining_soft_dd
+  end
 end
