@@ -8,4 +8,9 @@ class ActiveSupport::TestCase
   fixtures :all
   # Add more helper methods to be used by all tests here...
   include FactoryBot::Syntax::Methods
+
+  def sign_in_as(name)
+    post login_url, params: { sig: users(name).perishable_signature }
+  end
+
 end
