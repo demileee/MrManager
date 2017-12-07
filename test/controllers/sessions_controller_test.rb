@@ -15,9 +15,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post sessions_url, params: { email: user.email, password: user.password }
     assert_response :success
   end
-  #
+
   # test "should get destroy" do
-  #   get logout_url
+  #   user = build(:user)
+  #   get login_url
+  #   post sessions_url, params: { email: user.email, password: user.password }
+  #   delete logout_url
   #   assert_response :success
   # end
 
