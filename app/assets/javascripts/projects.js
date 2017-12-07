@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCalTimezone.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
 
+  // Setting up elements
   var tasksPane = document.getElementById("tasks-pane");
   var detailsPane = document.getElementById("details-pane");
   var taskLink = document.querySelector('.tasks-link');
@@ -16,6 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var taskForm = document.querySelector('.task-form-cont');
   var submitButton = document.querySelector('.submit-button');
   var createTaskMessage = document.querySelector('.create_task_button');
+  var body = document.querySelector('body');
+  var whiteBow = document.querySelectorAll('.white-bow');
+  var blackBow = document.querySelector('.black-bow');
+  var allTitles = document.querySelectorAll(".project-card-left > h2")
+
+  allTitles.forEach(function(title, i){
+    if (title.innerText === "Mr. Manager" && body.style.color === 'white'){
+        whiteBow[i].style.display = 'block';
+      }
+    else if (title.innerText === "Mr. Manager" && body.style.color === 'black') {
+        blackBow[i].style.display = 'block';
+      }
+  })
 
 
   tasksPane.classList.add('animated');
@@ -25,6 +39,55 @@ document.addEventListener('DOMContentLoaded', function() {
   taskForm.classList.add('animated');
   taskForm.style.display = 'none';
 
+
+  // Hiding add task modal when clicking outside the modal
+  var addTask = document.querySelector('.add-task');
+  var taskField = document.querySelectorAll('.field');
+  var newTaskForm = document.querySelectorAll('.new_task');
+  addTask.classList.add('task-field');
+
+  var addTaskChildren = addTask.children
+  for (var i = 0; i < addTaskChildren.length; i++) {
+    var tableChild = addTaskChildren[i];
+    tableChild.classList.add("task-field")
+  }
+
+  taskField.forEach(function(field){
+    var fieldChildren = field.children
+    for (var i = 0; i < fieldChildren.length; i++) {
+      var tableChild = fieldChildren[i];
+      tableChild.classList.add("task-field")
+    }
+  })
+
+  newTaskForm.forEach(function(field){
+    var fieldChildren = field.children
+    for (var i = 0; i < fieldChildren.length; i++) {
+      var tableChild = fieldChildren[i];
+      tableChild.classList.add("task-field")
+    }
+  })
+
+  document.querySelector("main").addEventListener("click", function(e) {
+    if (taskForm.style.display === "block" &&
+    !e.target.classList.contains("addtask") &&
+    !e.target.classList.contains("task-field") ) {
+      e.preventDefault();
+      console.log(e.target)
+      toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
+    }
+  })
+
+  // ESCAPE key pressed = Add task modal disappears
+  $(document).keydown(function(e) {
+    if (e.keyCode == 27 && taskForm.style.display === "block") {
+      e.preventDefault();
+      console.log("hi")
+      toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
+    }
+  });
+
+  // Panes sliding in from clicking link
   taskLink.addEventListener('click', function(e) {
     e.preventDefault();
     toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
@@ -39,16 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
   })
-
-  $(document).keydown(function(e) {
-    // ESCAPE key pressed = Add task modal disappears
-    if (e.keyCode == 27 && taskForm.style.display === "block") {
-      e.preventDefault();
-      console.log("hi")
-      toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
-    }
-  });
-
 
   //// Toggle sort buttons for tasks in Project Page
   var projectPriorityTasks = document.querySelector('.project-priority-task')

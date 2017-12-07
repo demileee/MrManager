@@ -37,7 +37,7 @@
         <div class="member">
           <%= member.user.full_name %><br />
           <div class="time">
-            <%= member.role %> <% if @project.user == current_user%>| <%= member.project_tasks_completed_percent(@project) %><%end%>
+            <%= member.role %> <% if @project.user == current_user%>| <%= member.project_tasks_completed_percent(@project) %>%<%end%>
           </div>
         </div>
 
@@ -94,7 +94,7 @@
   <div id="tasks-pane">
     <h1>Project Tasks</h1>
     <div class="add-task-button">
-      <%= link_to "+ Add a task", "#"%>
+      <%= link_to "+ Add a task", "#", class: "addtask"%>
     </div>
     <br />
     <div class="sort-button project-sort-button-priority button yellow yellow-active">by priority</div>

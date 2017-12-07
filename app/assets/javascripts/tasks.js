@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var tasksPane = document.getElementById("tasks-pane");
   var taskLink = document.querySelector('#user-task-link');
   var editSelf = document.querySelector('.edit-link');
+  var taskForm = document.querySelector('.task-form-cont');
+  var addTask = document.querySelector('.add-task');
 
   var completePinnedTask = document.getElementById('completed');
   var completeTasks = document.querySelectorAll('.complete_task');
