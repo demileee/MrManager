@@ -119,11 +119,11 @@ class ProjectTest < ActiveSupport::TestCase
 
   test "display time till hard deadline" do
     project = build(:project, hard_deadline: Date.today + 7.days)
-    assert_equal "6 days", project.time_remaining_hard_dd
+    assert_equal "7 days", project.time_remaining_hard_dd
   end
 
   test "display time till soft deadline" do
     project = build(:project, soft_deadline: Date.today + 5.days)
-    assert_equal "4 days", project.time_remaining_soft_dd
+    assert_equal "5 days", project.time_remaining_soft_dd
   end
 end
