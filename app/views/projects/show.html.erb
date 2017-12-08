@@ -10,6 +10,10 @@
 
   <div class="project-details" id="details-pane">
 
+    <%= link_to "#" do %>
+      <div id="close-button-details" class="button white"><i class="material-icons" style="font-size: 1rem; padding-top: 2px;">close</i></div>
+    <% end %>
+
     <h1><%= @project.title %></h1>
 
     <p><%= @project.description %></p>
@@ -93,9 +97,13 @@
 
   <div id="tasks-pane">
     <h1>Project Tasks</h1>
+
     <div class="add-task-button">
       <%= link_to "+ Add a task", "#", class: "addtask"%>
     </div>
+    <%= link_to "#" do %>
+      <div id="close-button-tasks" class="button white"><i class="material-icons" style="font-size: 1rem; padding-top: 2px;">close</i></div>
+    <% end %>
     <br />
     <div class="sort-button project-sort-button-priority button yellow yellow-active">by priority</div>
     <div class="sort-button project-sort-button-user button yellow">by user </div>

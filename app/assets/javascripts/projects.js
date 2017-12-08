@@ -7,6 +7,40 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCalTimezone.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
 
+  // Mobile NavBar Responsiveness
+  var navButton = document.querySelector(".nav-button")
+  var navMenu = document.querySelector(".nav-menu")
+  var mobileHeader = document.querySelector(".mobile")
+  var webHeader = document.querySelector(".web")
+
+  navMenu.classList.add('animated')
+  navMenu.classList.add('slideInDown')
+
+  navButton.addEventListener("click", function(e){
+    e.preventDefault();
+    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
+  })
+
+  if (window.outerWidth > 768){
+    navMenu.style.display = "none";
+    mobileHeader.style.display = "none";
+    webHeader.style.display = "block"
+  } else {
+    mobileHeader.style.display = "block";
+    webHeader.style.display = "none"
+  }
+
+  window.addEventListener("resize", function(e){
+    if (e.currentTarget.outerWidth > 768){
+      navMenu.style.display = "none";
+      mobileHeader.style.display = "none";
+      webHeader.style.display = "block"
+    } else {
+      mobileHeader.style.display = "block";
+      webHeader.style.display = "none"
+    }
+  })
+
   // Setting up elements
   var tasksPane = document.getElementById("tasks-pane");
   var detailsPane = document.getElementById("details-pane");
@@ -21,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var whiteBow = document.querySelectorAll('.white-bow');
   var blackBow = document.querySelector('.black-bow');
   var allTitles = document.querySelectorAll(".project-card-left > h2")
+  var closeButtonTasks = document.querySelector("#close-button-tasks")
+  var closeButtonDetails = document.querySelector("#close-button-details")
 
   tasksPane.classList.add('animated');
   tasksPane.style.display = 'none';
@@ -91,6 +127,16 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
   })
 
+  closeButtonTasks.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleDiv(tasksPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", detailsPane)
+  })
+
+  closeButtonDetails.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleDiv(detailsPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", tasksPane)
+  })
+
   detailLink.addEventListener('click', function(e) {
     e.preventDefault();
     toggleDiv(detailsPane, detailsLink, "slideInLeft", "slideOutLeft", "slide-from-left", tasksPane)
@@ -127,24 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
     projectSortButtonUser.classList.add("yellow-active")
   })
 
-  // Mobile NavBar animation
-  var navButton = document.querySelector(".nav-button")
-  var navMenu = document.querySelector(".nav-menu")
-  var mobileHeader = document.querySelector(".mobile")
-  var webHeader = document.querySelector(".web")
 
-  navMenu.classList.add('animated')
-  navMenu.classList.add('slideInDown')
-
-  navButton.addEventListener("click", function(e){
-    e.preventDefault();
-    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
-  })
-
-  window.addEventListener("resize", function(e){
-    if (e.currentTarget.outerWidth > 768){
-      navMenu.style.display = "none"
-    }
-  })
 
 })

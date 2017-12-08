@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var editSelf = document.querySelector('.edit-link');
   var taskForm = document.querySelector('.task-form-cont');
   var addTask = document.querySelector('.add-task');
+  var closeButtonTasks = document.querySelector("#close-button-tasks")
 
   var completePinnedTask = document.getElementById('completed');
   var completeTasks = document.querySelectorAll('.complete_task');
@@ -20,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
   taskLink.addEventListener('click', function(e){
     e.preventDefault();
     toggleDiv(tasksPane, editSelf, "slideInLeft", "slideOutLeft", 'slide-from-left', undefined);
+  })
+
+  closeButtonTasks.addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleDiv(tasksPane, editSelf, "slideInLeft", "slideOutLeft", "slide-from-left", undefined)
   })
 
   completeTasks.forEach(function(task) {

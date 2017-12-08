@@ -49,6 +49,9 @@
 
   <div id="tasks-pane">
     <h1>Your Tasks</h1>
+    <%= link_to "#" do %>
+      <div id="close-button-tasks" class="button white"><i class="material-icons" style="font-size: 1rem; padding-top: 2px;">close</i></div>
+    <% end %>
     <div class="sort-button sort-button-priority button yellow yellow-active">by priority</div>
     <div class="sort-button sort-button-deadline button yellow">by deadline </div>
     <div class="sort-button sort-button-creation button yellow">by creation </div>

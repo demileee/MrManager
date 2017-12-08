@@ -47,9 +47,12 @@
         <li><%= link_to "Dashboard", user_path(current_user) %></li>
       <% end %>
       <li><%= link_to "Projects", projects_path(current_user) %></li>
-      <%= link_to "#" do  %>
-      <li>Need Encouragement?</li>
-      <% end %>
+      <li>
+        <div class="get-quotes">
+          <%= link_to "#" do  %>
+          Need Encouragement?
+          <% end %>
+        </div></li>
       <li><%= link_to "Logout", :logout, method: :delete %></li>
     </ul>
 
