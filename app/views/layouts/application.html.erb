@@ -16,7 +16,7 @@
 
   <body data-hex="<%= new_image.hex %>" style="background-image:url(<%= new_image.image %>)" >
     <% if session[:user_id] %>
-    <header class="web" style="display:none">
+    <header class="web">
       <div class="logged-in-left">
         <%= link_to "Projects", projects_path(current_user) %>
       </div>
@@ -40,20 +40,18 @@
       <div class="nav-button">
         <%= link_to "MR_MANAGER", "" %>
       </div>
-        <ul class="nav-menu" style="display:none">
-          <% unless controller_name == 'users' && action_name == 'show' %>
-            <li><%= link_to "Dashboard", user_path(current_user) %></li>
-          <% end %>
-          <li><%= link_to "Projects", projects_path(current_user) %></li>
-          <%= link_to "#" do  %>
-          <li>Need Encouragement?</li>
-          <% end %>
-          <li><%= link_to "Logout", :logout, method: :delete %></li>
-        </ul>
-
-      </div>
-
     </header>
+
+    <ul class="nav-menu" style="display: none">
+      <% unless controller_name == 'users' && action_name == 'show' %>
+        <li><%= link_to "Dashboard", user_path(current_user) %></li>
+      <% end %>
+      <li><%= link_to "Projects", projects_path(current_user) %></li>
+      <%= link_to "#" do  %>
+      <li>Need Encouragement?</li>
+      <% end %>
+      <li><%= link_to "Logout", :logout, method: :delete %></li>
+    </ul>
 
     <% end %>
 
