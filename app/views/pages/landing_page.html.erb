@@ -1,6 +1,14 @@
 <div class="landing-page">
-  <!-- <p>Welcome To</p> -->
-  <%= image_tag "large_white.png", class: "landing-logo logo-white", alt: "Mr. Manager"%>
-  <%= link_to "Login", login_path %>
-  <%= link_to "Create an Account", new_user_path %>
+  <div class="logo">
+    <%= image_tag "large_white.png", class: "landing-logo logo-white", alt: "Mr. Manager"%>
+    <%= image_tag "large_black.png", class: "landing-logo logo-black", alt: "Mr. Manager"%>
+  </div>
+  <div class="landing-buttons">
+    <div class="login">
+      <%= link_to "Login", login_path %>
+    </div>
+    <div class="sign-up">
+      <%= link_to "Create an Account", new_user_path %>
+    </div>
+  </div>
 </div>

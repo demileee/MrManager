@@ -1,14 +1,19 @@
 .landing-page {
   overflow-x: hidden;
   margin: 0 auto;
-  p {
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-    text-align: center;
-    font-size: 30px;
+  .landing-logo{
+    max-width: 100%;
+    width: 500px;
+    height: auto;
   }
-}
-.landing-logo{
-  max-width: 100%;
-  width: 500px;
-  height: auto;
+  .logo-white, .logo-black {
+    display: none;
+  }
+  .landing-buttons{
+    text-align: center;
+    .login, .sign-up {
+      display: inline-block;
+      text-transform: uppercase;
+    }
+  }
 }
