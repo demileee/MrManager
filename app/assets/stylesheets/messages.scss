@@ -34,6 +34,8 @@
 
       .profile_pic {
         grid-column: 1 / 2;
+        display: flex;
+        justify-self: center;
       }
 
       .user_name {
@@ -42,6 +44,8 @@
 
       .create_task {
         grid-column: 2 / 3;
+        display: flex;
+        justify-self: center;
       }
 
       .message_body {
@@ -60,6 +64,8 @@
 
       .create_task {
         grid-column: 1 / 2;
+        display: flex;
+        justify-self: center;
       }
 
       .user_name {
@@ -69,6 +75,8 @@
       .profile_pic {
         grid-column: 2 / 3;
         transform: scalex(-1);
+        display: flex;
+        justify-self: center;;
       }
     }
 
