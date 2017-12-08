@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     blackLogo.style.display = 'block';
     loginButton.style.borderColor = 'black';
+    loginButton.style.color = 'black';
     signupButton.style.borderColor = 'black';
+    signupButton.style.color = 'black';
   }
 });
