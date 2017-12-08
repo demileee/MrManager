@@ -25,6 +25,8 @@ body{
   height: 100vh;
   min-height: 100%;
   background-size: cover; //This should probably be 100% auto after we resize all elements on the views
+  background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
   transition: -webkit-filter 0.5s ease;
@@ -314,6 +316,18 @@ footer{
 
 //**************** MEDIA QUERIES ****************//
 @media screen and (max-width: 768px){
+
+  .project-index{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  #tasks-pane, #details-pane, .discussion{
+    width: 110% !important;
+  }
   header.web{
     display: none;
   }
@@ -340,6 +354,21 @@ footer{
   #tasks-pane{
     width: 100% !important;
     grid-column: 1 / 4;
+  }
+  .project-index{
+    display: block;
+    width: 100%;
+    height: 100%;
+    .project-card{
+      display: block;
+      margin: 2rem 1rem;
+      padding: 1rem 2rem;
+      padding-bottom: 2rem;
+      background-color: rgba(128, 128, 128, 0.3);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      position: relative;
+    }
   }
 }
 

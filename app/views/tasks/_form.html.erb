@@ -1,14 +1,16 @@
 <div class="
-<% if current_page?(project_path(@project.id)) %>
-add-task form-page
+  <% if current_page?(project_path(@project)) %>
+  add-task form-page
+  <% else %>
+    form-page
   <% end %>">
 
   <%= form_for ([@project, @task]) do |f| %>
 
   <% if flash.any? %>
-  <% flash.each do |type, msg| %>
-  <%= msg %>
-  <% end %>
+    <% flash.each do |type, msg| %>
+      <%= msg %>
+    <% end %>
   <% end %>
 
   <div class="field task-form-field">

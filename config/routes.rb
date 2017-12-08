@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/auth/slack/callback', to: 'slack#update'
 
-  root 'sessions#new'
+  # root 'sessions#new'
 
   mount ActionCable.server => '/cable'
 
@@ -37,4 +37,7 @@ Rails.application.routes.draw do
     end
     resources :messages, except: [:show, :new]
   end
+
+  get '/pages/:page' => 'pages#show'
+  root 'pages#show', page: 'landing_page'
 end
