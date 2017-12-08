@@ -59,6 +59,13 @@ ul{
   }
 }
 
+header.mobile{
+  z-index: 1000;
+  display:block;
+  text-align: center;
+  height: auto;
+}
+
 
 .get-quotes {
   display: inline-block;
