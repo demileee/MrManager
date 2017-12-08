@@ -1,0 +1,14 @@
+<div class="landing-page">
+  <div class="logo">
+    <%= image_tag "large_white.png", class: "landing-logo logo-white", alt: "Mr. Manager"%>
+    <%= image_tag "large_black.png", class: "landing-logo logo-black", alt: "Mr. Manager"%>
+  </div>
+  <div class="landing-buttons">
+    <%= link_to login_path do %>
+      <div class="login">Login</div>
+    <% end %>
+    <%= link_to new_user_path do %>
+      <div class="sign-up">Create an Account</div>
+    <% end %>
+  </div>
+</div>
