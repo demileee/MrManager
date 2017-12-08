@@ -314,33 +314,41 @@ footer{
 
 //**************** MEDIA QUERIES ****************//
 @media screen and (max-width: 768px){
-  #tasks-pane{
-    width: 110% !important;
-  }
   header.web{
     display: none;
   }
   header.mobile{
     display:block;
   }
-
+  #tasks-pane{
+    width: 100% !important;
+    grid-column: 1 / 4;
+  }
 }
 
 
 /*iPhone 6 plus*/
 @media screen and (min-width: 414px) and (max-width: 600px){
-
-
+  #tasks-pane{
+    width: 100% !important;
+    grid-column: 1 / 4;
+  }
 }
 
 /*iPhone Portrait below iPhone 6 plus*/
 @media screen and (max-width: 413px){
-
+  #tasks-pane{
+    width: 100% !important;
+    grid-column: 1 / 4;
+  }
 }
 
 /*iPhone Portrait below iPhone 6*/
 @media screen and (max-width: 375px){
-
+  #tasks-pane{
+    width: 100% !important;
+    grid-column: 1 / 4;
+  }
 }
 
 /* Portrait iPad to Desktop ipad break 1024p*/

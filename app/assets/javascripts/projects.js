@@ -7,28 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCalTimezone.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
 
-  // Mobile NavBar animation
-  var navButton = document.querySelector(".nav-button")
-  var navMenu = document.querySelector(".nav-menu")
-  var mobileHeader = document.querySelector(".mobile")
-  var webHeader = document.querySelector(".web")
-
-  navMenu.classList.add('animated')
-  mobileHeader.classList.add('animated')
-  mobileHeader.classList.add('slideInDown')
-
-  navButton.addEventListener("click", function(e){
-    e.preventDefault();
-    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
-  })
-
-  window.addEventListener("resize", function(e){
-    if (e.currentTarget.outerWidth > 768){
-      navMenu.style.display = "none"
-    }
-  })
-
-
   // Setting up elements
   var tasksPane = document.getElementById("tasks-pane");
   var detailsPane = document.getElementById("details-pane");
@@ -44,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var blackBow = document.querySelector('.black-bow');
   var allTitles = document.querySelectorAll(".project-card-left > h2")
 
+  tasksPane.classList.add('animated');
+  tasksPane.style.display = 'none';
+  detailsPane.classList.add('animated');
+  detailsPane.style.display = 'none';
+  taskForm.classList.add('animated');
+  taskForm.style.display = 'none';
+
   allTitles.forEach(function(title, i){
     if (title.innerText === "Mr. Manager" && body.style.color === 'white'){
         whiteBow[i].style.display = 'block';
@@ -52,15 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         blackBow[i].style.display = 'block';
       }
   })
-
-
-  tasksPane.classList.add('animated');
-  tasksPane.style.display = 'none';
-  detailsPane.classList.add('animated');
-  detailsPane.style.display = 'none';
-  taskForm.classList.add('animated');
-  taskForm.style.display = 'none';
-
 
   // Hiding add task modal when clicking outside the modal
   var addTask = document.querySelector('.add-task');
@@ -151,6 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
     projectSortButtonUser.classList.add("yellow-active")
   })
 
+  // Mobile NavBar animation
+  var navButton = document.querySelector(".nav-button")
+  var navMenu = document.querySelector(".nav-menu")
+  var mobileHeader = document.querySelector(".mobile")
+  var webHeader = document.querySelector(".web")
 
+  navMenu.classList.add('animated')
+  navMenu.classList.add('slideInDown')
+
+  navButton.addEventListener("click", function(e){
+    e.preventDefault();
+    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
+  })
+
+  window.addEventListener("resize", function(e){
+    if (e.currentTarget.outerWidth > 768){
+      navMenu.style.display = "none"
+    }
+  })
 
 })
