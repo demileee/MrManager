@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var form        = document.querySelector('.edit_user')
   var submit      = form.querySelector('.submit')
 
-  notepadLink.addEventListener('click', function(e){
+    notepadLink.addEventListener('click', function(e){
     e.preventDefault();
     submit.style.display = 'none';
 
@@ -59,20 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleSortTasks(deadlineTasks);
     sortButtonDeadline.classList.add("yellow-active")
   })
-
-  var navButton = document.querySelector(".nav-button")
-  var navMenu = document.querySelector(".nav-menu")
-  var header = document.querySelector(".mobile")
-
-  navMenu.classList.add('animated')
-  header.classList.add('animated')
-  header.classList.add('slideInDown')
-
-  navButton.addEventListener("click", function(e){
-    e.preventDefault();
-    console.log(e.target)
-    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
-  })
-
 
 });

@@ -7,6 +7,28 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCalTimezone.innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
 
+  // Mobile NavBar animation
+  var navButton = document.querySelector(".nav-button")
+  var navMenu = document.querySelector(".nav-menu")
+  var mobileHeader = document.querySelector(".mobile")
+  var webHeader = document.querySelector(".web")
+
+  navMenu.classList.add('animated')
+  mobileHeader.classList.add('animated')
+  mobileHeader.classList.add('slideInDown')
+
+  navButton.addEventListener("click", function(e){
+    e.preventDefault();
+    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
+  })
+
+  window.addEventListener("resize", function(e){
+    if (e.currentTarget.outerWidth > 768){
+      navMenu.style.display = "none"
+    }
+  })
+
+
   // Setting up elements
   var tasksPane = document.getElementById("tasks-pane");
   var detailsPane = document.getElementById("details-pane");
@@ -127,20 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     toggleProjectSortTasks(projectUserTasks);
     projectSortButtonUser.classList.add("yellow-active")
-  })
-
-  var navButton = document.querySelector(".nav-button")
-  var navMenu = document.querySelector(".nav-menu")
-  var header = document.querySelector(".mobile")
-
-  navMenu.classList.add('animated')
-  header.classList.add('animated')
-  header.classList.add('slideInDown')
-
-  navButton.addEventListener("click", function(e){
-    e.preventDefault();
-    console.log(e.target)
-    toggleDiv(navMenu, "", "slideInDown", "slideOutUp")
   })
 
 

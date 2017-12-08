@@ -68,6 +68,17 @@ header.mobile{
   height: auto;
 }
 
+.nav-menu{
+  display: block;
+  position: relative;
+  text-align: center;
+  background-color: black;
+  top: 20px;
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
+  font-size: 14px;
+}
+
 
 .get-quotes {
   display: inline-block;
@@ -317,6 +328,12 @@ footer{
   #tasks-pane, #details-pane, .discussion{
     width: 110% !important;
   }
+  header.web{
+    display: none;
+  }
+  header.mobile{
+    display:block;
+  }
 
 }
 
@@ -352,8 +369,14 @@ footer{
 }
 
 /* Portrait iPad to Desktop ipad break 1024p*/
-@media (min-width: 768px) and (max-width: 1000px){
-
+@media (min-width: 769px) {
+  header.web{
+    display: block;
+  }
+  header.mobile,
+  .nav-menu{
+    display:none;
+  }
 }
 
 /*Large Desktop and up*/
