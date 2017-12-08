@@ -1,8 +1,6 @@
 <div class="
   <% if current_page?(project_path(@project)) %>
   add-task form-page
-  <% else %>
-    form-page
   <% end %>">
 
   <%= form_for ([@project, @task]) do |f| %>
