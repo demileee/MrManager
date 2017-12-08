@@ -20,11 +20,12 @@
         <%= link_to completed_project_task_path(@project, task), class: "complete_link", method: :patch do %>
           <div class="button blue complete_task">complete</div>
         <% end %>
+      <% end %>
 
+      <% if current_user && !task.complete? %>
         <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} do %>
           <div class="button red">delete</div>
         <% end %>
-
       <% end %>
 
       <% if task.complete? %>
