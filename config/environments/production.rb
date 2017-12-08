@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-
+  Rails.application.routes.default_url_options[:protocol] = 'https'
   config.active_job.queue_adapter = :delayed_job
   # Code is not reloaded between requests.
   config.cache_classes = true
