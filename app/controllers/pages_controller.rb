@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :user_is_logged_in, only: %i(show)
 
   def show
     if valid_page?
