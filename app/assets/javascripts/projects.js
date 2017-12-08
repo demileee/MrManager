@@ -106,8 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (taskForm.style.display === "block" &&
     !e.target.classList.contains("addtask") &&
     !e.target.classList.contains("task-field") ) {
-      e.preventDefault();
-      console.log(e.target)
       toggleDiv(taskForm, undefined, "fadeIn", "fadeOut")
     }
   })
