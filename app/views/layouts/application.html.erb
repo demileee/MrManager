@@ -27,7 +27,7 @@
             <%= link_to "#" do  %>
              Need Encouragement?
             <% end %>&nbsp;|&nbsp;</div>
-          <% end %>
+        <% end %>
         <% unless controller_name == 'users' && action_name == 'show' %>
           <%= link_to "Dashboard", user_path %>
           &nbsp;|&nbsp;
@@ -38,7 +38,9 @@
 
     <header class="mobile">
       <div class="nav-button">
-        <%= link_to "MR_MANAGER", "" %>
+        <%= link_to "" do %>
+          <i class="material-icons" style="display: block; height:20px; margin-top: -6px">menu</i>
+        <% end %>
       </div>
     </header>
 
@@ -48,11 +50,14 @@
       <% end %>
       <li><%= link_to "Projects", projects_path(current_user) %></li>
       <li>
-        <div class="get-quotes">
-          <%= link_to "#" do  %>
-          Need Encouragement?
-          <% end %>
-        </div></li>
+        <% if (controller_name == 'users' && action_name == 'show') || (controller_name == 'projects' && action_name == 'show')%>
+          <div class="get-quotes-mobile">
+            <%= link_to "#" do  %>
+             Need Encouragement?
+            <% end %>
+          </div>
+        <% end %>
+      </li>
       <li><%= link_to "Logout", :logout, method: :delete %></li>
     </ul>
 
