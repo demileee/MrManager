@@ -371,6 +371,10 @@ footer{
     width: 100% !important;
     grid-column: 1 / 4;
   }
+
+  .welcome-div .name {
+    font-size: 4em !important; 
+  }
 }
 
 /*iPhone Portrait below iPhone 6 plus*/
@@ -393,6 +397,9 @@ footer{
       -webkit-backdrop-filter: blur(5px);
       position: relative;
     }
+  }
+  .welcome-div .name {
+    font-size: 4em !important;
   }
 }
 
