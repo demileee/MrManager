@@ -186,11 +186,16 @@ header.mobile{
   background-color: rgb(246, 202, 16);
 }
 
+header{
+  position: fixed;
+}
 
+footer {
+  position: absolute;
+}
 header, footer{
   display: flex;
   width: 100%;
-  position: fixed;
   height: 20px;
 
   .logged-in-left{
@@ -374,6 +379,13 @@ footer{
 
   .welcome-div .name {
     font-size: 4em !important; 
+
+  .welcome-div {
+    height: 100%;
+  }
+
+  body{
+    position: relative;
   }
 }
 
@@ -398,10 +410,24 @@ footer{
       position: relative;
     }
   }
+
   .welcome-div .name {
     font-size: 4em !important;
+
+  #user_notes{
+    background-color: rgba(255,255,255,0.9) !important;
+    color: #000000 !important;
+  }
+
+  .welcome-div {
+    height: 100%;
+  }
+
+  body{
+    position: relative;
   }
 }
+
 
 /*iPhone Portrait below iPhone 6*/
 @media screen and (max-width: 375px){

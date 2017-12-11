@@ -22,7 +22,7 @@
         <% end %>
       <% end %>
 
-      <% if current_user && !task.complete? %>
+      <% if task.user == current_user && !task.complete? %>
         <%= link_to project_task_path(@project, task), method: :delete, data: { confirm: "Are you sure you want to delete this task? This cannot be undone."} do %>
           <div class="button red">delete</div>
         <% end %>
