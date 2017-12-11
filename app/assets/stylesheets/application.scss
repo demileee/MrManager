@@ -377,6 +377,9 @@ footer{
     grid-column: 1 / 4;
   }
 
+  .welcome-div .name {
+    font-size: 4em !important; 
+
   .welcome-div {
     height: 100%;
   }
@@ -407,6 +410,9 @@ footer{
       position: relative;
     }
   }
+
+  .welcome-div .name {
+    font-size: 4em !important;
 
   #user_notes{
     background-color: rgba(255,255,255,0.9) !important;
