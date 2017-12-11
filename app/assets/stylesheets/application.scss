@@ -186,11 +186,16 @@ header.mobile{
   background-color: rgb(246, 202, 16);
 }
 
+header{
+  position: fixed;
+}
 
+footer {
+  position: absolute;
+}
 header, footer{
   display: flex;
   width: 100%;
-  position: fixed;
   height: 20px;
 
   .logged-in-left{
@@ -371,6 +376,14 @@ footer{
     width: 100% !important;
     grid-column: 1 / 4;
   }
+
+  .welcome-div {
+    height: 100%;
+  }
+
+  body{
+    position: relative;
+  }
 }
 
 /*iPhone Portrait below iPhone 6 plus*/
@@ -398,6 +411,14 @@ footer{
   #user_notes{
     background-color: rgba(255,255,255,0.9) !important;
     color: #000000 !important;
+  }
+
+  .welcome-div {
+    height: 100%;
+  }
+
+  body{
+    position: relative;
   }
 }
 
