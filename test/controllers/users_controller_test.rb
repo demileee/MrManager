@@ -4,13 +4,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "can see home page" do
     get root_url
     assert_response :success
-    assert_select 'a', "Sign up here!"
+    assert_select 'a', "Create an Account"
   end
 
   test "user create page" do
     get new_user_url
     assert_response :success
-    assert_select 'h1', "Sign up?"
+    assert_select 'h1', "Sign Up"
   end
 
   test "redirected to login if not logged in" do

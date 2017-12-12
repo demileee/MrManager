@@ -71,7 +71,7 @@ class UserTest < ActiveSupport::TestCase
   test "Robohash name is equal to first_name + last_name" do
     user = build(:user)
     user.save
-    profile = "http://robohash.org/SallyLee?set=set4"
+    profile = "https://robohash.org/SallyLee?set=set4"
     assert_equal profile, user.profile_pic
   end
 
