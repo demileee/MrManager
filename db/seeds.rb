@@ -40,7 +40,6 @@ end
       project: project,
       user: project.members.sample.user,
       message_body: Faker::Lorem.paragraph,
-      announcement: Faker::Boolean.boolean
     )
   end
 
