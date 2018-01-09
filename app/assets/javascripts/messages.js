@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newMessage.querySelector('.message_body').innerText = data.error;;
       } else {
         newMessage.querySelector('.message_body').innerText = data.message_body;
+        messageForm.reset();
       }
       allMessages.scrollTop = allMessages.scrollHeight;
       allMessages.append(newMessage);
